@@ -44,9 +44,24 @@
         }
         public static void task1()
         {
-            Console.WriteLine("Task 1");
-            Console.WriteLine("Press any key to return");
-            Console.ReadLine();
+            string temp;
+            
+            
+
+            
+            Console.WriteLine("Which way do you want to go right (r) or left (l)?");
+            
+            char user = char.Parse(Console.ReadLine());
+
+            if (user == 'l')
+
+            {
+                Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
+                Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
+                Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
+                Console.WriteLine("You see the stairr, you run towards them and gow down ");
+                Console.ReadLine();
+            }
         }
         public static void task2()
         {
@@ -68,6 +83,7 @@
 
 
         }
+        
 
 
     }
