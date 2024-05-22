@@ -86,6 +86,7 @@
                 Console.Clear();
                 Console.WriteLine("RUN!!!!");
                 Console.ReadLine();
+                Console.WriteLine("oeh");
             }
         }
         public static void task2()
