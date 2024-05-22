@@ -44,8 +44,7 @@
         }
         public static void task1()
         {
-            Console.WriteLine("Task 1");
-            Console.WriteLine("Press any key to return");
+            Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'cafeteria'. Would you like to enter the 'cafeteria' or explore the cells more? ");
             Console.ReadLine();
         }
         public static void task2()
