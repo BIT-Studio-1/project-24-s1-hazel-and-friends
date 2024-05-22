@@ -62,6 +62,31 @@
                 Console.WriteLine("You see the stairr, you run towards them and gow down ");
                 Console.ReadLine();
             }
+            if (user == 'r')
+            {
+                Console.WriteLine("You see a man from a distance, you walk up to him and tap him on the shoulder");
+                Console.WriteLine("He doesn't turn around");
+                Console.WriteLine("He's bleeding...");
+                Thread.Sleep(400);
+                Console.WriteLine("What could be wrong with him");
+                Console.WriteLine(".");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine("...");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine("....");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine(".......");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine(".........");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine("RUN!!!!");
+                Console.ReadLine();
+            }
         }
         public static void task2()
         {
