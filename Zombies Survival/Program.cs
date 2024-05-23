@@ -52,6 +52,65 @@ namespace Skeleton_Program
         public static void task1()
         {
 
+<<<<<<< HEAD
+=======
+            string temp;
+
+
+
+
+            Console.WriteLine("Which way do you want to go right (r) or left (l)?");
+
+            char user = char.Parse(Console.ReadLine());
+
+            if (user == 'l')
+
+            {
+                Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
+                Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
+                Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
+                Console.WriteLine("You see the stair, you run towards them and go down ");
+                Console.ReadLine();
+            }
+            if (user == 'r')
+            {
+                Console.WriteLine("You see a man from a distance, you walk up to him and tap him on the shoulder");
+                Console.WriteLine("He doesn't turn around");
+                Console.WriteLine("He's bleeding...");
+                Thread.Sleep(400);
+                Console.WriteLine("What could be wrong with him");
+                Console.WriteLine(".");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine("...");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine("....");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine(".......");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine(".........");
+                Thread.Sleep(500);
+                Console.Clear();
+                Console.WriteLine("RUN!!!!");
+                Console.ReadLine();
+            }
+            Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'cafeteria'. Would you like to enter the 'cafeteria'? Yes (y) or No (n)");
+            char answer = char.Parse(Console.ReadLine());
+            if (answer == 'y')
+            {
+                Cafeteria();
+            }
+            else
+            {
+                Console.WriteLine("You stayed in cell blocks");
+            }
+            Console.ReadLine();
+
+
+>>>>>>> 89537b88433a16bef42fb675cd3e6bf79d6c63d9
         }
         public static void task2()
         {
@@ -89,6 +148,7 @@ namespace Skeleton_Program
             
             }
 
+<<<<<<< HEAD
     public static void room5()
         {
             List<string> items = new List<string>();        //Just trying something
@@ -120,6 +180,13 @@ namespace Skeleton_Program
             }
             Console.ReadLine();
         }
+=======
+        static void Cafeteria()
+        {
+            Console.WriteLine();
+        }
+
+>>>>>>> 89537b88433a16bef42fb675cd3e6bf79d6c63d9
     }
 
 
