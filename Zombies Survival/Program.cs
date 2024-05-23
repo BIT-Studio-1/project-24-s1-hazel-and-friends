@@ -46,12 +46,12 @@
         {
 
             string temp;
-            
-             
 
-            
+
+
+
             Console.WriteLine("Which way do you want to go right (r) or left (l)?");
-            
+
             char user = char.Parse(Console.ReadLine());
 
             if (user == 'l')
@@ -60,7 +60,7 @@
                 Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
                 Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
                 Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
-                Console.WriteLine("You see the stairr, you run towards them and gow down ");
+                Console.WriteLine("You see the stair, you run towards them and go down ");
                 Console.ReadLine();
             }
             if (user == 'r')
@@ -87,8 +87,19 @@
                 Console.Clear();
                 Console.WriteLine("RUN!!!!");
                 Console.ReadLine();
-                Console.WriteLine("oeh");
             }
+            Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'cafeteria'. Would you like to enter the 'cafeteria'? Yes (y) or No (n)");
+            char answer = char.Parse(Console.ReadLine());
+            if (answer == 'y')
+            {
+                Cafeteria();
+            }
+            else
+            {
+                Console.WriteLine("You stayed in cell blocks");
+            }
+            Console.ReadLine();
+
 
         }
         public static void task2()
@@ -111,8 +122,12 @@
 
 
         }
-        
 
+
+        static void Cafeteria()
+        {
+            Console.WriteLine();
+        }
 
     }
 
