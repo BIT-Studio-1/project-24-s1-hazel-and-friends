@@ -7,9 +7,10 @@ namespace Skeleton_Program
     {
         static void Main()
         {
+            
             int tasks;
             do
-
+                
             {
                 Console.Clear();
                 Console.WriteLine("The Walking Jail: \n1 Play game \n2 Instructions \n3 Options \n4 Credits \n0 Exit game");
@@ -19,7 +20,7 @@ namespace Skeleton_Program
                 {
                     case 1:
 
-                        task1();
+                        introduction();
                         break;
 
                     case 2:
@@ -48,6 +49,67 @@ namespace Skeleton_Program
 
             } while (tasks != 0);
 
+        }
+        public static void introduction()
+        {
+            Console.WriteLine("INTRODUCTION");
+            Console.WriteLine("------------");
+            Console.WriteLine("You wake up to the sound of knocking at your door, it's your landlord.");
+            Console.WriteLine("She says you are behind on the rent again, you explain how you got fired and it's not your fault but she doesn't care.");
+            Console.WriteLine("She demands you pay your rent by tonight or else you'll be kicked out onto the street.");
+            Console.WriteLine("To calm down and come up with ideas, you decide to go for a walk.");
+            Console.WriteLine("");
+            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Console.ReadLine();
+            Console.WriteLine("------------");
+            Console.WriteLine("After walking through town thinking about all the bad choices you've made, you notice a vacant mansion across the street.");
+            Console.WriteLine("All the curtains are open, no one looks like they're inside and there are no cars in the driveway.");
+            Console.WriteLine("You peek into the curtains and notice various expensive-looking objects you could sell.");
+            Console.WriteLine("You also remember you need the money for your rent. By tonight.");
+            Console.WriteLine("");
+            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Console.ReadLine();
+            Console.WriteLine("------------");
+            Console.WriteLine("You picklock the door with the picklocks you keep in your pocket, and start exploring and pocketing items in the house.");
+            Console.Beep((int)592.2, 1000);
+            Console.Beep((int)370.2, 1000);
+            Console.Beep((int)592.2, 1000);
+            Console.Beep((int)370.2, 1000);
+            Console.WriteLine("After filling your pockets, you suddenly hear a police siren getting closer and closer.");
+            Console.WriteLine("You try to make a run for it onto the streets, but the cops are already there, waiting for you.");
+            Console.WriteLine("");
+            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Console.ReadLine();
+            Console.WriteLine("------------");
+            Console.WriteLine("After 3 years, you're very tired of being in prison.");
+            Console.Beep((int)294.2, 800);
+            Console.Beep((int)277.2, 800);
+            Console.Beep((int)262.2, 800);
+            Console.Beep((int)247.2, 1100);
+            Console.WriteLine("you and you're cellmate are in your cell when suddenly you hear screaming.");
+            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Console.ReadLine();
+            Console.WriteLine("");
+            Console.WriteLine("The riot alarm has been sounded and all the cell doors suddenly fly open.");
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.Beep((int)772.2, 100);
+            Console.WriteLine("The halls are filled with prisoners shouting and running.");
+            Console.WriteLine("You try to step out of your cell, but your cellmate knocks you out cold before you can step through the doorway.");
+            Console.WriteLine("");
+            Console.WriteLine("------------");
+            Console.WriteLine("You wake up, feeling nauseous and uncomfortable, probably from sleeping on the cold prison floor for two days straight.");
+            Console.WriteLine("The prison is much quieter than usual, and the cell doors are all still open.");
+            Console.WriteLine("");
+            Console.ReadLine();
+            task1();
         }
         public static void task1()
         {
