@@ -5,6 +5,8 @@ namespace Skeleton_Program
 {
     internal class Program
     {
+        static string[] inventory = new string[10];
+
         static void Main()
         {
             
@@ -116,7 +118,30 @@ namespace Skeleton_Program
 
             string temp;
 
-
+            string map = @"
+_________________________________________________________________________
+| 							                |                    
+| 							                |                    
+| 							    ______      |                    
+| 							          |     |                    
+| 							          |     |                    
+| 						                  |     |                    
+| 						                  |     |       	     
+| 						                  |     |_____________________
+| 					                          |                   |      |
+| 						                  |                     START| 
+| 					                          |      _____________|______|
+| 							          |     |                  
+| 							          |     |                  
+| 							          |     |                
+| 							          |     | 
+| 							          |     |
+| 							    ______|     |
+| 							                |
+| 							                |
+| 							                |
+|_______________________________________________________________________|";
+            Console.WriteLine(map);
 
 
             Console.WriteLine("Which way do you want to go right (r) or left (l)?");
@@ -145,6 +170,12 @@ namespace Skeleton_Program
                 Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
                 Console.WriteLine("The man clearly looks like he's dying:(");
                 Console.WriteLine("He thanks you and gives you a key to another part of the prison");
+                inventory[1] = "Key";
+                Console.WriteLine("INVENTORY UPDATED");
+                for (int i = 0; i < inventory.Length; i++)
+                {
+                        Console.WriteLine(inventory[i]);
+                }
                 Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
                 Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                 Console.WriteLine("RUN!!!!");
