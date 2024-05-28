@@ -114,8 +114,6 @@ namespace Skeleton_Program
         public static void task1()
         {
 
-<<<<<<< HEAD
-=======
             string temp;
 
 
@@ -172,7 +170,7 @@ namespace Skeleton_Program
             Console.ReadLine();
 
 
->>>>>>> 89537b88433a16bef42fb675cd3e6bf79d6c63d9
+
         }
         public static void task2()
         {
@@ -210,7 +208,7 @@ namespace Skeleton_Program
             
             }
 
-<<<<<<< HEAD
+
     public static void room5()
         {
             List<string> items = new List<string>();        //Just trying something
@@ -242,13 +240,12 @@ namespace Skeleton_Program
             }
             Console.ReadLine();
         }
-=======
+
         static void Cafeteria()
         {
             Console.WriteLine();
         }
 
->>>>>>> 89537b88433a16bef42fb675cd3e6bf79d6c63d9
     }
 
 
