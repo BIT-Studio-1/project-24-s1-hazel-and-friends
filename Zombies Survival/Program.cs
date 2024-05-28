@@ -134,28 +134,22 @@ namespace Skeleton_Program
             }
             if (user == 'r')
             {
-                Console.WriteLine("You see a man from a distance, you walk up to him and tap him on the shoulder");
+                Console.WriteLine("You see a man from a distance, you walk up to him and lightly tap him on the shoulder");
                 Console.WriteLine("He doesn't turn around");
                 Console.WriteLine("He's bleeding...");
-                Thread.Sleep(400);
-                Console.WriteLine("What could be wrong with him");
-                Console.WriteLine(".");
-                Thread.Sleep(500);
-                Console.Clear();
-                Console.WriteLine("...");
-                Thread.Sleep(500);
-                Console.Clear();
-                Console.WriteLine("....");
-                Thread.Sleep(500);
-                Console.Clear();
-                Console.WriteLine(".......");
-                Thread.Sleep(500);
-                Console.Clear();
-                Console.WriteLine(".........");
-                Thread.Sleep(500);
-                Console.Clear();
+                Console.WriteLine("The man slowly turns around and groans \n HELP ME... PLEASE");
+                Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
+                string choice = Console.ReadLine().ToUpper();
+            if (choice == "H")
+            {
+                Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
+                Console.WriteLine("The man clearly looks like he's dying:(");
+                Console.WriteLine("He thanks you and gives you a key to another part of the prison");
+                Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
+                Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                 Console.WriteLine("RUN!!!!");
-                Console.ReadLine();
+            }
+            }
             }
             Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'cafeteria'. Would you like to enter the 'cafeteria'? Yes (y) or No (n)");
             char answer = char.Parse(Console.ReadLine());
