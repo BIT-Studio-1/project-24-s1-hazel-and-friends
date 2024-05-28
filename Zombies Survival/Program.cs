@@ -237,8 +237,13 @@ namespace Skeleton_Program
 
         static void Cafeteria()
         {
-            Console.WriteLine();
+            Console.WriteLine("                  .d888 .d888                 \r\n                d88P\" d88P\"                  \r\n                888   888                    \r\n .d8888b .d88b. 888888888888 .d88b.  .d88b.  \r\nd88P\"   d88\"\"88b888   888   d8P  Y8bd8P  Y8b \r\n888     888  888888   888   8888888888888888 \r\nY88b.   Y88..88P888   888   Y8b.    Y8b.     \r\n \"Y8888P \"Y88P\" 888   888    \"Y8888  \"Y8888  ");
+            Console.WriteLine("You enter the cafeteria and its freezing cold, all the lights are out but there seems to be a flashlight lying on the ground");
+            Console.WriteLine("You reach for the flashlight ");
+            Console.WriteLine("As you look under the table, you see a zombie from afar crawling");
+            Console.WriteLine("You pick the flashlight up and continue to make your way ");
         }
+
 
     }
 
