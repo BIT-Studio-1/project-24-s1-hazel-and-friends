@@ -240,7 +240,7 @@ _________________________________________________________________________
                 string choice = Console.ReadLine().ToUpper();
                 if (choice == "H")
                 {
-                    Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
+                    Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
                     Console.WriteLine("The man clearly looks like he's dying:(");
                     Console.WriteLine("He thanks you and gives you a key to another part of the prison");
                     inventory[1] = "Key";
@@ -249,22 +249,22 @@ _________________________________________________________________________
                     {
                         Console.WriteLine(inventory[i]);
                     }
-                    Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
+                    Console.WriteLine($"The man says, I was able to grab these keys from one of the guards... This key should be able to unlock..");
                     Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                     Console.WriteLine("RUN!!!!");
-
-                    if (choice == "H")
-                    {
-                        Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
-                        Console.WriteLine("The man clearly looks like he's dying:(");
-                        Console.WriteLine("He thanks you and gives you a key to another part of the prison");
-                        Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
-                        Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
-                        Console.WriteLine("RUN!!!!");
-                    }
-
-
                 }
+
+            if (choice == "I")
+            {
+                        Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
+                        Thread.Sleep(600);
+                        Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
+                        Thread.Sleep(600);
+                        Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
+            }
+
+
+                
                 Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
                 char answer = char.Parse(Console.ReadLine());
                 if (answer == 'y')
