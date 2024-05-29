@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 
 namespace Skeleton_Program
 {
@@ -224,6 +225,7 @@ _________________________________________________________________________
             if (user == 'l')
 
             {
+                
                 Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
                 Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
                 Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
@@ -243,20 +245,22 @@ _________________________________________________________________________
                 Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
                 Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
                 Console.WriteLine("As your heart races even faster, you approach cautiously.");
+                Console.Beep((int)60, 100);
                 Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
                 Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
                 Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
                 Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me.");
                 Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
                 string choice = Console.ReadLine().ToUpper();
+                
                 if (choice == "H")
                 {
                     Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
                     Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
                     Console.WriteLine("They took... my keys.");
                     Console.WriteLine("You glance down and notice him holding a set of keys.");
-                    Console.WriteLine("\"Hold on,\" you say, reaching for the keys. \"I may be able to use these to help us escape.\"");
-                    Console.WriteLine("The man nods weakly, a faint smile crossing his lips. \"Take them... use them well and make sure that....\"");
+                    Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
+                    Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
                     inventory[1] = "Key";
                     Console.WriteLine("INVENTORY UPDATED");
                     for (int i = 0; i < inventory.Length; i++)
@@ -267,7 +271,8 @@ _________________________________________________________________________
                     Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                     Console.WriteLine("RUN!!!!");
                 }
-
+            
+            
             if (choice == "I")
             {
                         Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
@@ -353,11 +358,71 @@ _________________________________________________________________________
 
             static void Cafeteria()
             {
-                Console.WriteLine("                  .d888 .d888                 \r\n                d88P\" d88P\"                  \r\n                888   888                    \r\n .d8888b .d88b. 888888888888 .d88b.  .d88b.  \r\nd88P\"   d88\"\"88b888   888   d8P  Y8bd8P  Y8b \r\n888     888  888888   888   8888888888888888 \r\nY88b.   Y88..88P888   888   Y8b.    Y8b.     \r\n \"Y8888P \"Y88P\" 888   888    \"Y8888  \"Y8888  ");
-                Console.WriteLine("You enter the cafeteria and its freezing cold, all the lights are out but there seems to be a flashlight lying on the ground");
-                Console.WriteLine("You reach for the flashlight ");
-                Console.WriteLine("As you look under the table, you see a zombie from afar crawling");
-                Console.WriteLine("You pick the flashlight up and continue to make your way ");
+                Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
+                Console.WriteLine("  ( (\r\n   ) )\r\n   ____\r\n  |    |\r\n  |    |]|\r\n  |____| \r\n");
+                Thread.Sleep(1000);
+                Console.WriteLine("You push open the heavy doors and step into the cafeteria,");
+                Thread.Sleep(400);
+                Console.WriteLine("The dim lighting casting long shadows across the empty tables and benches.");
+                Thread.Sleep(400);
+                Console.WriteLine("As you scan the room, your eyes quickly adjust, and you begin to take note of your surroundings. ");
+                Thread.Sleep(400);
+                Console.WriteLine("The cafeteria is surprisingly well stocked, with several stainless steel counters lining the walls, each containing various supplies and equipment.");
+                Thread.Sleep(400);
+                Console.WriteLine("As you take a closer look, you notice that some of these counters have locks on them");
+                Thread.Sleep(400);
+                Console.WriteLine("Your gaze shifts to a stack of metal trays, their sharp edges glinting in the faint light.");
+                Thread.Sleep(400);
+                Console.WriteLine("Nearby, you spot a collection of dull-looking utensils forks, knives, and spoons  that could potentially be used again as makeshift weapons.");
+                Thread.Sleep(400);
+                Console.WriteLine("Further down, you notice a rack of plastic cups, each filled with a murky liquid that you assume is water.");
+                Thread.Sleep(400);
+                Console.WriteLine("The cups could be useful for carrying liquid or even as improvised tools but eww.");
+                Thread.Sleep(400);
+                Console.WriteLine("As you continue to explore the cafeteria, your attention is drawn to a set of shelves lining the back wall.");
+                Thread.Sleep(400);
+                Console.WriteLine("Upon closer inspection, you see that are some bags of dried food and a few sealed bottles of water.");
+                Thread.Sleep(400);
+                Console.WriteLine("These supplies could be valuable in your quest for survival in the WALKING JAIL.");
+                Thread.Sleep(400);
+                Console.WriteLine("Which of these items would you like to gather, (food or water)?");
+                string choice = Console.ReadLine();
+                if (choice == "food")
+                {
+                    inventory[4] = "food";
+                    Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
+                    Console.WriteLine("Wold you like to grab any other item y/n?");
+                    char user = char.Parse(Console.ReadLine());
+                    if (user == 'y')
+                    {
+                        Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a bottle of water and chug it. ");
+                        
+                    }
+                    else if (user == 'n')
+                    {
+                        Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
+                    }
+                }
+                else if (choice == "water")
+                {
+                    inventory[4] = "water";
+                    Console.WriteLine("You grab yourself a bottle of water and chug it");
+                    Console.WriteLine("Wold you like to grab any other item?");
+                    char user = char.Parse(Console.ReadLine());
+                    if (user == 'y')
+                    {
+                        Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a few packets of some dried food and stuff them in your pockets. ");
+
+                    }
+                    else if (user == 'n')
+                    {
+                        Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice, please choose what you would like to grab:\nfood or water");
+                    }
+                }
             }
 
 
