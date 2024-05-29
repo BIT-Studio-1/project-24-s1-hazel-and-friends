@@ -233,24 +233,38 @@ _________________________________________________________________________
             if (user == 'r')
             {
                 //Console.WriteLine("You see a man from a distance, you walk up to him and lightly tap him on the shoulder");
-                Console.WriteLine("He doesn't turn around");
-                Console.WriteLine("He's bleeding...");
-                Console.WriteLine("The man slowly turns around and groans \n HELP ME... PLEASE");
+                //Console.WriteLine("He doesn't turn around");
+                //Console.WriteLine("He's bleeding...");
+                //Console.WriteLine("The man slowly turns around and groans \n HELP ME... PLEASE");
+                Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors - no doubt leading to cells or storage rooms.");
+                Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
+                Console.WriteLine("Suddenly, a faint sound catches your attention.");
+                Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
+                Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
+                Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
+                Console.WriteLine("As your heart races even faster, you approach cautiously.");
+                Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
+                Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
+                Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
+                Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me.");
                 Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
                 string choice = Console.ReadLine().ToUpper();
                 if (choice == "H")
                 {
                     Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
-                    Console.WriteLine("The man clearly looks like he's dying:(");
-                    Console.WriteLine("He thanks you and gives you a key to another part of the prison");
+                    Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
+                    Console.WriteLine("They took... my keys.");
+                    Console.WriteLine("You glance down and notice him holding a set of keys.");
+                    Console.WriteLine("\"Hold on,\" you say, reaching for the keys. \"I may be able to use these to help us escape.\"");
+                    Console.WriteLine("The man nods weakly, a faint smile crossing his lips. \"Take them... use them well and make sure that....\"");
                     inventory[1] = "Key";
                     Console.WriteLine("INVENTORY UPDATED");
                     for (int i = 0; i < inventory.Length; i++)
                     {
                         Console.WriteLine(inventory[i]);
                     }
-                    Console.WriteLine($"The man says, I was able to grab these keys from one of the guards... This key should be able to unlock..");
-                    Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
+
+                    Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                     Console.WriteLine("RUN!!!!");
                 }
 
@@ -261,6 +275,7 @@ _________________________________________________________________________
                         Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
                         Thread.Sleep(600);
                         Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
+                        Console.WriteLine("You continue to make your way through the prison");
             }
 
 
