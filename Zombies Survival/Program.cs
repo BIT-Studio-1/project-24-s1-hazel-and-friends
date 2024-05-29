@@ -5,7 +5,9 @@ namespace Skeleton_Program
 {
     internal class Program
     {
-        static void Main()
+        static string[] inventory = new string[10];
+
+       static void Main()
         {
 
             int tasks;
@@ -48,6 +50,78 @@ namespace Skeleton_Program
                 }
 
             } while (tasks != 0);
+            static void task2()
+            {
+                Console.WriteLine("Task 2");
+                Console.WriteLine("Press any key to return");
+                Console.ReadLine();
+            }
+             static void task3()
+            {
+                Console.WriteLine("Task 3");
+                Console.WriteLine("Press any key to return");
+                Console.ReadLine();
+            }
+            static void task4()
+            {
+                Console.WriteLine("Task 4");
+                Console.WriteLine("Press any key to return");
+                Console.ReadLine();
+
+
+            }
+
+            static void task5()
+            {
+                String temp;
+                Console.WriteLine("Do you wish to enter room 5?");
+                temp = Console.ReadLine().ToLower();
+                if (temp.Equals("y"))
+                {
+                    Console.Clear();
+                    room5();
+                }
+                else if (temp.Equals("n"))
+                {
+                    Console.WriteLine("You stayed");
+                    Main();
+                }
+
+            }
+
+
+            static void room5()
+            {
+                List<string> items = new List<string>();        //Just trying something
+                int temp;
+                Console.Write("Room 5");
+                Console.WriteLine("Clear, box with resources, bandages or etc...");
+                Console.WriteLine("1- Select box\n2-bandages\n3- etc");
+                temp = Convert.ToInt32(Console.ReadLine());
+
+                switch (temp)
+                {
+                    case 1:
+                        Console.WriteLine("You select the box");
+                        break;
+                    case 2:
+                        Console.WriteLine("You select bandages");
+                        items.Add("2 bandages");
+                        items.Add("3 mags of 9mm bullets");
+                        Console.WriteLine($"You now have ....");
+
+                        break;
+                    case 3:
+                        Console.WriteLine("idk bro");
+                        break;
+
+                    default:
+                        Console.WriteLine("Choose a number");
+                        break;
+
+                }
+                Console.ReadLine();
+            }
 
         }
         public static void introduction()
@@ -117,7 +191,30 @@ namespace Skeleton_Program
 
             string temp;
 
-
+            string map = @"
+_________________________________________________________________________
+| 							                |                    
+| 							                |                    
+| 							    ______      |                    
+| 							          |     |                    
+| 							          |     |                    
+| 						                  |     |                    
+| 						                  |     |       	     
+| 						                  |     |_____________________
+| 					                          |                   |      |
+| 						                  |                     START| 
+| 					                          |      _____________|______|
+| 							          |     |                  
+| 							          |     |                  
+| 							          |     |                
+| 							          |     | 
+| 							          |     |
+| 							    ______|     |
+| 							                |
+| 							                |
+| 							                |
+|_______________________________________________________________________|";
+            Console.WriteLine(map);
 
 
             Console.WriteLine("Which way do you want to go right (r) or left (l)?");
@@ -135,7 +232,7 @@ namespace Skeleton_Program
             }
             if (user == 'r')
             {
-                Console.WriteLine("You see a man from a distance, you walk up to him and lightly tap him on the shoulder");
+                //Console.WriteLine("You see a man from a distance, you walk up to him and lightly tap him on the shoulder");
                 Console.WriteLine("He doesn't turn around");
                 Console.WriteLine("He's bleeding...");
                 Console.WriteLine("The man slowly turns around and groans \n HELP ME... PLEASE");
@@ -146,141 +243,43 @@ namespace Skeleton_Program
                     Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
                     Console.WriteLine("The man clearly looks like he's dying:(");
                     Console.WriteLine("He thanks you and gives you a key to another part of the prison");
+                    inventory[1] = "Key";
+                    Console.WriteLine("INVENTORY UPDATED");
+                    for (int i = 0; i < inventory.Length; i++)
+                    {
+                        Console.WriteLine(inventory[i]);
+                    }
                     Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
                     Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                     Console.WriteLine("RUN!!!!");
+
+                    if (choice == "H")
+                    {
+                        Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
+                        Console.WriteLine("The man clearly looks like he's dying:(");
+                        Console.WriteLine("He thanks you and gives you a key to another part of the prison");
+                        Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
+                        Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
+                        Console.WriteLine("RUN!!!!");
+                    }
+
+
                 }
-
-            }
-            Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
-            char answer = char.Parse(Console.ReadLine());
-            if (answer == 'y')
-            {
-                Corridor();
-            }
-            else
-            {
-                Console.WriteLine("You stayed in cell blocks");
-                Console.WriteLine("You stayed in cell blocks, you feel a sharp pain on your neck");
-                Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
-                Console.ReadKey();
-                task1();
-            }
-
-
-
-
-        }
-        public static void task2()
-        {
-            Console.WriteLine("Task 2");
-            Console.WriteLine("Press any key to return");
-            Console.ReadLine();
-        }
-        public static void task3()
-        {
-            Console.WriteLine("Task 3");
-            Console.WriteLine("Press any key to return");
-            Console.ReadLine();
-        }
-        public static void task4()
-        {
-            Console.WriteLine("Task 4");
-            Console.WriteLine("Press any key to return");
-            Console.ReadLine();
-
-
-        }
-
-        public static void task5()
-        {
-            String temp;
-            Console.WriteLine("Do you wish to enter room 5?");
-            temp = Console.ReadLine().ToLower();
-            if (temp.Equals("y"))
-            {
-                Console.Clear();
-                room5();
-            }
-            else if (temp.Equals("n"))
-            {
-                Console.WriteLine("You stayed");
-                Main();
-            }
-
-        }
-
-
-        public static void room5()
-        {
-            List<string> items = new List<string>();        //Just trying something
-            int temp;
-            Console.Write("Room 5");
-            Console.WriteLine("Clear, box with resources, bandages or etc...");
-            Console.WriteLine("1- Select box\n2-bandages\n3- etc");
-            temp = Convert.ToInt32(Console.ReadLine());
-
-            switch (temp)
-            {
-                case 1:
-                    Console.WriteLine("You select the box");
-                    break;
-                case 2:
-                    Console.WriteLine("You select bandages");
-                    items.Add("2 bandages");
-                    items.Add("3 mags of 9mm bullets");
-                    Console.WriteLine($"You now have ....");
-
-                    break;
-                case 3:
-                    Console.WriteLine("idk bro");
-                    break;
-
-                default:
-                    Console.WriteLine("Choose a number");
-                    break;
-
-            }
-            Console.ReadLine();
-        }
-        static void Corridor()
-        {
-            
-            Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \n you see 2 bodies lying on the floor.");
-            Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
-            char answer = char.Parse(Console.ReadLine());
-            if (answer == 'y' || answer == 'Y')
-            {
-                Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-                Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
-                task1();
-               
-            }
-            else if (answer == 'n' || answer == 'N')
-            {
-                Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
-                Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
-                Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
-                Console.WriteLine("Which way do you want to go? \n");
-                char direction = char.Parse(Console.ReadLine());
-                if (direction == 'L' || direction == 'l')
+                Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
+                char answer = char.Parse(Console.ReadLine());
+                if (answer == 'y')
                 {
-                    Library();
-                }
-                else if (direction == 'R' ||  (direction == 'r'))
-                {
-                    Recroom();
+                    Corridor();
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please choose 'L' for Library or 'R' for Rec Room ");
+                    Console.WriteLine("You stayed in cell blocks");
+                    Console.WriteLine("You stayed in cell blocks, you feel a sharp pain on your neck");
+                    Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
+                    Console.ReadKey();
+                    task1();
                 }
-                
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please choose 'Y' for Yes or 'N' for No");
-            }
+
 
             static void Library()
             {
@@ -306,6 +305,7 @@ namespace Skeleton_Program
                 Console.WriteLine("");
                 Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
                 string temp = "";
+
 
                 while (temp != "HIDE")
                 {
@@ -445,22 +445,72 @@ namespace Skeleton_Program
                     Console.WriteLine("");
                 }
             }
-        }
+            
+            static void Corridor()
+            {
 
-        
-        static void Cafeteria()
-        {
-            Console.WriteLine("                  .d888 .d888                 \r\n                d88P\" d88P\"                  \r\n                888   888                    \r\n .d8888b .d88b. 888888888888 .d88b.  .d88b.  \r\nd88P\"   d88\"\"88b888   888   d8P  Y8bd8P  Y8b \r\n888     888  888888   888   8888888888888888 \r\nY88b.   Y88..88P888   888   Y8b.    Y8b.     \r\n \"Y8888P \"Y88P\" 888   888    \"Y8888  \"Y8888  ");
-            Console.WriteLine("You enter the cafeteria and its freezing cold, all the lights are out but there seems to be a flashlight lying on the ground");
-            Console.WriteLine("You reach for the flashlight ");
-            Console.WriteLine("As you look under the table, you see a zombie from afar crawling");
-            Console.WriteLine("You pick the flashlight up and continue to make your way ");
+                Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \n you see 2 bodies lying on the floor.");
+                Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
+                char answer = char.Parse(Console.ReadLine());
+                if (answer == 'y' || answer == 'Y')
+                {
+                    Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
+                    Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
+                    task1();
+
+                }
+                else if (answer == 'n' || answer == 'N')
+                {
+                    Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
+                    Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
+                    Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
+                    Console.WriteLine("Which way do you want to go? \n");
+                    char direction = char.Parse(Console.ReadLine());
+                    if (direction == 'L' || direction == 'l')
+                    {
+                        Library();
+                    }
+                    else if (direction == 'R' || (direction == 'r'))
+                    {
+                        Recroom();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please choose 'L' for Library or 'R' for Rec Room ");
+                    }
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please choose 'Y' for Yes or 'N' for No");
+                }
+
+                static void Library()
+                {
+                    Console.WriteLine("You walk down corridor and open the library doors");
+                    Console.WriteLine("You see that the room is a mess. Books scattered ");
+                }
+                static void Recroom()
+                {
+
+                }
+            }
+
+
+            static void Cafeteria()
+            {
+                Console.WriteLine("                  .d888 .d888                 \r\n                d88P\" d88P\"                  \r\n                888   888                    \r\n .d8888b .d88b. 888888888888 .d88b.  .d88b.  \r\nd88P\"   d88\"\"88b888   888   d8P  Y8bd8P  Y8b \r\n888     888  888888   888   8888888888888888 \r\nY88b.   Y88..88P888   888   Y8b.    Y8b.     \r\n \"Y8888P \"Y88P\" 888   888    \"Y8888  \"Y8888  ");
+                Console.WriteLine("You enter the cafeteria and its freezing cold, all the lights are out but there seems to be a flashlight lying on the ground");
+                Console.WriteLine("You reach for the flashlight ");
+                Console.WriteLine("As you look under the table, you see a zombie from afar crawling");
+                Console.WriteLine("You pick the flashlight up and continue to make your way ");
+            }
+
+
         }
 
 
     }
-
-
 }
 
 
