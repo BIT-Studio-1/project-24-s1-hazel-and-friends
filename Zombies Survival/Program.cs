@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 
 namespace Skeleton_Program
 {
@@ -192,28 +193,60 @@ namespace Skeleton_Program
             string temp;
 
             string map = @"
-_________________________________________________________________________
-| 							                |                    
-| 							                |                    
-| 							    ______      |                    
-| 							          |     |                    
-| 							          |     |                    
-| 						                  |     |                    
-| 						                  |     |       	     
-| 						                  |     |_____________________
-| 					                          |                   |      |
-| 						                  |                     START| 
-| 					                          |      _____________|______|
-| 							          |     |                  
-| 							          |     |                  
-| 							          |     |                
-| 							          |     | 
-| 							          |     |
-| 							    ______|     |
-| 							                |
-| 							                |
-| 							                |
-|_______________________________________________________________________|";
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+- ~~	* ~	* ~	~`	*	~	`	`*	`	*`			~		*	`  ~      `		 -
+- _______________________________________________________________________________	*   ~		  *	 *		*	 	 -
+-||___________________________________________________________||____         ____|  `		`*	 `		`*	    *		 -
+-||				*			      ||____	     ____|    _________			*	    ~ `	 	 *	 -
+-||		*	*	~	*	*	*     ||____         ____|   | _______ |    *  _____________________________		 -
+-||          ~              	*		*	      ||____	     ____|   | [Guard] |      |	   |    |      []   |       |	    * 	 -
+-||	*		*				      ||____ Showers ____|   | [Tower] |      |	   |    |[]	    | Armory|	* 	 -
+-|| 		*	      Courtyard		*	      ||____	     ____|   | [__3__] |      |	   |    |           |       | 		 -
+-||	~					~	*     ||____	     ____|   |_________|      |Bath|Bath|[]	    |_____  |     *	 - 
+-||		~		~	*		      ||____	     ____| 		  *   |Room|Room|  Offices	    |	 	 -
+-||	*              *          *      ~     	*	      ||____	     ____|	* *           |	   |    |         []        | 	    *	 -
+-|\   ________________________________________________________||                 | 	~	*     |	   |    |		    |	 	 -
+-|   |_________________________________________________________|_______    ______|____________________|	|__|__| |		  []| *		 -
+-| 														| []     []         |	  *	 -
+-| 																  []|		 -
+-|______________________________     _________________________________________________________________    ______|___________________|	*	 -
+-                           |           | 		*		*	*		*     |	  _____	  	            |	   *	 -
+-   `     	~	    |           | 	*	 _________	   * `   `	~	      |	 |_____|~~~~~~~~~~~~~~~~~~| |    	 -
+-         *                 | CellBlock | *	~	| _______ |    * ~       ~	 *	      |	 |	Visitor	    	    |	  *   *	 - 
+-     ~    	*	    |     2	|  *		| [Guard] |			    *	 ~    |	 |	Room	  	    |	 	 -
+-                     ~     |	        | ~	 *	| [Tower] |              *                    |  |  []   []         []  []  |    *       -
+-~ `			    |           |		| [__1__] |	*	   *    `       *     |	 |_______________  _________|____________-______	  
+-       *  		    |           |     *		|_________|		`		      |	 			    |[]                 \
+-        	    `	    |           | 					*	  *	      |	 	  Reception		       EXIT     
+-       ~   `               |___     ___| *	~  * ~     * `~		*	`		      |		  		    
+-         			|   | 	   *			*   ~		~		~     |____________________________|____________ ______/		 
+-        *		*	|   | 	~	* 	~    *		*			~					         -
+-            `    ~             |   |          _________________________________ 	`		  *		  *	~     *   *      -
+-    ~    			|   |	      | 	  |	   |            |              *       		 				 -
+-         	 ~         	|   |	      | 	    Library             |   *     ~            ~ 		*	     ~           -
+-        *	        ________|   |_________|       ____|________|______      |                     *			~			 -
+-        	       | []  []	      []  []  |       |	     ~            |     |      *               	  ~			 *		 -
+-      ~  	       | []  []	      []  []  |       |	  *        *      |     |            *        		  *		~		 -
+-        	  ~    | []  []	      []  []  |       |	      *    ~      |     |    *			*   ~			   *	 	 -
+- 	    *          | []  []	      []  []  |       |	 *  `       *     |     |              *         	     ~	 _________	         -
+-   *     	       | []  []	      []  []  |       |           `       |     |_________________________	~	| _______ | *	         -
+-         ~	       |      Cafeteria	              |  `     *     `    |                   |      	  |	*	| [Guard] |		 -
+-     *    	 *     |         	              |    `         *    |                         V     |		| [Tower] |		 -
+-   ___________        | []  []	      []  []  |       |      *            |      _____________| CellBlock |*		| [__2__] |		 -
+-   |  _____  |        | []  []	      []  []  |       |   *	`    `    |     |             |     1	  |		|_________|	 *	 -
+-   | [Guard] |	   ~   | []  []	      []  []  |       | `	~     *   |     |             |     	  |*				         -
+-   | [Tower] |	*      | []  []	      []  []  |       |    `	  *       |     |             |   	  |			*		 -
+-   | [__4__] |        | []  []	      []  []  |       |  *	          |     | 	~     |*	~ |	*	~			 -
+-   |_________|        |______________________|       |    `     *   *    |     | 	      |___________|				*	 - 
+-        	                 	      |       |___________________|     |   *		~			    			 -
+-        	*    ~       *		      |	      |	                  |     | 	*		~	~		*		 -
+-     *      ~     		  ~	      |	              Rec  	        | 			*		  *			 - 
+-                	*		      |	    	     Room               | 							*	 -
+-      *     ~                      ~         |_______|___________________|_____| 	~	~						 -
+- 		*					*							*				 -
+- 				*				*	~		*				*			 - 
+--------------------------------------------------------------------------------------------------------------------------------------------------";
             Console.WriteLine(map);
 
 
@@ -224,6 +257,7 @@ _________________________________________________________________________
             if (user == 'l')
 
             {
+
                 Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
                 Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
                 Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
@@ -233,38 +267,56 @@ _________________________________________________________________________
             if (user == 'r')
             {
                 //Console.WriteLine("You see a man from a distance, you walk up to him and lightly tap him on the shoulder");
-                Console.WriteLine("He doesn't turn around");
-                Console.WriteLine("He's bleeding...");
-                Console.WriteLine("The man slowly turns around and groans \n HELP ME... PLEASE");
+                //Console.WriteLine("He doesn't turn around");
+                //Console.WriteLine("He's bleeding...");
+                //Console.WriteLine("The man slowly turns around and groans \n HELP ME... PLEASE");
+                Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors - no doubt leading to cells or storage rooms.");
+                Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
+                Console.WriteLine("Suddenly, a faint sound catches your attention.");
+                Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
+                Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
+                Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
+                Console.WriteLine("As your heart races even faster, you approach cautiously.");
+                Console.Beep((int)60, 100);
+                Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
+                Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
+                Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
+                Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me.");
                 Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
                 string choice = Console.ReadLine().ToUpper();
+
                 if (choice == "H")
                 {
-                    Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
-                    Console.WriteLine("The man clearly looks like he's dying:(");
-                    Console.WriteLine("He thanks you and gives you a key to another part of the prison");
+                    Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
+                    Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
+                    Console.WriteLine("They took... my keys.");
+                    Console.WriteLine("You glance down and notice him holding a set of keys.");
+                    Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
+                    Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
                     inventory[1] = "Key";
                     Console.WriteLine("INVENTORY UPDATED");
                     for (int i = 0; i < inventory.Length; i++)
                     {
                         Console.WriteLine(inventory[i]);
                     }
-                    Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
-                    Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
+
+                    Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                     Console.WriteLine("RUN!!!!");
-
-                    if (choice == "H")
-                    {
-                        Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like e was badly scratched and attacked");
-                        Console.WriteLine("The man clearly looks like he's dying:(");
-                        Console.WriteLine("He thanks you and gives you a key to another part of the prison");
-                        Console.WriteLine($"The man says, I was able to grab these keys from one of the gaurds... This key should be able to unlock..");
-                        Console.WriteLine("Just before the man was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
-                        Console.WriteLine("RUN!!!!");
-                    }
-
-
                 }
+
+
+                if (choice == "I")
+                {
+                    Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
+                    Thread.Sleep(600);
+                    Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
+                    Thread.Sleep(600);
+                    Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
+                    Console.WriteLine("You continue to make your way through the prison");
+                }
+
+
+
                 Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
                 char answer = char.Parse(Console.ReadLine());
                 if (answer == 'y')
@@ -499,11 +551,212 @@ _________________________________________________________________________
 
                 static void Cafeteria()
                 {
+
                     Console.WriteLine("                  .d888 .d888                 \r\n                d88P\" d88P\"                  \r\n                888   888                    \r\n .d8888b .d88b. 888888888888 .d88b.  .d88b.  \r\nd88P\"   d88\"\"88b888   888   d8P  Y8bd8P  Y8b \r\n888     888  888888   888   8888888888888888 \r\nY88b.   Y88..88P888   888   Y8b.    Y8b.     \r\n \"Y8888P \"Y88P\" 888   888    \"Y8888  \"Y8888  ");
                     Console.WriteLine("You enter the cafeteria and its freezing cold, all the lights are out but there seems to be a flashlight lying on the ground");
                     Console.WriteLine("You reach for the flashlight ");
                     Console.WriteLine("As you look under the table, you see a zombie from afar crawling");
                     Console.WriteLine("You pick the flashlight up and continue to make your way ");
+
+                    Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
+                    Console.WriteLine("  ( (\r\n   ) )\r\n   ____\r\n  |    |\r\n  |    |]|\r\n  |____| \r\n");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("You push open the heavy doors and step into the cafeteria,");
+                    Thread.Sleep(400);
+                    Console.WriteLine("The dim lighting casting long shadows across the empty tables and benches.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("As you scan the room, your eyes quickly adjust, and you begin to take note of your surroundings. ");
+                    Thread.Sleep(400);
+                    Console.WriteLine("The cafeteria is surprisingly well stocked, with several stainless steel counters lining the walls, each containing various supplies and equipment.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("As you take a closer look, you notice that some of these counters have locks on them");
+                    Thread.Sleep(400);
+                    Console.WriteLine("Your gaze shifts to a stack of metal trays, their sharp edges glinting in the faint light.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("Nearby, you spot a collection of dull-looking utensils forks, knives, and spoons  that could potentially be used again as makeshift weapons.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("Further down, you notice a rack of plastic cups, each filled with a murky liquid that you assume is water.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("The cups could be useful for carrying liquid or even as improvised tools but eww.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("As you continue to explore the cafeteria, your attention is drawn to a set of shelves lining the back wall.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("Upon closer inspection, you see that are some bags of dried food and a few sealed bottles of water.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("These supplies could be valuable in your quest for survival in the WALKING JAIL.");
+                    Thread.Sleep(400);
+                    Console.WriteLine("Which of these items would you like to gather, (food or water)?");
+                    string choice = Console.ReadLine();
+                    if (choice == "food")
+                    {
+                        inventory[4] = "food";
+                        Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
+                        Console.WriteLine("Wold you like to grab any other item y/n?");
+                        char user = char.Parse(Console.ReadLine());
+                        if (user == 'y')
+                        {
+                            Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a bottle of water and chug it. ");
+
+                        }
+                        else if (user == 'n')
+                        {
+                            Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
+                        }
+                    }
+                    else if (choice == "water")
+                    {
+                        inventory[4] = "water";
+                        Console.WriteLine("You grab yourself a bottle of water and chug it");
+                        Console.WriteLine("Wold you like to grab any other item?");
+                        char user = char.Parse(Console.ReadLine());
+                        if (user == 'y')
+                        {
+                            Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a few packets of some dried food and stuff them in your pockets. ");
+
+                        }
+                        else if (user == 'n')
+                        {
+                            Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid choice, please choose what you would like to grab:\nfood or water");
+                        }
+                    }
+                }
+                static void courtyard()
+                {
+                    Random Rand = new Random();
+                    Console.WriteLine("You walk into the courtyard. There are zombies everywhere.");
+                    Console.WriteLine("You realize that they are in a dull state and don't realize you're there yet. You might be able to sneak around them");
+                    Console.WriteLine("You notice the dead prison guard at the other end of the courtyard, his body has a gun and a key card.");
+                    Console.WriteLine("If you don't have a weapon on you, this could end badly.");
+                    /*CREATE VARIABLE CALLED WEAPONCHECK(); AND IF IT IS TICKED THEN CREATE DIFFERENT OPTIONS FOR PLAYER */
+                    Console.WriteLine("Do you sneak forward (Y) or do you leave the Courtyard (N)");
+                    string usersinputs = Console.ReadLine();
+                    if (usersinputs == "Y" || usersinputs == "y")
+                    {
+                        Console.WriteLine("You start sneaking towards the dead guard.");
+                        Console.WriteLine("You step as quietly as possible around the mumbling, walking dead bodies.");
+                        int randzombie = Rand.Next(1, 6);
+                        if (randzombie == 3)
+                        {
+                            Console.WriteLine("You suddenly are thrown to the ground as a zombie jumps on top of you.");
+                            Console.WriteLine("The last thing you hear is the crunching sound of your head being bitten");
+                            Console.WriteLine("YOU DIED");
+                            Console.Beep((int)294.2, 800);
+                            Console.Beep((int)277.2, 800);
+                            Console.Beep((int)262.2, 800);
+                            Console.Beep((int)247.2, 1100);
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You make it to the dead guard's body. You take the key card and the gun.");
+                            /*INSERT INVENTORY GET GUN AND KEYCARD CODE HERE */
+                            Console.WriteLine("Do you try sneaking back through the crowd of zombies (Y) or shoot your way out? (N)");
+                            string seconduserinput = Console.ReadLine();
+                            int randzombie2 = Rand.Next(1, 6);
+                            if (seconduserinput == "Y" || seconduserinput == "y")
+                            {
+                                Console.WriteLine("You try crawling your way past the zombies.");
+                                if (randzombie >= 3)
+                                {
+                                    Console.WriteLine("You bump into a zombie's leg. It yells and tries to bite you.");
+                                    Console.WriteLine("Push the zombie away (Y) or shoot it (N) ?");
+                                    string thirduserinput = Console.ReadLine();
+                                    if (thirduserinput == "Y" || thirduserinput == "y")
+                                    {
+                                        Console.WriteLine("You try to push the zombie away...");
+                                        if (randzombie2 == 5)
+                                        {
+                                            Console.WriteLine("As you stretch out your arm, another zombie bites off your entire hand.");
+                                            Console.WriteLine("The last thing you see is the zombies eating your flesh.");
+                                            Console.WriteLine("YOU DIED");
+                                            Console.Beep((int)294.2, 800);
+                                            Console.Beep((int)277.2, 800);
+                                            Console.Beep((int)262.2, 800);
+                                            Console.Beep((int)247.2, 1100);
+                                            Console.ReadLine();
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("You pushed the zombie back and ran to the exit.");
+                                            Console.WriteLine("You escaped the courtyard.");
+                                            Console.ReadLine();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("You aim the gun and fire it at the zombie");
+                                        Console.WriteLine("The rest of the zombies turn around and start moving towards you.");
+                                        Console.WriteLine("Run straight for the exit (Y) or shoot the zombies as you go (N)?");
+                                        string fourthuserinput = Console.ReadLine();
+                                        if (fourthuserinput == "Y" || fourthuserinput == "y")
+                                        {
+                                            Console.WriteLine("You run straight for the exit and escape the Courtyard.");
+                                            Console.ReadLine();
+                                        }
+                                        else
+                                        {
+                                            Console.WriteLine("You try to shoot the zombies as you move towards the exit");
+                                            if (randzombie2 == 5)
+                                            {
+                                                Console.WriteLine("You try to shoot the zombie in front of you by putting the barrel against the zombie's temple.");
+                                                Console.WriteLine("Your gun jams.");
+                                                Console.WriteLine("You are paralyzed in fear as the zombie proceeds to bite your fingers off the gun.");
+                                                Console.WriteLine("The last thing you see is the zombies eating your flesh.");
+                                                Console.WriteLine("YOU DIED");
+                                                Console.Beep((int)294.2, 800);
+                                                Console.Beep((int)277.2, 800);
+                                                Console.Beep((int)262.2, 800);
+                                                Console.Beep((int)247.2, 1100);
+                                                Console.ReadLine();
+                                            }
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You escaped the courtyard.");
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("You aim the gun at the nearest zombie and fire");
+                                Console.WriteLine("The rest of the zombies turn around and start moving towards you");
+                                Console.WriteLine("You try to shoot the zombies as you move towards the exit");
+                                if (randzombie2 == 5)
+                                {
+                                    Console.WriteLine("You try to shoot the zombie in front of you by putting the barrel against the zombie's temple.");
+                                    Console.WriteLine("Your gun jams.");
+                                    Console.WriteLine("You are paralyzed in fear as the zombie proceeds to bite your fingers off the gun.");
+                                    Console.WriteLine("The last thing you see is the zombies eating your flesh.");
+                                    Console.WriteLine("YOU DIED");
+                                    Console.Beep((int)294.2, 800);
+                                    Console.Beep((int)277.2, 800);
+                                    Console.Beep((int)262.2, 800);
+                                    Console.Beep((int)247.2, 1100);
+                                    Console.ReadLine();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You escaped the Courtyard.");
+                                    Console.ReadLine();
+                                }
+                                Console.WriteLine("You escape the courtyard, and left behind a pile of corpses.");
+                            }
+
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("You leave the courtyard and instead go to the showers further down the corridor");
+                        /* showers(); */
+                        Console.ReadLine();
+                    }
+                    Console.ReadLine();
+
                 }
 
 
