@@ -370,170 +370,6 @@ namespace Skeleton_Program
                         Console.WriteLine("Invalid input. Please choose 'Y' for Yes or 'N' for No");
                     }
 
-
-                    static void Recroom()
-                    {
-                        Random rand = new Random();
-                        for (int i = 0; i < 10; i++)
-                        {
-                            int frequency = rand.Next(100, 2000);
-                            int duration = rand.Next(50, 400);
-                            Console.Beep(frequency, duration);
-                            System.Threading.Thread.Sleep(100);
-                        }
-                        Console.WriteLine("You reached the recreation room, a safe spot for now");
-                        Console.WriteLine("   _______\r\n  | Rec   |\r\n  | Room  |\r\n  |       | \r\n  | o     | \r\n  |_______|\r\n");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("");
-                        Console.WriteLine("Your heart is racing as you look for a hiding spot. You find a strong table at the corner of the room");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("");
-                        Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
-                        string temp = "";
-
-
-                        while (temp != "HIDE")
-                        {
-                            temp = Console.ReadLine();
-
-                            if (temp != "HIDE")
-                            {
-                                Console.WriteLine("TRY AGAIN HURRY!!!!!");
-                                Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
-                            }
-                        }
-
-                        Console.WriteLine("You're hiding behind A table in the prison's game room.");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("");
-                        Console.WriteLine("There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.");
-                        Thread.Sleep(5000);
-                        Console.WriteLine("");
-                        Console.WriteLine("Its skin was decaying, and its clothes were in tatters. But what truly made it horrifying were its gruesome injuries.");
-                        Console.WriteLine("         .-\"\"\"-.\r\n        /       \\\r\n       |  O   O  |\r\n       |    ∆    |\r\n        \\ ----- /\r\n     ____|_____|____\r\n   /  ______(O)______\\\r\n   \\_/  [_____]'   [___] \r\n");
-                        Thread.Sleep(5000);
-                        Console.WriteLine("");
-                        Console.WriteLine("You look around for a better hiding spot and see a dark corner. You try to sneak over there, but then you see the zombie stumble into the room.");
-                        Thread.Sleep(5000);
-                        Console.WriteLine("");
-                        Console.WriteLine("Its eyes are creepy and it's looking for someone to eat.");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("");
-                        Console.WriteLine("You freeze as the zombie's gaze lands on you.");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("");
-                        Console.WriteLine("You scan the room quickly, searching for a safer place to hide.");
-                        Thread.Sleep(4000);
-                        Console.WriteLine("");
-                        Console.WriteLine("You see a sturdy-looking cabinet against the far wall, it seems like a better option than your current spot behind the tables.");
-                        Thread.Sleep(5000);
-                        Console.WriteLine("");
-                        Console.WriteLine("You notice another possibility, you see a large overturned couch near the center of the room. It's bulky and could provide better cover.");
-                        Thread.Sleep(6000);
-                        Console.WriteLine("");
-                        Console.WriteLine("But the couch is closer to where the zombie is slowly making its way towards you.");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("");
-
-                        for (int i = 0; i < 3; i++)
-                        {
-                            Console.Beep(1000, 200);
-                            System.Threading.Thread.Sleep(200);
-                            Console.Beep(1500, 200);
-                            System.Threading.Thread.Sleep(200);
-                        }
-
-                        Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2)");
-                        temp = Console.ReadLine();
-                        int hide = Convert.ToInt32(temp);
-
-
-
-                        switch (hide)
-                        {
-                            case 1:
-                                Console.WriteLine("You see the closet door slightly open and think it's a good hiding spot. Without much thinking, you go inside and close the door.");
-                                Console.WriteLine("");
-                                Thread.Sleep(5000);
-                                Console.WriteLine("Inside, it's dark and cramped. You start feeling scared. There's no way out.");
-                                Console.WriteLine("");
-                                Thread.Sleep(4000);
-                                Console.WriteLine("Outside, the zombie gets closer. It finds you in the closet and opens the door. You try to hide, but there's nowhere to go.");
-                                Console.WriteLine("");
-                                Thread.Sleep(5000);
-                                Console.WriteLine("The zombie grabs you, and you can't escape. Your mistake cost your life");
-                                break;
-
-
-
-                            case 2:
-                                Console.WriteLine("You see the couch and think it might be a good hiding spot. It's closer and seems big enough to protect you.");
-                                Console.WriteLine("");
-                                Thread.Sleep(5000);
-                                Console.WriteLine("You quickly hide behind the couch, holding your breath. The zombie's groans get quieter, and you start feeling safer.");
-                                Console.WriteLine("");
-                                Thread.Sleep(4000);
-                                Console.WriteLine("You wait for a long time, but eventually, the zombie's sounds go away completely.");
-                                Console.WriteLine("");
-                                Thread.Sleep(5000);
-                                Console.WriteLine("You peek out from behind the couch and see that it's safe.");
-                                break;
-
-                            case 3:
-                            case 4:
-                            case 5:
-                            case 6:
-                            case 7:
-                            case 8:
-                            case 9:
-                                Console.WriteLine("You choose to stay under the table");
-                                Console.WriteLine("");
-                                Thread.Sleep(3000);
-                                Console.WriteLine("You heard the zombie approaching, as it's groans grow louder.");
-                                Thread.Sleep(3000);
-                                Console.WriteLine("");
-                                Console.WriteLine("IT");
-                                Thread.Sleep(1500);
-                                Console.WriteLine("");
-                                Console.WriteLine("SEES");
-                                Console.WriteLine("");
-                                Thread.Sleep(1500);
-                                Console.WriteLine("YOU");
-                                Console.WriteLine("");
-                                Thread.Sleep(2000);
-                                Console.WriteLine("The zombie lunges forward, sinking its teeth into your leg. \n You scream in agony as the zombie's terrifying cry fills the room.");
-                                break;
-
-                            default:
-                                Console.WriteLine("Invalid choice");
-                                break;
-                        }
-
-                        Console.WriteLine("You're hiding behind the couch in the dim rec room jail. It's dark, and you can't see much.");
-                        Console.WriteLine("");
-                        Thread.Sleep(4000);
-                        Console.WriteLine("Your hand touches two things: a flashlight and a pool stick. You need to decide which one to pick.");
-                        Console.WriteLine("");
-                        Thread.Sleep(4000);
-                        Console.WriteLine("The flashlight can help you see better, but the pool stick could protect you if zombies come near. \n What will you choose?");
-                        Console.WriteLine("PRESS Q for  FLASHLIGHT OR PRESS W POOL StICK ");
-                        temp = Console.ReadLine();
-                        char item = Convert.ToChar(temp);
-
-                        if (item == 'q' || item == 'Q')
-                        {
-                            Console.WriteLine("");
-                            inventory[2] = "Flashlight";
-                        }
-                        else
-                        {
-                            Console.WriteLine("");
-                        }
-                    }
-
-
-
-
                     static void Library()
                     {
                         string temp;
@@ -631,7 +467,208 @@ namespace Skeleton_Program
                         }
                     }
 
+                    static void Recroom()
+                    {
+                        Random rand = new Random();
+                        for (int i = 0; i < 10; i++)
+                        {
+                            int frequency = rand.Next(100, 2000);
+                            int duration = rand.Next(50, 400);
+                            Console.Beep(frequency, duration);
+                            System.Threading.Thread.Sleep(100);
+                        }
+                        Console.WriteLine("You reached the recreation room, a safe spot for now");
+                        Console.WriteLine("   _______\r\n  | Rec   |\r\n  | Room  |\r\n  |       | \r\n  | o     | \r\n  |_______|\r\n");
+                        Thread.Sleep(2000);
+                        Console.WriteLine("");
+                        Console.WriteLine("Your heart is racing as you look for a hiding spot. You find a strong table at the corner of the room");
+                        Thread.Sleep(3000);
+                        Console.WriteLine("");
+                        Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
+                        string temp = "";
 
+
+
+                        while (temp != "HIDE")
+
+
+                            Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
+                        Console.WriteLine("  ( (\r\n   ) )\r\n   ____\r\n  |    |\r\n  |    |]|\r\n  |____| \r\n");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You push open the heavy doors and step into the cafeteria,");
+                        Thread.Sleep(400);
+                        Console.WriteLine("The dim lighting casting long shadows across the empty tables and benches.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("As you scan the room, your eyes quickly adjust, and you begin to take note of your surroundings. ");
+                        Thread.Sleep(400);
+                        Console.WriteLine("The cafeteria is surprisingly well stocked, with several stainless steel counters lining the walls, each containing various supplies and equipment.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("As you take a closer look, you notice that some of these counters have locks on them");
+                        Thread.Sleep(400);
+                        Console.WriteLine("Your gaze shifts to a stack of metal trays, their sharp edges glinting in the faint light.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("Nearby, you spot a collection of dull-looking utensils forks, knives, and spoons  that could potentially be used again as makeshift weapons.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("Further down, you notice a rack of plastic cups, each filled with a murky liquid that you assume is water.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("The cups could be useful for carrying liquid or even as improvised tools but eww.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("As you continue to explore the cafeteria, your attention is drawn to a set of shelves lining the back wall.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("Upon closer inspection, you see that are some bags of dried food and a few sealed bottles of water.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("These supplies could be valuable in your quest for survival in the WALKING JAIL.");
+                        Thread.Sleep(400);
+                        Console.WriteLine("Which of these items would you like to gather, (food or water)?");
+                        string choice = Console.ReadLine();
+                        if (choice == "food")
+                        {
+                            inventory[4] = "food";
+                            Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
+                            Console.WriteLine("Wold you like to grab any other item y/n?");
+                            char user = char.Parse(Console.ReadLine());
+                            if (user == 'y')
+
+                            {
+                                temp = Console.ReadLine();
+
+                                if (temp != "HIDE")
+                                {
+                                    Console.WriteLine("TRY AGAIN HURRY!!!!!");
+                                    Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
+                                }
+                            }
+
+                            Console.WriteLine("You're hiding behind A table in the prison's game room.");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("");
+                            Console.WriteLine("There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.");
+                            Thread.Sleep(5000);
+                            Console.WriteLine("");
+                            Console.WriteLine("Its skin was decaying, and its clothes were in tatters. But what truly made it horrifying were its gruesome injuries.");
+                            Console.WriteLine("         .-\"\"\"-.\r\n        /       \\\r\n       |  O   O  |\r\n       |    ∆    |\r\n        \\ ----- /\r\n     ____|_____|____\r\n   /  ______(O)______\\\r\n   \\_/  [_____]'   [___] \r\n");
+                            Thread.Sleep(5000);
+                            Console.WriteLine("");
+                            Console.WriteLine("You look around for a better hiding spot and see a dark corner. You try to sneak over there, but then you see the zombie stumble into the room.");
+                            Thread.Sleep(5000);
+                            Console.WriteLine("");
+                            Console.WriteLine("Its eyes are creepy and it's looking for someone to eat.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("");
+                            Console.WriteLine("You freeze as the zombie's gaze lands on you.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("");
+                            Console.WriteLine("You scan the room quickly, searching for a safer place to hide.");
+                            Thread.Sleep(4000);
+                            Console.WriteLine("");
+                            Console.WriteLine("You see a sturdy-looking cabinet against the far wall, it seems like a better option than your current spot behind the tables.");
+                            Thread.Sleep(5000);
+                            Console.WriteLine("");
+                            Console.WriteLine("You notice another possibility, you see a large overturned couch near the center of the room. It's bulky and could provide better cover.");
+                            Thread.Sleep(6000);
+                            Console.WriteLine("");
+                            Console.WriteLine("But the couch is closer to where the zombie is slowly making its way towards you.");
+                            Thread.Sleep(3000);
+                            Console.WriteLine("");
+
+                            for (int i = 0; i < 3; i++)
+                            {
+                                Console.Beep(1000, 200);
+                                System.Threading.Thread.Sleep(200);
+                                Console.Beep(1500, 200);
+                                System.Threading.Thread.Sleep(200);
+                            }
+
+                            Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2)");
+                            temp = Console.ReadLine();
+                            int hide = Convert.ToInt32(temp);
+
+
+
+                            switch (hide)
+                            {
+                                case 1:
+                                    Console.WriteLine("You see the closet door slightly open and think it's a good hiding spot. Without much thinking, you go inside and close the door.");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(5000);
+                                    Console.WriteLine("Inside, it's dark and cramped. You start feeling scared. There's no way out.");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(4000);
+                                    Console.WriteLine("Outside, the zombie gets closer. It finds you in the closet and opens the door. You try to hide, but there's nowhere to go.");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(5000);
+                                    Console.WriteLine("The zombie grabs you, and you can't escape. Your mistake cost your life");
+                                    break;
+
+
+
+                                case 2:
+                                    Console.WriteLine("You see the couch and think it might be a good hiding spot. It's closer and seems big enough to protect you.");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(5000);
+                                    Console.WriteLine("You quickly hide behind the couch, holding your breath. The zombie's groans get quieter, and you start feeling safer.");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(4000);
+                                    Console.WriteLine("You wait for a long time, but eventually, the zombie's sounds go away completely.");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(5000);
+                                    Console.WriteLine("You peek out from behind the couch and see that it's safe.");
+                                    break;
+
+                                case 3:
+                                case 4:
+                                case 5:
+                                case 6:
+                                case 7:
+                                case 8:
+                                case 9:
+                                    Console.WriteLine("You choose to stay under the table");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(3000);
+                                    Console.WriteLine("You heard the zombie approaching, as it's groans grow louder.");
+                                    Thread.Sleep(3000);
+                                    Console.WriteLine("");
+                                    Console.WriteLine("IT");
+                                    Thread.Sleep(1500);
+                                    Console.WriteLine("");
+                                    Console.WriteLine("SEES");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(1500);
+                                    Console.WriteLine("YOU");
+                                    Console.WriteLine("");
+                                    Thread.Sleep(2000);
+                                    Console.WriteLine("The zombie lunges forward, sinking its teeth into your leg. \n You scream in agony as the zombie's terrifying cry fills the room.");
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Invalid choice");
+                                    break;
+                            }
+
+                            Console.WriteLine("You're hiding behind the couch in the dim rec room jail. It's dark, and you can't see much.");
+                            Console.WriteLine("");
+                            Thread.Sleep(4000);
+                            Console.WriteLine("Your hand touches two things: a flashlight and a pool stick. You need to decide which one to pick.");
+                            Console.WriteLine("");
+                            Thread.Sleep(4000);
+                            Console.WriteLine("The flashlight can help you see better, but the pool stick could protect you if zombies come near. \n What will you choose?");
+                            Console.WriteLine("PRESS Q for  FLASHLIGHT OR PRESS W POOL StICK ");
+                            temp = Console.ReadLine();
+                            char item = Convert.ToChar(temp);
+
+                            if (item == 'q' || item == 'Q')
+                            {
+                                Console.WriteLine("");
+                                inventory[2] = "Flashlight";
+                            }
+                            else
+                            {
+                                Console.WriteLine("");
+                            }
+                        }
+
+                    }
+                
                     static void Cafeteria()
                     {
                         Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
@@ -700,6 +737,12 @@ namespace Skeleton_Program
                             }
                         }
                     }
+
+
+
+
+
+
                     static void courtyard()
                     {
                         Random Rand = new Random();
@@ -835,6 +878,10 @@ namespace Skeleton_Program
                     }
 
 
+
+                    Console.ReadLine();
+
+
                 }
 
 
@@ -842,5 +889,8 @@ namespace Skeleton_Program
         }
     }
 }
+
+
+
 
 
