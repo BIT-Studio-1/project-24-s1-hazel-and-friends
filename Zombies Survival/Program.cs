@@ -16,7 +16,10 @@ namespace Skeleton_Program
 
             {
                 Console.Clear();
-                Console.WriteLine("The Walking Jail: \n1 Play game \n2 Instructions \n3 Options \n4 Credits \n0 Exit game");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("\r\n █     █░ ▄▄▄       ██▓     ██ ▄█▀ ██▓ ███▄    █   ▄████     ▄▄▄██▀▀▀▄▄▄       ██▓ ██▓    \r\n▓█░ █ ░█░▒████▄    ▓██▒     ██▄█▒ ▓██▒ ██ ▀█   █  ██▒ ▀█▒      ▒██  ▒████▄    ▓██▒▓██▒    \r\n▒█░ █ ░█ ▒██  ▀█▄  ▒██░    ▓███▄░ ▒██▒▓██  ▀█ ██▒▒██░▄▄▄░      ░██  ▒██  ▀█▄  ▒██▒▒██░    \r\n░█░ █ ░█ ░██▄▄▄▄██ ▒██░    ▓██ █▄ ░██░▓██▒  ▐▌██▒░▓█  ██▓   ▓██▄██▓ ░██▄▄▄▄██ ░██░▒██░    \r\n░░██▒██▓  ▓█   ▓██▒░██████▒▒██▒ █▄░██░▒██░   ▓██░░▒▓███▀▒    ▓███▒   ▓█   ▓██▒░██░░██████▒\r\n░ ▓░▒ ▒   ▒▒   ▓▒█░░ ▒░▓  ░▒ ▒▒ ▓▒░▓  ░ ▒░   ▒ ▒  ░▒   ▒     ▒▓▒▒░   ▒▒   ▓▒█░░▓  ░ ▒░▓  ░\r\n  ▒ ░ ░    ▒   ▒▒ ░░ ░ ▒  ░░ ░▒ ▒░ ▒ ░░ ░░   ░ ▒░  ░   ░     ▒ ░▒░    ▒   ▒▒ ░ ▒ ░░ ░ ▒  ░\r\n  ░   ░    ░   ▒     ░ ░   ░ ░░ ░  ▒ ░   ░   ░ ░ ░ ░   ░     ░ ░ ░    ░   ▒    ▒ ░  ░ ░   \r\n    ░          ░  ░    ░  ░░  ░    ░           ░       ░     ░   ░        ░  ░ ░      ░  ░\r\n                                                                                          \r\n");
+                Console.ResetColor();
+                Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
                 tasks = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
                 switch (tasks)
@@ -53,20 +56,32 @@ namespace Skeleton_Program
             } while (tasks != 0);
             static void task2()
             {
-                Console.WriteLine("Task 2");
-                Console.WriteLine("Press any key to return");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" ██▓ ███▄    █   ██████ ▄▄▄█████▓ ██▀███   █    ██  ▄████▄  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▓██▒ ██ ▀█   █ ▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒ ██  ▓██▒▒██▀ ▀█  ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██▒▓██  ▀█ ██▒░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▓██  ▒██░▒▓█    ▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n░██░▓██▒  ▐▌██▒  ▒   ██▒░ ▓██▓ ░ ▒██▀▀█▄  ▓▓█  ░██░▒▓▓▄ ▄██▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░██░▒██░   ▓██░▒██████▒▒  ▒██▒ ░ ░██▓ ▒██▒▒▒█████▓ ▒ ▓███▀ ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░▓  ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒▓ ░▒▓░░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n ▒ ░░ ░░   ░ ▒░░ ░▒  ░ ░    ░      ░▒ ░ ▒░░░▒░ ░ ░   ░  ▒       ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n ▒ ░   ░   ░ ░ ░  ░  ░    ░        ░░   ░  ░░░ ░ ░ ░          ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n ░           ░       ░              ░        ░     ░ ░                ░      ░ ░           ░       ░  \r\n                                                   ░                                                  \n\n");
+                Console.ResetColor();
+                Console.WriteLine("1. You will be presented with choices throughout the game.\n\n");
+                Console.WriteLine("2. Type the letter or word corresponding to your choice and press Enter.\n\n");
+                Console.WriteLine("3. Your goal is to survive and escape the WALKING JAIL.\n\n");
+                Console.WriteLine("4. Pay attention to the details in the story to make informed decisions.\n\n");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("                            Press ENTER to return");
                 Console.ReadLine();
             }
             static void task3()
             {
-                Console.WriteLine("Task 3");
-                Console.WriteLine("Press any key to return");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" ▒█████   ██▓███  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▒██▒  ██▒▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██░  ██▒▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n▒██   ██░▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░ ████▓▒░▒██▒ ░  ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░ ▒░▒░▒░ ▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n  ░ ▒ ▒░ ░▒ ░         ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n░ ░ ░ ▒  ░░         ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n    ░ ░                     ░      ░ ░           ░       ░  \r\n                                                            ");
+                Console.ResetColor();
+                Console.WriteLine("Press ENTER to return");
                 Console.ReadLine();
             }
             static void task4()
             {
-                Console.WriteLine("Task 4");
-                Console.WriteLine("Press any key to return");
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
+                Console.ResetColor();
+                Console.WriteLine("Press ENTER to return");
                 Console.ReadLine();
 
 
@@ -875,6 +890,14 @@ namespace Skeleton_Program
                             Console.ReadLine();
                         }
                         Console.ReadLine();
+                    }
+                    static void Died()
+                    {
+                        Console.Clear();
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \r\n ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\r\n  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\r\n  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌\r\n  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ \r\n   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ \r\n ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \r\n ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \r\n ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \r\n ░ ░                           ░                  ░     ");
+                        Console.ResetColor();
+
                     }
 
 
