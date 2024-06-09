@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
 
@@ -72,8 +73,11 @@ namespace Skeleton_Program
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" ▒█████   ██▓███  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▒██▒  ██▒▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██░  ██▒▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n▒██   ██░▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░ ████▓▒░▒██▒ ░  ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░ ▒░▒░▒░ ▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n  ░ ▒ ▒░ ░▒ ░         ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n░ ░ ░ ▒  ░░         ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n    ░ ░                     ░      ░ ░           ░       ░  \r\n                                                            ");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("           YOU HAVE NO OPTION BUT TO PLAY THIS GAME HEHE \n\n");
                 Console.ResetColor();
-                Console.WriteLine("Press ENTER to return");
+                Console.WriteLine("                    Press ENTER to return");
                 Console.ReadLine();
             }
             static void task4()
@@ -265,48 +269,69 @@ namespace Skeleton_Program
             Console.WriteLine(map);
 
 
-            Console.WriteLine("Which way do you want to go right (r) or left (l)?");
+            Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
 
             char user = char.Parse(Console.ReadLine());
 
             if (user == 'l')
 
             {
-
+                Died();
                 Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
                 Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
                 Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
-                Console.WriteLine("You see the stair, you run towards them and go down ");
+                Console.WriteLine("You gaze into the distance and see flashing lights and run towards them ");
+                Console.WriteLine("PRESS ENTER TO CONTINUE");
                 Console.ReadLine();
+                Console.WriteLine("------------");
+                Corridor();
             }
-            if (user == 'r')
+            else if (user == 'r')
             {
-                //Console.WriteLine("You see a man from a distance, you walk up to him and lightly tap him on the shoulder");
-                //Console.WriteLine("He doesn't turn around");
-                //Console.WriteLine("He's bleeding...");
-                //Console.WriteLine("The man slowly turns around and groans \n HELP ME... PLEASE");
-                Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors - no doubt leading to cells or storage rooms.");
+
+                Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors \nIn your mind you think to yourself this could be leading to cells or storage rooms.\n\n");
+                Thread.Sleep(1000);
                 Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
+                Thread.Sleep(1000);
                 Console.WriteLine("Suddenly, a faint sound catches your attention.");
+                Thread.Sleep(1000);
+                Console.WriteLine("");
+                Console.WriteLine("------------");
                 Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
+                Thread.Sleep(1000);
                 Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
+                Thread.Sleep(1000);
                 Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
+                Thread.Sleep(1000);
+                Console.WriteLine("------------");
                 Console.WriteLine("As your heart races even faster, you approach cautiously.");
                 Console.Beep((int)60, 100);
+                Thread.Sleep(1000);
                 Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
+                Console.WriteLine("");
+                Console.WriteLine("------------\n\n");
+                Thread.Sleep(1000);
                 Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
+                Thread.Sleep(1000);
                 Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
-                Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me.");
+                Thread.Sleep(1000);
+                Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me. \n\n");
+                Thread.Sleep(1000);
                 Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
                 string choice = Console.ReadLine().ToUpper();
 
                 if (choice == "H")
                 {
                     Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
+                    Thread.Sleep(1000);
                     Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
+                    Thread.Sleep(1000);
                     Console.WriteLine("They took... my keys.");
+                    Thread.Sleep(1000);
                     Console.WriteLine("You glance down and notice him holding a set of keys.");
+                    Thread.Sleep(1000);
                     Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
+                    Thread.Sleep(1000);
                     Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
                     inventory[1] = "Key";
                     Console.WriteLine("INVENTORY UPDATED");
@@ -314,19 +339,21 @@ namespace Skeleton_Program
                     {
                         Console.WriteLine(inventory[i]);
                     }
-
                     Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
+                    Thread.Sleep(1000);
                     Console.WriteLine("RUN!!!!");
+                    
                 }
 
 
                 if (choice == "I")
                 {
                     Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
-                    Thread.Sleep(600);
+                    Thread.Sleep(1000);
                     Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
-                    Thread.Sleep(600);
+                    Thread.Sleep(1000);
                     Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
+                    Thread.Sleep(1000);
                     Console.WriteLine("You continue to make your way through the prison");
                 }
 
@@ -346,6 +373,7 @@ namespace Skeleton_Program
                     Console.ReadKey();
                     task1();
                 }
+            }
                 static void Corridor()
                 {
 
@@ -384,6 +412,7 @@ namespace Skeleton_Program
                     {
                         Console.WriteLine("Invalid input. Please choose 'Y' for Yes or 'N' for No");
                     }
+                }
 
                     static void Library()
                     {
@@ -893,11 +922,53 @@ namespace Skeleton_Program
                     }
                     static void Died()
                     {
-                        Console.Clear();
+                        //Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \r\n ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\r\n  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\r\n  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌\r\n  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ \r\n   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ \r\n ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \r\n ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \r\n ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \r\n ░ ░                           ░                  ░     ");
                         Console.ResetColor();
+                        //Console.ReadKey();
+                        Console.Clear();
+                        task1();
 
+                    }
+                    static void showers()
+                    {
+                        Console.WriteLine("You sneak towards the showers, hoping to find a place to clean up and perhaps find some supplies.");
+                        Console.WriteLine("As you enter the showers, you hear the faint sound of running water.");
+                        Console.WriteLine("You turn a corner into one of the showers and see a bar of soap sitting on a bench.");
+                        Console.WriteLine("Would you like to pick up the bar of soap: (Y)es or (N)o?");
+                        string showier = Console.ReadLine().ToUpper();
+                        if (showier == "Y")
+                        {
+                            Console.WriteLine("You pick up the bar of soap....");
+                            Thread.Sleep(500);
+                            Console.WriteLine("     .-.\r\n    (o o) Boo!\r\n    | O |\r\n    |   | \r\n    '~~~'\r\n");
+                            Console.Beep(800, 200); 
+                            Thread.Sleep(50);       
+                            Console.Beep(900, 200); 
+                            Thread.Sleep(50);       
+                            Console.Beep(1000, 300);
+                            Console.WriteLine("You feel your heart racing as you just got a jumpscare from an old, bitten and dehydrated bar of soap \nYou silently laugh about it..(LOL) but (LOS) ");
+                            Console.WriteLine("As you Laughing Out Silently, you hear footsteps approaching from a distance \nYou turn around and see a zombie walking into the shower opposite yours");
+                            Console.WriteLine("You realise that this zombie is looking for the soap 0 0\n                                                      O");
+                            Console.WriteLine("In order to save yourself, you have to throw this bar of soap to the zombie");
+                            Console.WriteLine("PRESS ENTER TO CONTINUE");
+                            Console.ReadLine();
+                            soap();
+                            Console.WriteLine("The zombie then happily walks away with its' bar of soap and doesn't even notice you \nYou're SAFE!! ");
+                            Thread.Sleep(400);
+                            Console.WriteLine("Only for now \nYou then make your way back into the corridor and see some rooms ahead of you");
+                            //bathroom();
+
+                        }
+                        else if (showier == "N")
+                        {
+                            Console.WriteLine("Suddenly,  you hear footsteps approaching from a distance \nYou turn around and see a zombie walking into the shower room, your and slip on the wet floor.");
+                            Console.WriteLine("The zombie turns around and spots you");
+                            Console.WriteLine("Just before you know it, the zombie attacks you and you're dead");
+                            Died();
+                        }
+                       
                     }
 
 
@@ -905,10 +976,63 @@ namespace Skeleton_Program
                     Console.ReadLine();
 
 
+               // }
+                static void soap()
+                {
+                            int screenWidth = 50;
+                            // Fixed screen width
+                            string[] soap = 
+                            {
+                                    "     .-.",
+                                    "    (o o) HEHEHEHE",
+                                    "    | O |",
+                                    "    |   |",
+                                    "    '~~~'"
+                            };
+                            string[] zombie =
+                            {
+                                    "      .-.",
+                                    "     (o o)",
+                                    "     | O |",
+                                    "     |   |",
+                                    "     '~~~'",
+                                    "  .-''''''-.",
+                                    " /  _.  ._  \\",
+                                    " | (_)  (_)  |",
+                                    " \\   __    //' ",
+                                    "  '.-- '---_",
+                                    " .||`-----'-||.",
+                                    "/ ||        ||   \\"
+                            };
+                            for (int x = 0; x < screenWidth - 10; x++)
+                            {
+                                Console.Clear();
+
+                                // Draw the soap
+                                for (int i = 0; i < soap.Length; i++)
+                                {
+                                    Console.SetCursorPosition(x, 5 + i);
+                                    // Fixed vertical position starting at row 5
+                                    Console.WriteLine(soap[i]);
+                                }
+
+                                // Draw the zombie at a different position
+                                for (int i = 0; i < zombie.Length; i++)
+                                {
+                                    Console.SetCursorPosition(screenWidth - x - 5, 5 + i);
+                                    // Another vertical position starting at row 5
+                                    Console.WriteLine(zombie[i]);
+                                }
+
+                                Thread.Sleep(100);
+                            }
+
+                            Console.SetCursorPosition(0, 10);
+                            Console.Clear();
                 }
 
 
-            }
+            //}
         }
     }
 }
