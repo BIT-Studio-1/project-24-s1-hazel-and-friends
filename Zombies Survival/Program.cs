@@ -748,6 +748,7 @@ namespace Skeleton_Program
                         {
                             inventory[4] = "food";
                             Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
+                            string food = "yes";
                             Console.WriteLine("Wold you like to grab any other item y/n?");
                             char user = char.Parse(Console.ReadLine());
                             if (user == 'y')
@@ -817,6 +818,8 @@ namespace Skeleton_Program
                             {
                                 Console.WriteLine("You make it to the dead guard's body. You take the key card and the gun.");
                                 /*INSERT INVENTORY GET GUN AND KEYCARD CODE HERE */
+                                string guardgun = "yes";
+                                string keycard = "yes";
                                 Console.WriteLine("Do you try sneaking back through the crowd of zombies (Y) or shoot your way out? (N)");
                                 string seconduserinput = Console.ReadLine();
                                 int randzombie2 = Rand.Next(1, 6);
@@ -920,6 +923,7 @@ namespace Skeleton_Program
                         }
                         Console.ReadLine();
                     }
+<<<<<<< HEAD
                     static void Died()
                     {
                         //Console.Clear();
@@ -969,6 +973,46 @@ namespace Skeleton_Program
                             Died();
                         }
                        
+=======
+                    static void office(string food, string guardgun, string keycard)
+                    {
+                        Console.WriteLine("You open the door and quietly enter the office.");
+                        Console.WriteLine("The room is dark and you can clearly hear zombies mumbling.");
+                        Console.WriteLine("You turn on the lights and realize the room has some zombies.");
+                        Console.WriteLine("There is a door labelled 'Armory' in the corner, it has a keycard reader. If you have a keycard, you may be able to access it.");
+                        Console.WriteLine("The zombies will definitely notice you if you try to go for it though, if you have food, you could cause a distraction.");
+                        Console.WriteLine("Or if you have a weapon, you could fight the zombies");
+                        Console.WriteLine("Throw Food (t) or Leave Room (l)?");
+                        string usersinput = Console.ReadLine();
+                        if (usersinput == "t" || usersinput == "T")
+                        {
+                            if (food == "yes")
+                            {
+                                Console.WriteLine("You throw the food into the corner of the room.");
+                                Console.WriteLine("All the zombies are distracted and move to the corner of the room, you step up to the armory door.");
+                                if (keycard == "yes")
+                                {
+                                    Console.WriteLine("You grab a fully loaded rifle. and leave the office.");
+                                    string rifle = "yes";
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("You do not have any food to throw.");
+                                Console.WriteLine("You turn around and leave the office.");
+                            }
+                        }
+                        else if (usersinput == "l" || usersinput == "L")
+                        {
+                            Console.WriteLine("You turn around and leave the office");
+                            Console.WriteLine("PRESS ENTER");
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("ERROR");
+                        }
+>>>>>>> 3d67957acf6bd72f7b4d08e3b4c8ef143778988e
                     }
 
 
