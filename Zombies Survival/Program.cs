@@ -879,10 +879,44 @@ namespace Skeleton_Program
                         }
                         Console.ReadLine();
                     }
-                    static void office()
+                    static void office(string food, string guardgun, string keycard)
                     {
                         Console.WriteLine("You open the door and quietly enter the office.");
                         Console.WriteLine("The room is dark and you can clearly hear zombies mumbling.");
+                        Console.WriteLine("You turn on the lights and realize the room has some zombies.");
+                        Console.WriteLine("There is a door labelled 'Armory' in the corner, it has a keycard reader. If you have a keycard, you may be able to access it.");
+                        Console.WriteLine("The zombies will definitely notice you if you try to go for it though, if you have food, you could cause a distraction.");
+                        Console.WriteLine("Or if you have a weapon, you could fight the zombies");
+                        Console.WriteLine("Throw Food (t) or Leave Room (l)?");
+                        string usersinput = Console.ReadLine();
+                        if (usersinput == "t" || usersinput == "T")
+                        {
+                            if (food == "yes")
+                            {
+                                Console.WriteLine("You throw the food into the corner of the room.");
+                                Console.WriteLine("All the zombies are distracted and move to the corner of the room, you step up to the armory door.");
+                                if (keycard == "yes")
+                                {
+                                    Console.WriteLine("You grab a fully loaded rifle. and leave the office.");
+                                    string rifle = "yes";
+                                }
+                            }
+                            else
+                            {
+                                Console.WriteLine("You do not have any food to throw.");
+                                Console.WriteLine("You turn around and leave the office.");
+                            }
+                        }
+                        else if (usersinput == "l" || usersinput == "L")
+                        {
+                            Console.WriteLine("You turn around and leave the office");
+                            Console.WriteLine("PRESS ENTER");
+                            Console.ReadLine();
+                        }
+                        else
+                        {
+                            Console.WriteLine("ERROR");
+                        }
                     }
 
 
