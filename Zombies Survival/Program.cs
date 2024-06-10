@@ -704,6 +704,7 @@ namespace Skeleton_Program
                         {
                             inventory[4] = "food";
                             Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
+                            string food = "yes";
                             Console.WriteLine("Wold you like to grab any other item y/n?");
                             char user = char.Parse(Console.ReadLine());
                             if (user == 'y')
@@ -877,6 +878,10 @@ namespace Skeleton_Program
                             Console.ReadLine();
                         }
                         Console.ReadLine();
+                    }
+                    static void courtyard()
+                    {
+                        Console.WriteLine("test");
                     }
 
 
