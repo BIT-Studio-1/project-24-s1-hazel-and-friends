@@ -773,6 +773,8 @@ namespace Skeleton_Program
                             {
                                 Console.WriteLine("You make it to the dead guard's body. You take the key card and the gun.");
                                 /*INSERT INVENTORY GET GUN AND KEYCARD CODE HERE */
+                                string guardgun = "yes";
+                                string keycard = "yes";
                                 Console.WriteLine("Do you try sneaking back through the crowd of zombies (Y) or shoot your way out? (N)");
                                 string seconduserinput = Console.ReadLine();
                                 int randzombie2 = Rand.Next(1, 6);
