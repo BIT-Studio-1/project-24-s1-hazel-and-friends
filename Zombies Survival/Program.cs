@@ -879,7 +879,7 @@ namespace Skeleton_Program
                         }
                         Console.ReadLine();
                     }
-                    static void courtyard()
+                    static void office()
                     {
                         Console.WriteLine("You open the door and quietly enter the office.");
                         Console.WriteLine("The room is dark and you can clearly hear zombies mumbling.");
