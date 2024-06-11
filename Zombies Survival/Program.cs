@@ -205,12 +205,8 @@ namespace Skeleton_Program
             Console.ReadLine();
             task1();
         }
-        public static void task1()
+        public static void mapmethod()
         {
-
-
-            string temp;
-
             string map = @"
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
@@ -267,6 +263,12 @@ namespace Skeleton_Program
 - 				*				*	~		*				*			 - 
 --------------------------------------------------------------------------------------------------------------------------------------------------";
             Console.WriteLine(map);
+        }
+        public static void task1()
+        {
+
+
+            string temp;
 
 
             Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
