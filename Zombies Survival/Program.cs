@@ -1080,6 +1080,29 @@ namespace Skeleton_Program
 
 
             }
+            static void VisitorRoom()
+            {
+                Console.WriteLine("You step into the visitor room, the dim lighting casts long shadows across the empty space.");
+                Console.WriteLine("Your footsteps echo ominously as you move forward.");
+                Console.WriteLine("All you see are rows of empty booths and your reflection in the dull bulletproof glass.\n");
+                Console.WriteLine("PRESS ENTER TO CONTINUE");
+                Console.ReadLine();
+                Console.WriteLine("You scan the room, your eyes straining to make out any sign of movement or life, but the visitor room is completely deserted.");
+                Console.WriteLine("Your heart pounds in your chest, the weight of your situation bearing down on you.");
+                Console.WriteLine("You can't help but wonder where all the visitors have gone, and a chill runs down your spine at this thought.");
+                Console.WriteLine("You carefully make your way towards the reception area.");
+                Console.WriteLine("PRESS ENTER TO CONTINUE");
+                Console.ReadLine();
+                Console.WriteLine("The silence is deafening, broken only by the sound of your own breathing and the occasional creak of the old building settling around you.");
+                Console.WriteLine("You can't afford to let your fear hold you back. The key to your freedom lies beyond these walls, and you know you have to keep moving, no matter the cost.");
+                Console.WriteLine("As you reach the doorway leading to the reception area, you pause, your hand gripping the handle tightly. This is it, the moment of truth.");
+                Console.WriteLine("With a steadfast resolve, you push the door open and step out into the unknown, ready to confront whatever challenges await you.");
+                Console.WriteLine("PRESS ENTER TO CONTINUE");
+                Console.ReadLine();
+                Console.WriteLine("It's finally starting to look like you're close to an exit ");
+                Console.WriteLine("You make you way into the reception");
+                //reception();
+            }
         }
     }
 }
