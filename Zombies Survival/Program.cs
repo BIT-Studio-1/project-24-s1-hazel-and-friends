@@ -1082,6 +1082,7 @@ namespace Skeleton_Program
             }
             static void VisitorRoom()
             {
+                Console.Clear();
                 Console.WriteLine("You step into the visitor room, the dim lighting casts long shadows across the empty space.");
                 Console.WriteLine("Your footsteps echo ominously as you move forward.");
                 Console.WriteLine("All you see are rows of empty booths and your reflection in the dull bulletproof glass.\n");
