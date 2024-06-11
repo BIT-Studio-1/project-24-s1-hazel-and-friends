@@ -370,8 +370,8 @@ namespace Skeleton_Program
                     Console.WriteLine("You stayed in cell blocks");
                     Console.WriteLine("You stayed in cell blocks, you feel a sharp pain on your neck");
                     Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
-                    Console.ReadKey();
-                    task1();
+                    Died();
+                    
                 }
             }
                 static void Corridor()
@@ -384,7 +384,7 @@ namespace Skeleton_Program
                     {
                         Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
                         Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
-                        task1();
+                        Died();
 
                     }
                     else if (answer == 'n' || answer == 'N')
@@ -926,13 +926,14 @@ namespace Skeleton_Program
 
                     static void Died()
                     {
-                        //Console.Clear();
+                        Console.Clear();
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \r\n ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\r\n  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\r\n  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌\r\n  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ \r\n   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ \r\n ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \r\n ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \r\n ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \r\n ░ ░                           ░                  ░     ");
+                        Console.WriteLine("                                                  PRESS ENTER TO GO BACK TO MAIN MENU");
                         Console.ResetColor();
-                        //Console.ReadKey();
+                        Console.ReadLine();
                         Console.Clear();
-                        task1();
+                        Main();
 
                     }
                     static void showers()
