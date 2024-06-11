@@ -273,10 +273,10 @@ namespace Skeleton_Program
 
             char user = char.Parse(Console.ReadLine());
 
-            if (user == 'l')
+            if (user == 'l' || user == 'L')
 
             {
-                Died();
+                //Died();
                 Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
                 Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
                 Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
@@ -286,7 +286,7 @@ namespace Skeleton_Program
                 Console.WriteLine("------------");
                 Corridor();
             }
-            else if (user == 'r')
+            else if (user == 'r' || user == 'R')
             {
 
                 Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors \nIn your mind you think to yourself this could be leading to cells or storage rooms.\n\n");
@@ -392,7 +392,7 @@ namespace Skeleton_Program
                         Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
                         Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
                         Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
-                        Console.WriteLine("Which way do you want to go? \n");
+                        Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
                         char direction = char.Parse(Console.ReadLine());
                         if (direction == 'L' || direction == 'l')
                         {
@@ -923,7 +923,7 @@ namespace Skeleton_Program
                         }
                         Console.ReadLine();
                     }
-<<<<<<< HEAD
+
                     static void Died()
                     {
                         //Console.Clear();
@@ -973,7 +973,7 @@ namespace Skeleton_Program
                             Died();
                         }
                        
-=======
+
                     static void office(string food, string guardgun, string keycard)
                     {
                         Console.WriteLine("You open the door and quietly enter the office.");
@@ -1012,7 +1012,7 @@ namespace Skeleton_Program
                         {
                             Console.WriteLine("ERROR");
                         }
->>>>>>> 3d67957acf6bd72f7b4d08e3b4c8ef143778988e
+
                     }
 
 
@@ -1076,7 +1076,7 @@ namespace Skeleton_Program
                 }
 
 
-            //}
+            }
         }
     }
 }
