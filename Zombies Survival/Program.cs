@@ -85,6 +85,22 @@ namespace Skeleton_Program
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
                 Console.ResetColor();
+                Console.WriteLine("WALKING JAIL");
+                Console.WriteLine();
+                Console.WriteLine("Developed by:");
+                Console.WriteLine("HAZEL AND FRIENDS");
+                Console.WriteLine();
+                Console.WriteLine("Credits:");
+                Console.WriteLine("- [ASTON]");
+                Console.WriteLine("- [JUSTINE]");
+                Console.WriteLine("- [CALEB]");
+                Console.WriteLine("- [HAZEL]");
+                Console.WriteLine("- [Sound Effects & Music Designer]");
+                Console.WriteLine("- [QA Testers]");
+                Console.WriteLine("- [Special Thanks to Contributors or Supporters]");
+                
+                Console.WriteLine();
+                Console.WriteLine("© [2024] [WALKING JAIL.LTD]");
                 Console.WriteLine("Press ENTER to return");
                 Console.ReadLine();
 
@@ -1082,7 +1098,7 @@ namespace Skeleton_Program
             }
             static void VisitorRoom()
             {
-                Console.Clear();
+                Console.Clear(); 
                 Console.WriteLine("You step into the visitor room, the dim lighting casts long shadows across the empty space.");
                 Console.WriteLine("Your footsteps echo ominously as you move forward.");
                 Console.WriteLine("All you see are rows of empty booths and your reflection in the dull bulletproof glass.\n");
