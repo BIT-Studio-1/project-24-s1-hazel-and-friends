@@ -424,10 +424,10 @@ namespace Skeleton_Program
                             Console.WriteLine("You decide not to look at the paper");
                             Thread.Sleep(1000);
                         }
-                        Console.WriteLine("You venture deeper into the library walking into a maze of bookshelfs ");
+                        Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves");
                         Thread.Sleep(1000);
-                        Console.WriteLine("You find yourself lost, each direction look unfimilliar \nYou look left, right, straight and up");
-                        Thread.Sleep(1000);
+                        Console.WriteLine("You find yourself lost, each direction look unfamiliar \nYou look left, right, straight and up");
+                        Thread.Sleep(3000);
                         Console.WriteLine("What is your next move?");
 
                         while (explore)
@@ -751,7 +751,7 @@ namespace Skeleton_Program
             }
 
 
-            
+
         }
 
         /**@cellBlock2()
@@ -1293,12 +1293,12 @@ namespace Skeleton_Program
         {
             string temp;
             int luck, damage;
-            if(fear > 100)
+            if (fear > 100)
             {
                 fear = 100;
             }
             fear += 25;
-            Console.WriteLine("You enter the coridor. You're surrouned by a mob of zombies they all turn around and try grab you");
+            Console.WriteLine("You enter the corridor. You're surrounded by a mob of zombies they all turn around and try grab you");
             Console.WriteLine("Do you go l or r?");
 
             try
@@ -1311,13 +1311,13 @@ namespace Skeleton_Program
                     {
                         case "l":
 
-                            Console.WriteLine("You decide to run left. As you turn a zombie grabs you and trys and bite you neck");
+                            Console.WriteLine("You decide to run left. As you turn a zombie grabs you and tries to bite you neck");
                             Console.WriteLine("Do you headbutt the zombie or try push it off you?");
                             temp = Console.ReadLine().ToLower();
                             if (temp.Equals("headbutt"))
                             {
                                 fear -= rand.Next(4, 10);
-                                Console.WriteLine("You head butt the zombie holding you and make a run for it down the left side of the corrider");
+                                Console.WriteLine("You head butt the zombie holding you and make a run for it down the left side of the corridor");
                             }
                             else if (temp.Equals("push"))
                             {
@@ -1329,7 +1329,7 @@ namespace Skeleton_Program
                                     fear += rand.Next(3, 8);
                                     Console.WriteLine($"As you push past the zombie but it manages scratch you.\nYou take {-damage} damage\nYou enter the courtyard");
                                     courtyard();
-                                   // corridor(); //For testing
+                                    // corridor(); //For testing
                                 }
                                 else if (luck.Equals(13))
                                 {
@@ -1341,7 +1341,7 @@ namespace Skeleton_Program
                                 else
                                 {
                                     fear -= rand.Next(1, 5);
-                                    Console.WriteLine("You push past the zombie and make a run for it down the left side of the corrider");
+                                    Console.WriteLine("You push past the zombie and make a run for it down the left side of the corridor");
                                     Console.WriteLine("You enter the courtyard");
                                     courtyard();
                                     // corridor(); //For testing
@@ -1357,7 +1357,7 @@ namespace Skeleton_Program
                             if (temp.Equals("kick"))
                             {
                                 fear -= rand.Next(5, 10);
-                                Console.WriteLine("You kick the zombie holding you foot and make a run for it down the right side of the corrider");
+                                Console.WriteLine("You kick the zombie holding you foot and make a run for it down the right side of the corridor");
                             }
                             else if (temp.Equals("stomp"))
                             {
@@ -1365,7 +1365,7 @@ namespace Skeleton_Program
                                 if ((luck >= 6 && luck <= 9) && !luck.Equals(13))
                                 {
                                     damage = rand.Next(10, 18);
-                                     playerHealth(damage);
+                                    playerHealth(damage);
                                     fear += rand.Next(3, 8);
                                     Console.WriteLine($"As you try stomp the zombie it moves its head... the ground shock to your leg hurts but you manage to limp past it. As you do the zombie gives you a deep scratch.\nYou take {-damage} damage");
                                     // corridor(); //For testing
@@ -1386,7 +1386,8 @@ namespace Skeleton_Program
                                     if (temp.Equals("continue"))
                                     {
 
-                                    }else if (temp.Equals("showers"))
+                                    }
+                                    else if (temp.Equals("showers"))
                                     {
                                         Console.WriteLine("You decide to run to the showers");
                                         showers();
@@ -1533,7 +1534,8 @@ namespace Skeleton_Program
                                 {
                                     Console.WriteLine("You make a run for it. Where do you decide to run to? Coorridor");
                                     temp = Console.ReadLine().ToLower();
-                                    if (temp.Equals("Coorridor")){
+                                    if (temp.Equals("Coorridor"))
+                                    {
                                         corridor();
                                     }
                                 }
@@ -2250,153 +2252,207 @@ namespace Skeleton_Program
             Console.ReadLine();
             Console.WriteLine("It's finally starting to look like you're close to an exit ");
             Console.WriteLine("You make you way into the reception");
-            reception();
+            reception(true);
         }
-        static void reception()
+        static void reception(bool calledFromVisitorRoom)
         {
             string temp;
             bool choice = true;
             bool receptionVisited = false;
             bool bodyVisited = false;
             bool chairVisited = false;
-            Console.WriteLine("You burst through the door and slam it shut");
-            Console.WriteLine("You feel the zombies crash onto the door with tremendous force");
-            Thread.Sleep(1500);
-            Console.WriteLine("");
-            Console.WriteLine("You look for something to wedge against the door");
-            Console.WriteLine("On your right you see a bookshelf and on your left you see a chair \nWhat do you choose?");
-
-            while (choice)
+            if (calledFromVisitorRoom)
             {
+                Console.WriteLine("You walk into the room, everything is dark, only lit up by a flickering light and the light coming from an adjacent door ");
+                Console.WriteLine("Would you like to explore the room or go to the door?(type 'explore' or 'door')");
                 temp = Console.ReadLine().ToLower();
-                switch (temp)
+
+                if (temp == "explore")
                 {
-                    case "chair":
-                        Console.WriteLine("You grab the chair and wedge it under the door knob");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("The banging continues but it seems that the door is holding");
-                        Thread.Sleep(2000);
-                        Console.WriteLine("You breath a sigh of relief");
-                        choice = false;
-                        Console.ReadLine();
-                        break;
-                    case "bookshelf":
-                        Console.WriteLine("You grab ahold of the side of the bookshelf and with all your might pull it down against the door");
-                        Console.WriteLine("The banging continues but it seems that the door is holding");
-                        Console.ReadLine();
-                        Console.WriteLine("You breath a sigh of relief");
-                        choice = false;
-                        Console.ReadLine();
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input: Please enter 'chair' or 'bookshelf'");
-                        break;
+                    Console.WriteLine("You decide to explore the room cautiously");
+                    Console.WriteLine("The room is in shambles, lights a are flickering showing splatter of blood all over the floor and walls");                 
+                    Thread.Sleep(2000);
+                    Console.WriteLine("");
+                    Console.WriteLine("The room is seems unintersting to you, just a normal looking reception room minus the blood you thought");
+                    Console.WriteLine("You decided to go towards the open door");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("As you reach the door you see a hoard of zombies lurking in the corridor");
+                    Console.WriteLine("The amount there gives you immense fear, your heartbeat starts to increase");
+                    Console.WriteLine("Your body freezes and you frantically think of your next move");
+                    Console.WriteLine("You decided to close the door as quietly as possible");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("You slowly begin to close the door but as you do a loud creak emits from the hinge");
+                    Console.WriteLine("Iin an instance all the zombies look in your direction");
+                    Console.WriteLine("You quickly slam the door shut");
 
-                }
-
-            }
-            Console.WriteLine("You quickly take a moment regain your composure");
-
-            Console.WriteLine("You take a look at your surroundings");
-            Thread.Sleep(1500);
-            Console.WriteLine("The room is in shambles, lights a are flickering showing splatter of blood all over the floor and walls");
-            Console.WriteLine("Using the flickering light you see a a receptionist desk, a dead body and a ominous looking chair \n\nwhat would you like to do?");
-
-            while (!(receptionVisited && bodyVisited && chairVisited))
-            {
-                temp = Console.ReadLine().ToLower();
-                switch (temp)
-                {
-                    case "receptionist desk":
-                        Console.WriteLine("You cautiously make your way to the desk");
-                        Console.WriteLine("The desk looks very messy but something catches your eyes");
-                        Console.WriteLine("A small note with the words 'Note 1', you see the numbers '112'");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("You wonder what this means");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("Where next?");
-                        receptionVisited = true; if (!(receptionVisited && bodyVisited && chairVisited))
-                        {
-                            Console.WriteLine("Where next?");
-                        }
-                        break;
-                    case "dead body":
-                        Console.WriteLine("You make you way cautiously to the dead body");
-                        Console.WriteLine("You see that it is the receptionist");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("You check if they are alive but they don't seem to be");
-                        Console.WriteLine("You check around in their pockets to see if they had anything useful, you find a wallet");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("You open the wallet to find an ID with the name 'Rick A', the rest of the name is covered up with dried blood");
-                        Console.WriteLine("Rummaging through the wallet more you find another small note that reads 'Note 2' it has the numbers '92'");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("You wonder what this means");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("Where next?");
-                        bodyVisited = true;
-                        if (!(receptionVisited && bodyVisited && chairVisited))
-                        {
-                            Console.WriteLine("Where next?");
-                        }
-                        break;
-                    case "ominous chair":
-                        Console.WriteLine("You make you way to the ominous chair");
-                        Console.WriteLine("You don't know why you feel so uneasy, you prepare for the worst");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("This feeling lingers till you make it to the chair");
-                        Console.WriteLine("You wonder what makes this chair so ominous");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("You see a small note with the words 'Note 3' written on it, the note has the numbers '25' ");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("You wonder what this means");
-                        Thread.Sleep(1500);
-                        Console.WriteLine("Where next?");
-                        chairVisited = true;
-                        if (!(receptionVisited && bodyVisited && chairVisited))
-                        {
-                            Console.WriteLine("Where next?");
-                        }
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input: Please enter 'receptionist desk', 'dead body' or 'ominous chair'.");
-                        break;
-                }
-
-            }
-            Thread.Sleep(3000);
-            Console.WriteLine("You take a moment to look at all 3 notes 1129225");
-            Console.WriteLine("What could these numbers mean?");
-            Console.WriteLine("PRESS ENTER TO CONTINUE");
-            Console.ReadLine();
-            Console.WriteLine("Your short moment is interupted by a a loud bang and crash at the door");
-            Console.WriteLine("You see that the door is starting to slowly hinge open due to the share amount of zombies pushing at it");
-            Console.WriteLine("You start to panic and look for your next escape");
-            Thread.Sleep(1500);
-            Console.WriteLine("You scan the room in a rush to find and exit");
-            Console.WriteLine("You being to panic as things start to set in");
-            Console.WriteLine("The room is so dark that anything that is not lit up by the flickering light is not visable");
-            Thread.Sleep(1500);
-            Console.WriteLine("The banging continues but it gradually gets louder");
-            Console.WriteLine("You panic more until you see a sign that is barely lit up by the light with the words exit");
-            Console.WriteLine("Run for exit?\n Yes 'y' or NO 'n'");
-            char answer = char.Parse(Console.ReadLine());
-            if (answer == 'y' || answer == 'Y')
-            {
-                Console.WriteLine("You run towards the exit door and crash through");
-                //exit();
-            }
-            else
-            {
-                {
-                    Console.WriteLine("You decided to stay and accept your fate");
-                    Console.WriteLine("The zombies come crashing thorugh the door and pile on you");
-                    Console.WriteLine("Life begins to fade as you become one of them");
+                    Console.WriteLine("PRESS ENTER TO CONTINUE");
                     Console.ReadLine();
-                    Died();
+
+
+                }
+                else if (temp == "door")
+                {
+                    Console.WriteLine("You cautiously make your way to the door out of curiosity.");
+                    Console.WriteLine("You decided to go towards the open door");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("As you reach the door you see a hoard of zombies lurking in the corridor");
+                    Console.WriteLine("The amount there gives you immense fear, your heartbeat starts to increase");
+                    Console.WriteLine("Your body freezes and you frantically think of your next move");
+                    Console.WriteLine("You decided to close the door as quietly as possible");
+                    Thread.Sleep(3000);
+                    Console.WriteLine("You slowly begin to close the door but as you do a loud creak emits from the hinge");
+                    Console.WriteLine("Iin an instance all the zombies look in your direction");
+                    Console.WriteLine("You quickly slam the door shut");
+
+                    Console.WriteLine("PRESS ENTER TO CONTINUE");
+                    Console.ReadLine();
+
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice: Please type 'explore' or 'door'.");
+
+                    Console.WriteLine("You cautiously make you way to the door out of curiosity ");
+                }
+                // Console.WriteLine("You burst through the door and slam it shut");
+                Console.WriteLine("You feel the zombies crash onto the door with tremendous force");
+                Thread.Sleep(1500);
+                Console.WriteLine("");
+                Console.WriteLine("You look for something to wedge against the door");
+                Console.WriteLine("On your right you see a bookshelf and on your left you see a chair \nWhat do you choose?");
+
+                while (choice)
+                {
+                    temp = Console.ReadLine().ToLower();
+                    switch (temp)
+                    {
+                        case "chair":
+                            Console.WriteLine("You grab the chair and wedge it under the door knob");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("The banging continues but it seems that the door is holding");
+                            Thread.Sleep(2000);
+                            Console.WriteLine("You breath a sigh of relief");
+                            choice = false;
+                            Console.ReadLine();
+                            break;
+                        case "bookshelf":
+                            Console.WriteLine("You grab ahold of the side of the bookshelf and with all your might pull it down against the door");
+                            Console.WriteLine("The banging continues but it seems that the door is holding");
+                            Console.ReadLine();
+                            Console.WriteLine("You breath a sigh of relief");
+                            choice = false;
+                            Console.ReadLine();
+                            break;
+                        default:
+                            Console.WriteLine("Invalid input: Please enter 'chair' or 'bookshelf'");
+                            break;
+
+                    }
+
+                }
+                Console.WriteLine("You quickly take a moment regain your composure");
+
+                Console.WriteLine("You take a look at your surroundings");
+                Thread.Sleep(1500);
+                Console.WriteLine("The room is in shambles, lights a are flickering showing splatter of blood all over the floor and walls");
+                Console.WriteLine("Using the flickering light you see a a receptionist desk, a dead body and a ominous looking chair \n\nwhat would you like to do?");
+
+                while (!(receptionVisited && bodyVisited && chairVisited))
+                {
+                    temp = Console.ReadLine().ToLower();
+                    switch (temp)
+                    {
+                        case "receptionist desk":
+                            Console.WriteLine("You cautiously make your way to the desk");
+                            Console.WriteLine("The desk looks very messy but something catches your eyes");
+                            Console.WriteLine("A small note with the words 'Note 1', you see the numbers '112'");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("You wonder what this means");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("Where next?");
+                            receptionVisited = true; if (!(receptionVisited && bodyVisited && chairVisited))
+                            {
+                                Console.WriteLine("Where next?");
+                            }
+                            break;
+                        case "dead body":
+                            Console.WriteLine("You make you way cautiously to the dead body");
+                            Console.WriteLine("You see that it is the receptionist");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("You check if they are alive but they don't seem to be");
+                            Console.WriteLine("You check around in their pockets to see if they had anything useful, you find a wallet");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("You open the wallet to find an ID with the name 'Rick A', the rest of the name is covered up with dried blood");
+                            Console.WriteLine("Rummaging through the wallet more you find another small note that reads 'Note 2' it has the numbers '92'");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("You wonder what this means");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("Where next?");
+                            bodyVisited = true;
+                            if (!(receptionVisited && bodyVisited && chairVisited))
+                            {
+                                Console.WriteLine("Where next?");
+                            }
+                            break;
+                        case "ominous chair":
+                            Console.WriteLine("You make you way to the ominous chair");
+                            Console.WriteLine("You don't know why you feel so uneasy, you prepare for the worst");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("This feeling lingers till you make it to the chair");
+                            Console.WriteLine("You wonder what makes this chair so ominous");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("You see a small note with the words 'Note 3' written on it, the note has the numbers '25' ");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("You wonder what this means");
+                            Thread.Sleep(1500);
+                            Console.WriteLine("Where next?");
+                            chairVisited = true;
+                            if (!(receptionVisited && bodyVisited && chairVisited))
+                            {
+                                Console.WriteLine("Where next?");
+                            }
+                            break;
+                        default:
+                            Console.WriteLine("Invalid input: Please enter 'receptionist desk', 'dead body' or 'ominous chair'.");
+                            break;
+                    }
+
+                }
+                Thread.Sleep(3000);
+                Console.WriteLine("You take a moment to look at all 3 notes 1129225");
+                Console.WriteLine("What could these numbers mean?");
+                Console.WriteLine("PRESS ENTER TO CONTINUE");
+                Console.ReadLine();
+                Console.WriteLine("Your short moment is interupted by a a loud bang and crash at the door");
+                Console.WriteLine("You see that the door is starting to slowly hinge open due to the share amount of zombies pushing at it");
+                Console.WriteLine("You start to panic and look for your next escape");
+                Thread.Sleep(1500);
+                Console.WriteLine("You scan the room in a rush to find and exit");
+                Console.WriteLine("You being to panic as things start to set in");
+                Console.WriteLine("The room is so dark that anything that is not lit up by the flickering light is not visable");
+                Thread.Sleep(1500);
+                Console.WriteLine("The banging continues but it gradually gets louder");
+                Console.WriteLine("You panic more until you see a sign that is barely lit up by the light with the words exit");
+                Console.WriteLine("Run for exit?\n Yes 'y' or NO 'n'");
+                char answer = char.Parse(Console.ReadLine());
+                if (answer == 'y' || answer == 'Y')
+                {
+                    Console.WriteLine("You run towards the exit door and crash through");
+                    //exit();
+                }
+                else
+                {
+                    {
+                        Console.WriteLine("You decided to stay and accept your fate");
+                        Console.WriteLine("The zombies come crashing thorugh the door and pile on you");
+                        Console.WriteLine("Life begins to fade as you become one of them");
+                        Console.ReadLine();
+                        Died();
+                    }
                 }
             }
-        }
 
+        }
     }
 }
 
