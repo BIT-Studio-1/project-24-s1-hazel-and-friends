@@ -751,66 +751,68 @@ namespace Skeleton_Program
             }
 
 
-            /**@cellBlock2()
-             * The cell block 2 method. Intiates all cell block 2 events
-             */
-            static void cellBlock2()
-            {
-                string temp;
-                bool check = false, zombieAwake = false;
-                int zombieMemory = -1;
-
-                if (!zombies.ContainsKey(1))
-                {
-                    check = false;                    //Gun check
-                    zombieAwake = false;
-                    zombieMemory = -1;                 //Zombie zombieMemory or last location of zombie
-                    cellBlockZombies = 1;
-                    zombies.Add(1, true);                 //Appends cell block 2 zombie to 'zombies' key, pair 
-                    zombieHealth.Add(1, 100);             //Appends cell black 2 zombies health to 'zombieHealth' key, pair
-                                                          //health = 100;
-                }
-
-                Console.WriteLine("You enter cellblock 2. The cell block is eriely quiet. The are 4 cells.\nDo you choose to continue towards the courtyard or enter one of the cells?\n (Y)es contine or (N)o stay?");
-                temp = Console.ReadLine().ToLower();
-
-                if (temp.Equals("y"))
-                {
-                    Console.WriteLine("You continue towards the courtyard");
-                }
-                else if (temp.Equals("n"))
-                {
-                    Console.WriteLine("You stay and decide to investigate each cell");
-                    Console.WriteLine("What cell do you choose to enter first?\nCell 1, 2, 3 or 4?");
-
-                    temp = Console.ReadLine();
-
-                    switch (Convert.ToInt32(temp))
-                    {
-                        case 1:
-                            cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
-                            break;
-                        case 2:
-                            cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
-                            break;
-
-                        case 3:
-                            cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
-                            break;
-
-                        case 4:
-                            cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
-                            break;
-
-                        default:
-                            Console.WriteLine("Choose a number");
-                            break;
-                    }
-                    Console.ReadLine();
-                }
-            }
+            
         }
 
+        /**@cellBlock2()
+             * The cell block 2 method. Intiates all cell block 2 events
+             */
+        static void cellBlock2()
+        {
+            string temp;
+            bool check = false, zombieAwake = false;
+            int zombieMemory = -1;
+
+            if (!zombies.ContainsKey(1))
+            {
+                check = false;                    //Gun check
+                zombieAwake = false;
+                zombieMemory = -1;                 //Zombie zombieMemory or last location of zombie
+                cellBlockZombies = 1;
+                zombies.Add(1, true);                 //Appends cell block 2 zombie to 'zombies' key, pair 
+                zombieHealth.Add(1, 100);             //Appends cell black 2 zombies health to 'zombieHealth' key, pair
+                                                      //health = 100;
+            }
+
+            Console.WriteLine("You enter cellblock 2. The cell block is eriely quiet. The are 4 cells.\nDo you choose to continue towards the courtyard or enter one of the cells?\n (Y)es contine or (N)o stay?");
+            temp = Console.ReadLine().ToLower();
+
+            if (temp.Equals("y"))
+            {
+                Console.WriteLine("You continue towards the corridor");
+                corridor();
+            }
+            else if (temp.Equals("n"))
+            {
+                Console.WriteLine("You stay and decide to investigate each cell");
+                Console.WriteLine("What cell do you choose to enter first?\nCell 1, 2, 3 or 4?");
+
+                temp = Console.ReadLine();
+
+                switch (Convert.ToInt32(temp))
+                {
+                    case 1:
+                        cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
+                        break;
+                    case 2:
+                        cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
+                        break;
+
+                    case 3:
+                        cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
+                        break;
+
+                    case 4:
+                        cellBlock2Options(Convert.ToInt32(temp), check, zombieAwake, zombieMemory);
+                        break;
+
+                    default:
+                        Console.WriteLine("Choose a number");
+                        break;
+                }
+                Console.ReadLine();
+            }
+        }
 
         /**
          * @cellBlock2Options controls the decisions the player makes and cell expolring
@@ -1284,6 +1286,128 @@ namespace Skeleton_Program
             }
         }
 
+        /**@corridor()
+         * The corridor method. Intiate corridor events
+         */
+        static void corridor()
+        {
+            string temp;
+            int luck, damage;
+            if(fear > 100)
+            {
+                fear = 100;
+            }
+            fear += 25;
+            Console.WriteLine("You enter the coridor. You're surrouned by a mob of zombies they all turn around and try grab you");
+            Console.WriteLine("Do you go l or r?");
+
+            try
+            {
+                temp = Console.ReadLine().ToLower();
+
+                if (temp.Equals("r") || temp.Equals("l"))
+                {
+                    switch (temp)
+                    {
+                        case "l":
+
+                            Console.WriteLine("You decide to run left. As you turn a zombie grabs you and trys and bite you neck");
+                            Console.WriteLine("Do you headbutt the zombie or try push it off you?");
+                            temp = Console.ReadLine().ToLower();
+                            if (temp.Equals("headbutt"))
+                            {
+                                fear -= rand.Next(4, 10);
+                                Console.WriteLine("You head butt the zombie holding you and make a run for it down the left side of the corrider");
+                            }
+                            else if (temp.Equals("push"))
+                            {
+                                luck = rand.Next(1, 13);
+                                if ((luck >= 6 && luck <= 9) && !luck.Equals(13))
+                                {
+                                    damage = rand.Next(5, 8);
+                                    playerHealth(damage);
+                                    fear += rand.Next(3, 8);
+                                    Console.WriteLine($"As you push past the zombie but it manages scratch you.\nYou take {-damage} damage\nYou enter the courtyard");
+                                    courtyard();
+                                   // corridor(); //For testing
+                                }
+                                else if (luck.Equals(13))
+                                {
+                                    Console.WriteLine("The zombie bites into your neck");
+                                    health = 0;
+                                    playerHealth(health);
+                                    // corridor(); //For testing
+                                }
+                                else
+                                {
+                                    fear -= rand.Next(1, 5);
+                                    Console.WriteLine("You push past the zombie and make a run for it down the left side of the corrider");
+                                    Console.WriteLine("You enter the courtyard");
+                                    courtyard();
+                                    // corridor(); //For testing
+                                }
+                            }
+                            break;
+
+                        case "r":
+
+                            Console.WriteLine("You decide to run right. As you turn a crawling zombie grabs your foot");
+                            Console.WriteLine("Do you kick the zombie or stomp on its head?");
+                            temp = Console.ReadLine().ToLower();
+                            if (temp.Equals("kick"))
+                            {
+                                fear -= rand.Next(5, 10);
+                                Console.WriteLine("You kick the zombie holding you foot and make a run for it down the right side of the corrider");
+                            }
+                            else if (temp.Equals("stomp"))
+                            {
+                                luck = rand.Next(1, 13);
+                                if ((luck >= 6 && luck <= 9) && !luck.Equals(13))
+                                {
+                                    damage = rand.Next(10, 18);
+                                     playerHealth(damage);
+                                    fear += rand.Next(3, 8);
+                                    Console.WriteLine($"As you try stomp the zombie it moves its head... the ground shock to your leg hurts but you manage to limp past it. As you do the zombie gives you a deep scratch.\nYou take {-damage} damage");
+                                    // corridor(); //For testing
+                                }
+                                else if (luck.Equals(13))
+                                {
+                                    Console.WriteLine("You miss and the zombie bites your calf causing you to fall over. The other zombies pile up on top of you. You scream as you finally experience the tourment many of the others went through... ");
+                                    health = 0;
+                                    playerHealth(health);
+                                    // corridor(); //For testing
+                                }
+                                else
+                                {
+                                    fear -= rand.Next(5, 10);
+                                    Console.WriteLine("You stomp on the zombies head killing it and make a run for it down the right side of the corrider");
+                                    Console.WriteLine("Whilst running you see the showers. Do you continue down the right of the corrider or go into the showers?\nContinue or showers");
+                                    temp = Console.ReadLine().ToLower();
+                                    if (temp.Equals("continue"))
+                                    {
+
+                                    }else if (temp.Equals("showers"))
+                                    {
+                                        Console.WriteLine("You decide to run to the showers");
+                                        showers();
+                                    }
+                                    // corridor(); //For testing
+                                }
+                            }
+                            break;
+                    }
+                }
+                else
+                {
+                    throw new Exception("Choose either r or l option");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
         /**
          * @cellBlockEvent
@@ -1407,7 +1531,11 @@ namespace Skeleton_Program
                                 }
                                 else if (temp.Equals("r"))
                                 {
-                                    Console.WriteLine("You make a run for it. Where do you decide to run to?");
+                                    Console.WriteLine("You make a run for it. Where do you decide to run to? Coorridor");
+                                    temp = Console.ReadLine().ToLower();
+                                    if (temp.Equals("Coorridor")){
+                                        corridor();
+                                    }
                                 }
                             }
                             else if (!inventory.Contains("9mm Handgun"))
@@ -1523,12 +1651,12 @@ namespace Skeleton_Program
                     break;
 
                 case "r":
-                    Console.WriteLine("Do you choose to run to the courtyard?");
+                    Console.WriteLine("Do you choose to run to the corridor?");
                     temp = Console.ReadLine().ToLower();
 
-                    if (temp.Equals("courtyard"))
+                    if (temp.Equals("corridor"))
                     {
-                        courtyard();
+                        corridor();
                     }
                     break;
             }
@@ -1803,7 +1931,8 @@ namespace Skeleton_Program
                     Console.WriteLine($"Player now has {health} health left");
                 }
             }
-            else if (health <= 0)
+
+            if (health <= 0)
             {
                 Died();
             }
