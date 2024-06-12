@@ -361,6 +361,7 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
                     Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
+                    Console.ReadLine();
                     Died();
 
                 }
@@ -440,9 +441,9 @@ namespace Skeleton_Program
                             Console.WriteLine("You decide not to look at the paper");
                             Thread.Sleep(1000);
                         }
-                        Console.WriteLine("You venture deeper into the library walking into a maze of bookshelfs ");
+                        Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves");
                         Thread.Sleep(1000);
-                        Console.WriteLine("You find yourself lost, each direction look unfimilliar \nYou look left, right, straight and up");
+                        Console.WriteLine("You find yourself lost, each direction look unfamilliar \nYou look left, right, straight and up");
                         Thread.Sleep(1000);
                         Console.WriteLine("What is your next move?");
 
@@ -469,8 +470,8 @@ namespace Skeleton_Program
                                     Console.WriteLine("You start to climb up the bookshelf \nYou feel it wobble and shake");
                                     Thread.Sleep(1000);
                                     Console.WriteLine("You lose your footing and fall to your death");
-                                    Thread.Sleep(1000);
-                                    Main();
+                                    Console.WriteLine();
+                                    Died();
                                     break;
                                 default:
                                     Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
@@ -482,7 +483,7 @@ namespace Skeleton_Program
 
                     }
                 }
-                else
+                else 
                 {
                     Console.WriteLine("You decide not to search the room.");
                 }
@@ -2320,7 +2321,7 @@ namespace Skeleton_Program
 
             while (!(receptionVisited && bodyVisited && chairVisited))
             {
-<<<<<<< HEAD
+
                 Console.Clear(); 
                 Console.WriteLine("You step into the visitor room, the dim lighting casts long shadows across the empty space.");
                 Console.WriteLine("Your footsteps echo ominously as you move forward.");
@@ -2342,7 +2343,7 @@ namespace Skeleton_Program
                 Console.WriteLine("It's finally starting to look like you're close to an exit ");
                 Console.WriteLine("You make you way into the reception");
                 //reception();
-=======
+
                 temp = Console.ReadLine().ToLower();
                 switch (temp)
                 {
@@ -2433,7 +2434,7 @@ namespace Skeleton_Program
                     Console.ReadLine();
                     Died();
                 }
->>>>>>> ad4a2bf3536d20b755c7ee4acca3c41fc8a3b0db
+
             }
         }
 
