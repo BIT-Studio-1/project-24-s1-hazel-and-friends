@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
+using System.Drawing;
+using System.Runtime.Intrinsics.X86;
+using System.Security.Principal;
+using System.Threading;
 using System.Xml.Serialization;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Skeleton_Program
@@ -20,14 +25,17 @@ namespace Skeleton_Program
         alive = true,                           //Bool(true) converted to zombie 'Alive' state for easier reading
         dead = false,                           //Bool(false) converted to zombie 'Dead' state for easier reading
         medkitCheck = false,                    //Checks if medkit was picked up
-        ammoPickupCheck = false;                //Checks if ammo was picked up
+        ammoPickupCheck = false,                //Checks if ammo was picked up
+        enteredCheck = false,
+        courtyardCheck = false,
+        showerCheck = false;
 
         static int health = 100,                //Player health
         cellBlockZombies = 0,                   //Checks which cell block zombie is selected   
         fear = 5;                               //Player fear based on zombie attacks done. Cause's gun inaccuracy. Medkits etc, entering new rooms and killing zombies decreases it
         static void Main()
         {
-            
+
 
             int tasks;
             do
@@ -51,7 +59,7 @@ namespace Skeleton_Program
                 Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
                 tasks = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
-                
+
                 switch (tasks)
                 {
 
@@ -366,7 +374,7 @@ namespace Skeleton_Program
                     Died();
 
                 }
-            } 
+            }
         }
 
         static void Corridor()
@@ -391,15 +399,11 @@ namespace Skeleton_Program
                 char direction = char.Parse(Console.ReadLine());
                 if (direction == 'L' || direction == 'l')
                 {
-<<<<<<< HEAD
                     Library();
-=======
                     Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
                     Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
                     Console.ReadLine();
                     Died();
-
->>>>>>> 591233ee12dfcdbacd87cb9e7a9b0354b96b0938
                 }
                 else if (direction == 'R' || (direction == 'r'))
                 {
@@ -505,59 +509,7 @@ namespace Skeleton_Program
                                 Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
                                 break;
                         }
-<<<<<<< HEAD
-=======
-                        else
-                        {
-                            Console.WriteLine("You decide not to look at the paper");
-                            Thread.Sleep(1000);
-                        }
-                        Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves");
 
-                        Thread.Sleep(1000);
-                        Console.WriteLine("You find yourself lost, each direction look unfamilliar \nYou look left, right, straight and up");
-
-
-                        Thread.Sleep(1000);
-                        Console.WriteLine("You find yourself lost, each direction look unfamiliar \nYou look left, right, straight and up");
-                        Thread.Sleep(3000);
-                        Console.WriteLine("What is your next move?");
-
-                        while (explore)
-                        {
-                            temp = Console.ReadLine().ToLower();
-                            switch (temp)
-                            {
-                                case "left":
-                                    Console.WriteLine("You find yourself back at where you started");
-                                    Console.WriteLine("Everything seems to be the same, you walk back into the maze to try again");
-                                    break;
-                                case "right":
-                                    Console.WriteLine("You exit the maze to see a door with the words 'Cafeteria' on it");
-                                    Console.WriteLine("You feel your stomach growling, it's been a while since you have eaten");
-                                    Console.WriteLine("YOu let your stomach control your actions \nYou walk towards the door and enter the cafeteria.");
-                                    Cafeteria();
-                                    break;
-                                case "up":
-                                    Console.WriteLine("You are too indecisive to make a choice");
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine("You look up and decide to get a better view");
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine("You start to climb up the bookshelf \nYou feel it wobble and shake");
-                                    Thread.Sleep(1000);
-                                    Console.WriteLine("You lose your footing and fall to your death");
-                                    Console.WriteLine();
-                                    Died();
-                                    break;
-                                default:
-                                    Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
-                                    break;
-
-                            }
-                        }
-
-
->>>>>>> 591233ee12dfcdbacd87cb9e7a9b0354b96b0938
                     }
                 }
             }
@@ -766,12 +718,6 @@ namespace Skeleton_Program
                     Console.WriteLine("");
                 }
             }
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 591233ee12dfcdbacd87cb9e7a9b0354b96b0938
         }
 
         static void Cafeteria()
@@ -1392,123 +1338,312 @@ namespace Skeleton_Program
          */
         static void corridor()
         {
-            string temp;
-            int luck, damage;
+            bool check = false;
+            string temp = null;
+            int luck = 0, damage;
             if (fear > 100)
             {
                 fear = 100;
             }
             fear += 25;
-            Console.WriteLine("You enter the corridor. You're surrounded by a mob of zombies they all turn around and try grab you");
-            Console.WriteLine("Do you go l or r?");
-
-            try
+            if (!enteredCheck.Equals(true))
             {
-                temp = Console.ReadLine().ToLower();
-
-                if (temp.Equals("r") || temp.Equals("l"))
+                enteredCheck = true;
+                Console.WriteLine("You enter the corridor. You're surrounded by a mob of zombies they all turn around and try grab you");
+                Console.WriteLine("Do you go l or r?");
+                do
                 {
-                    switch (temp)
+                    try
                     {
-                        case "l":
+                        temp = Console.ReadLine().ToLower();
 
-                            Console.WriteLine("You decide to run left. As you turn a zombie grabs you and tries to bite you neck");
-                            Console.WriteLine("Do you headbutt the zombie or try push it off you?");
-                            temp = Console.ReadLine().ToLower();
-                            if (temp.Equals("headbutt"))
+                        if (temp.Equals("r") || temp.Equals("l"))
+                        {
+                            switch (temp)
                             {
-                                fear -= rand.Next(4, 10);
-                                Console.WriteLine("You head butt the zombie holding you and make a run for it down the left side of the corridor");
-                            }
-                            else if (temp.Equals("push"))
-                            {
-                                luck = rand.Next(1, 13);
-                                if ((luck >= 6 && luck <= 9) && !luck.Equals(13))
-                                {
-                                    damage = rand.Next(5, 8);
-                                    playerHealth(damage);
-                                    fear += rand.Next(3, 8);
-                                    Console.WriteLine($"As you push past the zombie but it manages scratch you.\nYou take {-damage} damage\nYou enter the courtyard");
-                                    courtyard();
-                                    // corridor(); //For testing
-                                }
-                                else if (luck.Equals(13))
-                                {
-                                    Console.WriteLine("The zombie bites into your neck");
-                                    health = 0;
-                                    playerHealth(health);
-                                    // corridor(); //For testing
-                                }
-                                else
-                                {
-                                    fear -= rand.Next(1, 5);
-                                    Console.WriteLine("You push past the zombie and make a run for it down the left side of the corridor");
-                                    Console.WriteLine("You enter the courtyard");
-                                    courtyard();
-                                    // corridor(); //For testing
-                                }
-                            }
-                            break;
+                                case "l":
 
-                        case "r":
-
-                            Console.WriteLine("You decide to run right. As you turn a crawling zombie grabs your foot");
-                            Console.WriteLine("Do you kick the zombie or stomp on its head?");
-                            temp = Console.ReadLine().ToLower();
-                            if (temp.Equals("kick"))
-                            {
-                                fear -= rand.Next(5, 10);
-                                Console.WriteLine("You kick the zombie holding you foot and make a run for it down the right side of the corridor");
-                            }
-                            else if (temp.Equals("stomp"))
-                            {
-                                luck = rand.Next(1, 13);
-                                if ((luck >= 6 && luck <= 9) && !luck.Equals(13))
-                                {
-                                    damage = rand.Next(10, 18);
-                                    playerHealth(damage);
-                                    fear += rand.Next(3, 8);
-                                    Console.WriteLine($"As you try stomp the zombie it moves its head... the ground shock to your leg hurts but you manage to limp past it. As you do the zombie gives you a deep scratch.\nYou take {-damage} damage");
-                                    // corridor(); //For testing
-                                }
-                                else if (luck.Equals(13))
-                                {
-                                    Console.WriteLine("You miss and the zombie bites your calf causing you to fall over. The other zombies pile up on top of you. You scream as you finally experience the tourment many of the others went through... ");
-                                    health = 0;
-                                    playerHealth(health);
-                                    // corridor(); //For testing
-                                }
-                                else
-                                {
-                                    fear -= rand.Next(5, 10);
-                                    Console.WriteLine("You stomp on the zombies head killing it and make a run for it down the right side of the corrider");
-                                    Console.WriteLine("Whilst running you see the showers. Do you continue down the right of the corrider or go into the showers?\nContinue or showers");
+                                    Console.WriteLine("You decide to run left. As you turn a zombie grabs you and tries to bite you neck");
+                                    Console.WriteLine("Do you headbutt the zombie or try push it off you?");
                                     temp = Console.ReadLine().ToLower();
-                                    if (temp.Equals("continue"))
+                                    if (temp.Equals("headbutt"))
                                     {
+                                        fear -= rand.Next(4, 10);
+                                        Console.WriteLine("You head butt the zombie holding you and make a run for it down the left side of the corridor");
+                                    }
+                                    else if (temp.Equals("push"))
+                                    {
+                                        luck = rand.Next(1, 13);
+                                        if ((luck >= 6 && luck <= 9) && !luck.Equals(13))
+                                        {
+                                            damage = rand.Next(5, 8);
+                                            playerHealth(damage);
+                                            fear += rand.Next(3, 8);
+                                            Console.WriteLine($"As you push past the zombie but it manages scratch you.\nYou take {-damage} damage\nYou enter the courtyard");
+                                            courtyardCheck = true;
+                                            courtyard();
+                                            // corridor(); //For testing
+                                        }
+                                        else if (luck.Equals(13))
+                                        {
+                                            Console.WriteLine("The zombie bites into your neck");
+                                            health = 0;
+                                            playerHealth(health);
+                                            // corridor(); //For testing
+                                        }
+                                        else
+                                        {
+                                            fear -= rand.Next(1, 5);
+                                            Console.WriteLine("You push past the zombie and make a run for it down the left side of the corridor");
+                                            Console.WriteLine("You see the door to the court yard a crawling zombie is blocking the door way.\nDo you try (jump) over the zombie or make a dive for it?");
+                                            temp = Console.ReadLine().ToLower();
+                                            if (temp.Equals("dive"))
+                                            {
+                                                if (luck >= 6 && luck <= 9)
+                                                {
+                                                    Console.WriteLine("You dive over the zombie and enter the courtyard. You look down and see that the zombie scratched you");
+                                                    playerHealth(rand.Next(1, 5));
+                                                    courtyardCheck = true;
+                                                    courtyard();
+                                                }
+                                                else
+                                                {
+                                                    Console.WriteLine("You dive over the zombie and enter the courtyard");
+                                                    courtyardCheck = true;
+                                                    courtyard();
+                                                }
 
+                                            }
+                                            else if (temp.Equals("jump"))
+                                            {
+                                                if ((luck >= 3 && luck <= 10) && !luck.Equals(13))
+                                                {
+                                                    Console.WriteLine("You jump over the zombie and enter the courtyard. You look down and see that the zombie scratched your leg");
+                                                    playerHealth(rand.Next(1, 5));
+                                                    courtyardCheck = true;
+                                                    courtyard();
+                                                }
+                                                else if (luck.Equals(13))
+                                                {
+                                                    Console.WriteLine("You try jump the zombie but it grabs you leg and you fall. Before you can get up the mob of zombies pile on top of you and begin to devour you limb by limb.");
+                                                    health = 0;
+                                                    playerHealth(health);
+                                                }
+                                            }
+                                        }
                                     }
-                                    else if (temp.Equals("showers"))
+                                    break;
+
+                                case "r":
+
+                                    Console.WriteLine("You decide to run right. As you turn a crawling zombie grabs your foot");
+                                    Console.WriteLine("Do you kick the zombie or stomp on its head?");
+                                    temp = Console.ReadLine().ToLower();
+                                    if (temp.Equals("kick"))
                                     {
-                                        Console.WriteLine("You decide to run to the showers");
-                                        showers();
+                                        fear -= rand.Next(5, 10);
+                                        Console.WriteLine("You kick the zombie holding you foot and make a run for it down the right side of the corridor");
+                                        Console.WriteLine("Whilst running you see the showers. Do you continue down the right of the corrider or go into the showers?\nContinue or showers");
+                                        temp = Console.ReadLine().ToLower();
+                                        if (temp.Equals("continue"))
+                                        {
+                                            //TODO
+                                        }
+                                        else if (temp.Equals("showers"))
+                                        {
+                                            Console.WriteLine("You decide to run to the showers");
+                                            showerCheck = true;
+                                            showers();
+                                        }
                                     }
-                                    // corridor(); //For testing
-                                }
+                                    else if (temp.Equals("stomp"))
+                                    {
+                                        luck = rand.Next(1, 13);
+                                        if ((luck >= 6 && luck <= 9) && !luck.Equals(13))
+                                        {
+                                            damage = rand.Next(10, 18);
+                                            playerHealth(damage);
+                                            fear += rand.Next(3, 8);
+                                            Console.WriteLine($"As you try stomp the zombie it moves its head... the ground shock to your leg hurts but you manage to limp past it. As you do the zombie gives you a deep scratch.\nYou take {-damage} damage");
+                                            // corridor(); //For testing
+                                        }
+                                        else if (luck.Equals(13))
+                                        {
+                                            Console.WriteLine("You miss and the zombie bites your calf causing you to fall over. The other zombies pile up on top of you. You scream as you finally experience the tourment many of the others went through... ");
+                                            health = 0;
+                                            playerHealth(health);
+                                            // corridor(); //For testing
+                                        }
+                                        else
+                                        {
+                                            fear -= rand.Next(5, 10);
+                                            Console.WriteLine("You stomp on the zombies head killing it and make a run for it down the right side of the corrider");
+                                            Console.WriteLine("Whilst running you see the showers. Do you continue down the right of the corrider or go into the showers?\nContinue or showers");
+                                            temp = Console.ReadLine().ToLower();
+                                            if (temp.Equals("continue"))
+                                            {
+                                                //TODO
+                                            }
+                                            else if (temp.Equals("showers"))
+                                            {
+                                                Console.WriteLine("You decide to run to the showers");
+                                                showerCheck = true;
+                                                showers();
+                                            }
+                                            // corridor(); //For testing
+                                        }
+                                    }
+                                    break;
                             }
-                            break;
-                    }
-                }
-                else
-                {
-                    throw new Exception("Choose either r or l option");
-                }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Choose either r or l option");
+                        }
 
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                } while (!(temp.Equals("r") || temp.Equals("l")));
             }
-            catch (Exception ex)
+            else if (enteredCheck.Equals(true))
             {
-                Console.WriteLine(ex.Message);
+                Console.WriteLine("You re-enter the corridor and run past the mob of zombie");
+                do
+                {
+                    try
+                    {
+                        if (courtyardCheck.Equals(true) && !showerCheck.Equals(true))
+                        {
+                            Console.WriteLine("Do you run to cellblock 2, the showers or down the rest of the corridor");
+                        }
+                        else if (showerCheck.Equals(true) && !courtyardCheck.Equals(true))
+                        {
+                            Console.WriteLine("Do you run to cellblock 2, the courtyard or down the rest of the corridor");
+                        }
+                        else if (showerCheck.Equals(true) && courtyardCheck.Equals(true))
+                        {
+                            Console.WriteLine("Do you run to cellblock 2 or go back?");
+                        }
+                        temp = Console.ReadLine().ToLower();
+                        switch (temp)
+                        {
+                            case "cellblock 2":
+                                Console.WriteLine("You decide to re-enter cell block 2");
+                                check = true;
+                                cellBlock2();
+                                break;
+                            case "showers":
+                                Console.WriteLine("You decide to enter the showers");
+                                showerCheck = true;
+                                check = true;
+                                showers();
+                                break;
+                            case "corridor":
+                                Console.WriteLine("You run down the rest of the corridor and close the door behind you (or lock)\nYou see three rooms in front of you. Do you go into the (bathroom), (offices) or (vistors) room?");
+                                Console.ReadLine().ToLower();
+
+                                if (temp.Equals("bathroom"))
+                                {
+                                    Console.WriteLine("You decie to enter the bathroom");
+                                    check = true;
+                                    //bathroom();
+                                }
+                                else if (temp.Equals("offices"))
+                                {
+                                    Console.WriteLine("You decie to enter the offices area");
+                                    check = true;
+                                    //offices();
+                                }
+                                else if (temp.Equals("vistors"))
+                                {
+                                    Console.WriteLine("You decie to enter the vistors room");
+                                    check = true;
+                                    VisitorRoom();
+                                }
+                                break;
+                            case "back":
+                                check = true;
+                                Console.WriteLine("You go back to where you saw the three rooms. Do you go into the (bathroom), (offices) or (vistors) room?");
+                                Console.ReadLine().ToLower();
+
+                                if (temp.Equals("bathroom"))
+                                {
+                                    Console.WriteLine("You decie to enter the bathroom");
+                                    //bathroom();
+                                }
+                                else if (temp.Equals("offices"))
+                                {
+                                    Console.WriteLine("You decie to enter the offices area");
+                                    //offices();
+                                }
+                                else if (temp.Equals("vistors"))
+                                {
+                                    Console.WriteLine("You decie to enter the vistors room");
+                                    VisitorRoom();
+                                }
+                                break;
+                            default:
+                                Console.WriteLine("Enter an answer");
+                                break;
+
+                            case "courtyard":
+                                check = true;
+                                Console.WriteLine("You decide to enter the courtyard");
+                                Console.WriteLine("You see the door to the court yard a crawling zombie is blocking the door way.\nDo you try (jump) over the zombie or make a dive for it?");
+                                temp = Console.ReadLine().ToLower();
+
+                                if (temp.Equals("dive"))
+                                {
+                                    if (luck >= 6 && luck <= 9)
+                                    {
+                                        Console.WriteLine("You dive over the zombie and enter the courtyard. You look down and see that the zombie scratched you");
+                                        playerHealth(rand.Next(1, 5));
+                                        enteredCheck = true;
+                                        courtyardCheck = true;
+                                        courtyard();
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("You dive over the zombie and enter the courtyard");
+                                        enteredCheck = true;
+                                        courtyardCheck = true;
+                                        courtyard();
+                                    }
+
+                                }
+                                else if (temp.Equals("jump"))
+                                {
+                                    if ((luck >= 3 && luck <= 10) && !luck.Equals(13))
+                                    {
+                                        Console.WriteLine("You jump over the zombie and enter the courtyard. You look down and see that the zombie scratched your leg");
+                                        playerHealth(rand.Next(1, 5));
+                                        enteredCheck = true;
+                                        courtyardCheck = true;
+                                        courtyard();
+                                    }
+                                    else if (luck.Equals(13))
+                                    {
+                                        Console.WriteLine("You try jump the zombie but it grabs you leg and you fall. Before you can get up the mob of zombies pile on top of you and begin to devour you limb by limb.");
+                                        health = 0;
+                                        playerHealth(health);
+                                    }
+                                }
+                                courtyardCheck = true;
+                                courtyard();
+                                break;
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine();
+                    }
+                } while (!(temp.Equals("cellblock 2") || temp.Equals("showers") || temp.Equals("corridor") || temp.Equals("courtyard") || temp.Equals("back") || temp.Equals("vistors")));
             }
+
         }
 
         /**
@@ -1723,7 +1858,7 @@ namespace Skeleton_Program
                         Console.WriteLine("You check your inventory\nYou have ");
                         for (int i = 0; i < inventory.Length; i++)
                         {
-                            
+
                             if (inventory[i] != null)
                             {
                                 Console.Write($"[{inventory[i]}]");
@@ -2219,7 +2354,7 @@ namespace Skeleton_Program
                 Console.WriteLine("The zombie then happily walks away with its' bar of soap and doesn't even notice you \nYou're SAFE!! ");
                 Thread.Sleep(400);
                 Console.WriteLine("Only for now \nYou then make your way back into the corridor and see some rooms ahead of you");
-                //bathroom();
+                corridor();
 
             }
             else if (showier == "N")
