@@ -553,23 +553,29 @@ namespace Skeleton_Program
                 System.Threading.Thread.Sleep(100);
             }
             Console.WriteLine("You reached the recreation room, a safe spot for now");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Thread.Sleep(1000);
+            Console.WriteLine("\r\n ██▀███  ▓█████  ▄████▄      ██▀███   ▒█████   ▒█████   ███▄ ▄███▓\r\n▓██ ▒ ██▒▓█   ▀ ▒██▀ ▀█     ▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒\r\n▓██ ░▄█ ▒▒███   ▒▓█    ▄    ▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▓██    ▓██░\r\n▒██▀▀█▄  ▒▓█  ▄ ▒▓▓▄ ▄██▒   ▒██▀▀█▄  ▒██   ██░▒██   ██░▒██    ▒██ \r\n░██▓ ▒██▒░▒████▒▒ ▓███▀ ░   ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒\r\n░ ▒▓ ░▒▓░░░ ▒░ ░░ ░▒ ▒  ░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░\r\n  ░▒ ░ ▒░ ░ ░  ░  ░  ▒        ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░\r\n  ░░   ░    ░   ░             ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   \r\n   ░        ░  ░░ ░            ░         ░ ░      ░ ░         ░   \r\n                ░                                                 \r\n");
             Console.WriteLine("   _______\r\n  | Rec   |\r\n  | Room  |\r\n  |       | \r\n  | o     | \r\n  |_______|\r\n");
-            Thread.Sleep(2000);
+            Console.ResetColor();
             Console.WriteLine("");
             Console.WriteLine("Your heart is racing as you look for a hiding spot. You find a strong table at the corner of the room");
-            Thread.Sleep(3000);
+            
             Console.WriteLine("");
             Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
             string temp = "";
+            temp= Console.ReadLine().ToUpper();
+            if (temp != "HIDE")
+            {
+                Died();
+            }
 
 
 
-            while (temp != "HIDE")
+           // while (temp != "HIDE")
 
 
-                Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
-            Console.WriteLine("  ( (\r\n   ) )\r\n   ____\r\n  |    |\r\n  |    |]|\r\n  |____| \r\n");
-            Thread.Sleep(1000);
+           
             Console.WriteLine("You push open the heavy doors and step into the cafeteria,");
             Thread.Sleep(400);
             Console.WriteLine("The dim lighting casting long shadows across the empty tables and benches.");
