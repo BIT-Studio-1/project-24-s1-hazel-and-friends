@@ -144,9 +144,19 @@ namespace Skeleton_Program
         }
         public static void introduction()
         {
+
             Console.WriteLine("INTRODUCTION");
             Console.WriteLine("------------");
             Console.WriteLine("You wake up to the sound of knocking at your door, it's your landlord.");
+            Console.WriteLine("Do you want to skip the rest?\n\ny/n");
+            char temp = Convert.ToChar(Console.ReadLine().ToLower());
+            if(temp == 'y')
+            {
+                task1();
+            }
+
+
+
             Console.WriteLine("She says you are behind on the rent again, you explain how you got fired and it's not your fault but she doesn't care.");
             Console.WriteLine("She demands you pay your rent by tonight or else you'll be kicked out onto the street.");
             Console.WriteLine("To calm down and come up with ideas, you decide to go for a walk.");
