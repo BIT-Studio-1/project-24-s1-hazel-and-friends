@@ -126,8 +126,8 @@ namespace Skeleton_Program
                 Console.WriteLine();
                 Console.WriteLine("Credits:");
                 Console.WriteLine("- [ASTON]");
-                Console.WriteLine("- [JUSTINE]");
-                Console.WriteLine("- [CALEB]");
+                Console.WriteLine("- [SAMUEL]");
+                Console.WriteLine("- [EDWARD]");
                 Console.WriteLine("- [HAZEL]");
                 Console.WriteLine("- [Sound Effects & Music Designer]");
                 Console.WriteLine("- [QA Testers]");
