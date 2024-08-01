@@ -15,26 +15,7 @@ namespace Skeleton_Program
     internal class Program
     {
         static string[] inventory = new string[10];
-        /*
-        static SortedList<int, bool> zombies = new SortedList<int, bool>();         //Holds key pairs of zombies
-        static SortedList<string, int> ammo = new SortedList<string, int>();        //Holds key pairs different ammo types
-        static SortedList<int, int> zombieHealth = new SortedList<int, int>();      //Zombies health compares keys with 'zombies'(tKEY,tVALUE Pair)
-        static SortedList<string, bool> checks = new SortedList<string, bool>();    //WIP
-        static Random rand = new Random();
-
-        static bool zombieAwake,                //Checks if zombie is awake
-        alive = true,                           //Bool(true) converted to zombie 'Alive' state for easier reading
-        dead = false,                           //Bool(false) converted to zombie 'Dead' state for easier reading
-        medkitCheck = false,                    //Checks if medkit was picked up
-        ammoPickupCheck = false,                //Checks if ammo was picked up
-        enteredCheck = false,
-        courtyardCheck = false,
-        showerCheck = false;
-
-        static int health = 100,                //Player health
-        cellBlockZombies = 0,                   //Checks which cell block zombie is selected   
-        fear = 5;                               //Player fear based on zombie attacks done. Cause's gun inaccuracy. Medkits etc, entering new rooms and killing zombies decreases it
-        */
+        
         static void Main()
         {
 
