@@ -32,10 +32,12 @@ namespace Skeleton_Program
                     }
                 }
 
+                //Read intro txt file
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\r\n █     █░ ▄▄▄       ██▓     ██ ▄█▀ ██▓ ███▄    █   ▄████     ▄▄▄██▀▀▀▄▄▄       ██▓ ██▓    \r\n▓█░ █ ░█░▒████▄    ▓██▒     ██▄█▒ ▓██▒ ██ ▀█   █  ██▒ ▀█▒      ▒██  ▒████▄    ▓██▒▓██▒    \r\n▒█░ █ ░█ ▒██  ▀█▄  ▒██░    ▓███▄░ ▒██▒▓██  ▀█ ██▒▒██░▄▄▄░      ░██  ▒██  ▀█▄  ▒██▒▒██░    \r\n░█░ █ ░█ ░██▄▄▄▄██ ▒██░    ▓██ █▄ ░██░▓██▒  ▐▌██▒░▓█  ██▓   ▓██▄██▓ ░██▄▄▄▄██ ░██░▒██░    \r\n░░██▒██▓  ▓█   ▓██▒░██████▒▒██▒ █▄░██░▒██░   ▓██░░▒▓███▀▒    ▓███▒   ▓█   ▓██▒░██░░██████▒\r\n░ ▓░▒ ▒   ▒▒   ▓▒█░░ ▒░▓  ░▒ ▒▒ ▓▒░▓  ░ ▒░   ▒ ▒  ░▒   ▒     ▒▓▒▒░   ▒▒   ▓▒█░░▓  ░ ▒░▓  ░\r\n  ▒ ░ ░    ▒   ▒▒ ░░ ░ ▒  ░░ ░▒ ▒░ ▒ ░░ ░░   ░ ▒░  ░   ░     ▒ ░▒░    ▒   ▒▒ ░ ▒ ░░ ░ ▒  ░\r\n  ░   ░    ░   ▒     ░ ░   ░ ░░ ░  ▒ ░   ░   ░ ░ ░ ░   ░     ░ ░ ░    ░   ▒    ▒ ░  ░ ░   \r\n    ░          ░  ░    ░  ░░  ░    ░           ░       ░     ░   ░        ░  ░ ░      ░  ░\r\n                                                                                          \r\n");
+                Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
+                //Intro Header
                 Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
                 tasks = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
@@ -69,6 +71,8 @@ namespace Skeleton_Program
                 }
 
             } while (tasks != 0);
+            
+           
             static void task2()
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -106,8 +110,8 @@ namespace Skeleton_Program
                 Console.WriteLine();
                 Console.WriteLine("Credits:");
                 Console.WriteLine("- [ASTON]");
-                Console.WriteLine("- [JUSTINE]");
-                Console.WriteLine("- [CALEB]");
+                Console.WriteLine("- [SAMUEL]");
+                Console.WriteLine("- [EDWARD]");
                 Console.WriteLine("- [HAZEL]");
                 Console.WriteLine("- [Sound Effects & Music Designer]");
                 Console.WriteLine("- [QA Testers]");
@@ -122,47 +126,68 @@ namespace Skeleton_Program
             }
 
         }
+
+        static void Text(string text)
+        {
+            for (int i = 0; i < text.Length; i++)
+            {
+                Console.Write(text[i]);
+                Thread.Sleep(2);
+            }
+            Console.WriteLine();
+        }
+
         public static void introduction()
         {
+
             Console.WriteLine("INTRODUCTION");
             Console.WriteLine("------------");
-            Console.WriteLine("You wake up to the sound of knocking at your door, it's your landlord.");
-            Console.WriteLine("She says you are behind on the rent again, you explain how you got fired and it's not your fault but she doesn't care.");
-            Console.WriteLine("She demands you pay your rent by tonight or else you'll be kicked out onto the street.");
-            Console.WriteLine("To calm down and come up with ideas, you decide to go for a walk.");
-            Console.WriteLine("");
-            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Text("You wake up to the sound of knocking at your door, it's your landlord.");
+            Text("Do you want to skip the rest?\n\ny/n");
+            char temp = Convert.ToChar(Console.ReadLine().ToLower());
+            if(temp == 'y')
+            {
+                task1();
+            }
+
+
+
+            Text("She says you are behind on the rent again, you explain how you got fired and it's not your fault but she doesn't care.");
+            Text("She demands you pay your rent by tonight or else you'll be kicked out onto the street.");
+            Text("To calm down and come up with ideas, you decide to go for a walk.");
+            Text("");
+            Text("PRESS ENTER TO CONTINUE");
             Console.ReadLine();
             Console.WriteLine("------------");
-            Console.WriteLine("After walking through town thinking about all the bad choices you've made, you notice a vacant mansion across the street.");
-            Console.WriteLine("All the curtains are open, no one looks like they're inside and there are no cars in the driveway.");
-            Console.WriteLine("You peek into the curtains and notice various expensive-looking objects you could sell.");
-            Console.WriteLine("You also remember you need the money for your rent. By tonight.");
-            Console.WriteLine("");
-            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Text("After walking through town thinking about all the bad choices you've made, you notice a vacant mansion across the street.");
+            Text("All the curtains are open, no one looks like they're inside and there are no cars in the driveway.");
+            Text("You peek into the curtains and notice various expensive-looking objects you could sell.");
+            Text("You also remember you need the money for your rent. By tonight.");
+            Text("");
+            Text("PRESS ENTER TO CONTINUE");
             Console.ReadLine();
             Console.WriteLine("------------");
-            Console.WriteLine("You picklock the door with the picklocks you keep in your pocket, and start exploring and pocketing items in the house.");
+            Text("You picklock the door with the picklocks you keep in your pocket, and start exploring and pocketing items in the house.");
             Console.Beep((int)592.2, 1000);
             Console.Beep((int)370.2, 1000);
             Console.Beep((int)592.2, 1000);
             Console.Beep((int)370.2, 1000);
-            Console.WriteLine("After filling your pockets, you suddenly hear a police siren getting closer and closer.");
-            Console.WriteLine("You try to make a run for it onto the streets, but the cops are already there, waiting for you.");
-            Console.WriteLine("");
-            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Text("After filling your pockets, you suddenly hear a police siren getting closer and closer.");
+            Text("You try to make a run for it onto the streets, but the cops are already there, waiting for you.");
+            Text("");
+            Text("PRESS ENTER TO CONTINUE");
             Console.ReadLine();
             Console.WriteLine("------------");
-            Console.WriteLine("After 3 years, you're very tired of being in prison.");
+            Text("After 3 years, you're very tired of being in prison.");
             Console.Beep((int)294.2, 800);
             Console.Beep((int)277.2, 800);
             Console.Beep((int)262.2, 800);
             Console.Beep((int)247.2, 1100);
-            Console.WriteLine("you and you're cellmate are in your cell when suddenly you hear screaming.");
+            Text("you and you're cellmate are in your cell when suddenly you hear screaming.");
             Console.WriteLine("PRESS ENTER TO CONTINUE");
             Console.ReadLine();
             Console.WriteLine("");
-            Console.WriteLine("The riot alarm has been sounded and all the cell doors suddenly fly open.");
+            Text("The riot alarm has been sounded and all the cell doors suddenly fly open.");
             Console.Beep((int)772.2, 100);
             Console.Beep((int)772.2, 100);
             Console.Beep((int)772.2, 100);
@@ -173,12 +198,12 @@ namespace Skeleton_Program
             Console.Beep((int)772.2, 100);
             Console.Beep((int)772.2, 100);
             Console.Beep((int)772.2, 100);
-            Console.WriteLine("The halls are filled with prisoners shouting and running.");
-            Console.WriteLine("You try to step out of your cell, but your cellmate knocks you out cold before you can step through the doorway.");
-            Console.WriteLine("");
+            Text("The halls are filled with prisoners shouting and running.");
+            Text("You try to step out of your cell, but your cellmate knocks you out cold before you can step through the doorway.");
+            Text("");
             Console.WriteLine("------------");
-            Console.WriteLine("You wake up, feeling nauseous and uncomfortable, probably from sleeping on the cold prison floor for two days straight.");
-            Console.WriteLine("The prison is much quieter than usual, and the cell doors are all still open.");
+            Text("You wake up, feeling nauseous and uncomfortable, probably from sleeping on the cold prison floor for two days straight.");
+            Text("The prison is much quieter than usual, and the cell doors are all still open.");
             Console.WriteLine("");
             Console.ReadLine();
             task1();
@@ -510,48 +535,24 @@ namespace Skeleton_Program
                 System.Threading.Thread.Sleep(100);
             }
             Console.WriteLine("You reached the recreation room, a safe spot for now");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Thread.Sleep(1000);
+            Console.WriteLine("\r\n ██▀███  ▓█████  ▄████▄      ██▀███   ▒█████   ▒█████   ███▄ ▄███▓\r\n▓██ ▒ ██▒▓█   ▀ ▒██▀ ▀█     ▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒\r\n▓██ ░▄█ ▒▒███   ▒▓█    ▄    ▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▓██    ▓██░\r\n▒██▀▀█▄  ▒▓█  ▄ ▒▓▓▄ ▄██▒   ▒██▀▀█▄  ▒██   ██░▒██   ██░▒██    ▒██ \r\n░██▓ ▒██▒░▒████▒▒ ▓███▀ ░   ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒\r\n░ ▒▓ ░▒▓░░░ ▒░ ░░ ░▒ ▒  ░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░\r\n  ░▒ ░ ▒░ ░ ░  ░  ░  ▒        ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░\r\n  ░░   ░    ░   ░             ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   \r\n   ░        ░  ░░ ░            ░         ░ ░      ░ ░         ░   \r\n                ░                                                 \r\n");
             Console.WriteLine("   _______\r\n  | Rec   |\r\n  | Room  |\r\n  |       | \r\n  | o     | \r\n  |_______|\r\n");
-            Thread.Sleep(2000);
+            Console.ResetColor();
             Console.WriteLine("");
             Console.WriteLine("Your heart is racing as you look for a hiding spot. You find a strong table at the corner of the room");
-            Thread.Sleep(3000);
+
             Console.WriteLine("");
             Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
             string temp = "";
+            temp = Console.ReadLine().ToUpper();
+            if (temp != "HIDE")
+            {
+                Died();
+            }
 
 
-
-            while (temp != "HIDE")
-
-
-                Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
-            Console.WriteLine("  ( (\r\n   ) )\r\n   ____\r\n  |    |\r\n  |    |]|\r\n  |____| \r\n");
-            Thread.Sleep(1000);
-            Console.WriteLine("You push open the heavy doors and step into the cafeteria,");
-            Thread.Sleep(400);
-            Console.WriteLine("The dim lighting casting long shadows across the empty tables and benches.");
-            Thread.Sleep(400);
-            Console.WriteLine("As you scan the room, your eyes quickly adjust, and you begin to take note of your surroundings. ");
-            Thread.Sleep(400);
-            Console.WriteLine("The cafeteria is surprisingly well stocked, with several stainless steel counters lining the walls, each containing various supplies and equipment.");
-            Thread.Sleep(400);
-            Console.WriteLine("As you take a closer look, you notice that some of these counters have locks on them");
-            Thread.Sleep(400);
-            Console.WriteLine("Your gaze shifts to a stack of metal trays, their sharp edges glinting in the faint light.");
-            Thread.Sleep(400);
-            Console.WriteLine("Nearby, you spot a collection of dull-looking utensils forks, knives, and spoons  that could potentially be used again as makeshift weapons.");
-            Thread.Sleep(400);
-            Console.WriteLine("Further down, you notice a rack of plastic cups, each filled with a murky liquid that you assume is water.");
-            Thread.Sleep(400);
-            Console.WriteLine("The cups could be useful for carrying liquid or even as improvised tools but eww.");
-            Thread.Sleep(400);
-            Console.WriteLine("As you continue to explore the cafeteria, your attention is drawn to a set of shelves lining the back wall.");
-            Thread.Sleep(400);
-            Console.WriteLine("Upon closer inspection, you see that are some bags of dried food and a few sealed bottles of water.");
-            Thread.Sleep(400);
-            Console.WriteLine("These supplies could be valuable in your quest for survival in the WALKING JAIL.");
-            Thread.Sleep(400);
-            Console.WriteLine("Which of these items would you like to gather, (food or water)?");
             string choice = Console.ReadLine();
             if (choice == "food")
             {
@@ -611,7 +612,7 @@ namespace Skeleton_Program
                     System.Threading.Thread.Sleep(200);
                 }
 
-                Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2)");
+                Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2) STAY(press 3)");
                 temp = Console.ReadLine();
                 int hide = Convert.ToInt32(temp);
 
@@ -630,6 +631,7 @@ namespace Skeleton_Program
                         Console.WriteLine("");
                         Thread.Sleep(5000);
                         Console.WriteLine("The zombie grabs you, and you can't escape. Your mistake cost your life");
+                        Died();
                         break;
 
 
@@ -644,16 +646,10 @@ namespace Skeleton_Program
                         Console.WriteLine("You wait for a long time, but eventually, the zombie's sounds go away completely.");
                         Console.WriteLine("");
                         Thread.Sleep(5000);
-                        Console.WriteLine("You peek out from behind the couch and see that it's safe.");
+                        Console.WriteLine("You peek out from behind the couch and from what you can see, it's safe.");
                         break;
 
                     case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
                         Console.WriteLine("You choose to stay under the table");
                         Console.WriteLine("");
                         Thread.Sleep(3000);
@@ -670,6 +666,7 @@ namespace Skeleton_Program
                         Console.WriteLine("");
                         Thread.Sleep(2000);
                         Console.WriteLine("The zombie lunges forward, sinking its teeth into your leg. \n You scream in agony as the zombie's terrifying cry fills the room.");
+                        Died();
                         break;
 
                     default:
@@ -677,7 +674,7 @@ namespace Skeleton_Program
                         break;
                 }
 
-                Console.WriteLine("You're hiding behind the couch in the dim rec room jail. It's dark, and you can't see much.");
+                Console.WriteLine("You come out from behind the couch in the dim rec room jail. It's dark, and you can't see much.");
                 Console.WriteLine("");
                 Thread.Sleep(4000);
                 Console.WriteLine("Your hand touches two things: a flashlight and a pool stick. You need to decide which one to pick.");
