@@ -51,11 +51,12 @@ namespace Skeleton_Program
                 zombies.Clear();
                 ammo.Clear();
                 zombieHealth.Clear();
-
+                //Read intro txt file
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("\r\n █     █░ ▄▄▄       ██▓     ██ ▄█▀ ██▓ ███▄    █   ▄████     ▄▄▄██▀▀▀▄▄▄       ██▓ ██▓    \r\n▓█░ █ ░█░▒████▄    ▓██▒     ██▄█▒ ▓██▒ ██ ▀█   █  ██▒ ▀█▒      ▒██  ▒████▄    ▓██▒▓██▒    \r\n▒█░ █ ░█ ▒██  ▀█▄  ▒██░    ▓███▄░ ▒██▒▓██  ▀█ ██▒▒██░▄▄▄░      ░██  ▒██  ▀█▄  ▒██▒▒██░    \r\n░█░ █ ░█ ░██▄▄▄▄██ ▒██░    ▓██ █▄ ░██░▓██▒  ▐▌██▒░▓█  ██▓   ▓██▄██▓ ░██▄▄▄▄██ ░██░▒██░    \r\n░░██▒██▓  ▓█   ▓██▒░██████▒▒██▒ █▄░██░▒██░   ▓██░░▒▓███▀▒    ▓███▒   ▓█   ▓██▒░██░░██████▒\r\n░ ▓░▒ ▒   ▒▒   ▓▒█░░ ▒░▓  ░▒ ▒▒ ▓▒░▓  ░ ▒░   ▒ ▒  ░▒   ▒     ▒▓▒▒░   ▒▒   ▓▒█░░▓  ░ ▒░▓  ░\r\n  ▒ ░ ░    ▒   ▒▒ ░░ ░ ▒  ░░ ░▒ ▒░ ▒ ░░ ░░   ░ ▒░  ░   ░     ▒ ░▒░    ▒   ▒▒ ░ ▒ ░░ ░ ▒  ░\r\n  ░   ░    ░   ▒     ░ ░   ░ ░░ ░  ▒ ░   ░   ░ ░ ░ ░   ░     ░ ░ ░    ░   ▒    ▒ ░  ░ ░   \r\n    ░          ░  ░    ░  ░░  ░    ░           ░       ░     ░   ░        ░  ░ ░      ░  ░\r\n                                                                                          \r\n");
+                Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
+                //Intro Header
                 Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
                 tasks = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
