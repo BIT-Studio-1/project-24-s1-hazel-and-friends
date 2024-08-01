@@ -560,11 +560,10 @@ namespace Skeleton_Program
             Console.ResetColor();
             Console.WriteLine("");
             Console.WriteLine("Your heart is racing as you look for a hiding spot. You find a strong table at the corner of the room");
-            
             Console.WriteLine("");
             Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
             string temp = "";
-            temp= Console.ReadLine().ToUpper();
+            temp = Console.ReadLine().ToUpper();
             if (temp != "HIDE")
             {
                 Died();
@@ -576,6 +575,9 @@ namespace Skeleton_Program
 
 
            
+            Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
+            Console.WriteLine("  ( (\r\n   ) )\r\n   ____\r\n  |    |\r\n  |    |]|\r\n  |____| \r\n");
+            Thread.Sleep(1000);
             Console.WriteLine("You push open the heavy doors and step into the cafeteria,");
             Thread.Sleep(400);
             Console.WriteLine("The dim lighting casting long shadows across the empty tables and benches.");
