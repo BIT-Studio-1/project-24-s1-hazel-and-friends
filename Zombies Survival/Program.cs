@@ -394,6 +394,7 @@ namespace Skeleton_Program
                     //Console.WriteLine("You stayed in cell blocks");
                     Console.WriteLine("You stayed in cell blocks,all of a sudden you feel a sharp pain on your neck");
                     Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
+                    Console.ReadLine();
                     Died();
 
                 }
@@ -409,7 +410,6 @@ namespace Skeleton_Program
             if (answer == 'y' || answer == 'Y')
             {
                 Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-
                 Console.WriteLine("They both start to move and swiftly attack you. \nYou take you last breath and ...");
                 Console.ReadLine();
                 Died();
