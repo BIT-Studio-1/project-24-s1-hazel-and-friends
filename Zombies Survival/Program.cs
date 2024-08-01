@@ -90,8 +90,8 @@ namespace Skeleton_Program
                 }
 
             } while (tasks != 0);
-            
-           
+
+
             static void task2()
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -164,7 +164,7 @@ namespace Skeleton_Program
             Text("You wake up to the sound of knocking at your door, it's your landlord.");
             Text("Do you want to skip the rest?\n\ny/n");
             char temp = Convert.ToChar(Console.ReadLine().ToLower());
-            if(temp == 'y')
+            if (temp == 'y')
             {
                 task1();
             }
@@ -572,8 +572,8 @@ namespace Skeleton_Program
                 Died();
             }
             else
-            { 
-                Conole.WriteLine("You're hiding behind A table in the prison's game room.");
+            {
+                Console.WriteLine("You're hiding behind A table in the prison's game room.");
                 Thread.Sleep(2000);
                 Console.WriteLine("");
                 Console.WriteLine("There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.");
@@ -696,6 +696,7 @@ namespace Skeleton_Program
                     Console.WriteLine("");
                 }
             }
+
         }
 
         static void Cafeteria()
@@ -2761,10 +2762,12 @@ namespace Skeleton_Program
                     Died();
                 }
             }
-
         }
-
     }
+}
+
+
+    
 
 
 
