@@ -411,6 +411,7 @@ namespace Skeleton_Program
             {
                 Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
                 Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
+                Console.ReadLine();
                 Died();
 
             }
@@ -557,41 +558,22 @@ namespace Skeleton_Program
             Console.ForegroundColor = ConsoleColor.Red;
             Thread.Sleep(1000);
             Console.WriteLine("\r\n ██▀███  ▓█████  ▄████▄      ██▀███   ▒█████   ▒█████   ███▄ ▄███▓\r\n▓██ ▒ ██▒▓█   ▀ ▒██▀ ▀█     ▓██ ▒ ██▒▒██▒  ██▒▒██▒  ██▒▓██▒▀█▀ ██▒\r\n▓██ ░▄█ ▒▒███   ▒▓█    ▄    ▓██ ░▄█ ▒▒██░  ██▒▒██░  ██▒▓██    ▓██░\r\n▒██▀▀█▄  ▒▓█  ▄ ▒▓▓▄ ▄██▒   ▒██▀▀█▄  ▒██   ██░▒██   ██░▒██    ▒██ \r\n░██▓ ▒██▒░▒████▒▒ ▓███▀ ░   ░██▓ ▒██▒░ ████▓▒░░ ████▓▒░▒██▒   ░██▒\r\n░ ▒▓ ░▒▓░░░ ▒░ ░░ ░▒ ▒  ░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ░ ▒░▒░▒░ ░ ▒░   ░  ░\r\n  ░▒ ░ ▒░ ░ ░  ░  ░  ▒        ░▒ ░ ▒░  ░ ▒ ▒░   ░ ▒ ▒░ ░  ░      ░\r\n  ░░   ░    ░   ░             ░░   ░ ░ ░ ░ ▒  ░ ░ ░ ▒  ░      ░   \r\n   ░        ░  ░░ ░            ░         ░ ░      ░ ░         ░   \r\n                ░                                                 \r\n");
-            Console.WriteLine("   _______\r\n  | Rec   |\r\n  | Room  |\r\n  |       | \r\n  | o     | \r\n  |_______|\r\n");
             Console.ResetColor();
+            Console.WriteLine("   _______\r\n  | Rec   |\r\n  | Room  |\r\n  |       | \r\n  | o     | \r\n  |_______|\r\n");
             Console.WriteLine("");
             Console.WriteLine("Your heart is racing as you look for a hiding spot. You find a strong table at the corner of the room");
 
             Console.WriteLine("");
             Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
-            string temp = "";
-            temp = Console.ReadLine().ToUpper();
+
+            string temp = Console.ReadLine().ToUpper();
             if (temp != "HIDE")
             {
                 Died();
             }
-
-
-            string choice = Console.ReadLine();
-            if (choice == "food")
-            {
-                inventory[4] = "food";
-                Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
-                Console.WriteLine("Wold you like to grab any other item y/n?");
-                char user = char.Parse(Console.ReadLine());
-                if (user == 'y')
-
-                {
-                    temp = Console.ReadLine();
-
-                    if (temp != "HIDE")
-                    {
-                        Console.WriteLine("TRY AGAIN HURRY!!!!!");
-                        Console.WriteLine("HURRY TYPE    'HIDE'    IN ALL CAPS TO HIDE UNDER THE TABLE");
-                    }
-                }
-
-                Console.WriteLine("You're hiding behind A table in the prison's game room.");
+            else
+            { 
+                Conole.WriteLine("You're hiding behind A table in the prison's game room.");
                 Thread.Sleep(2000);
                 Console.WriteLine("");
                 Console.WriteLine("There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.");
@@ -2783,7 +2765,7 @@ namespace Skeleton_Program
         }
 
     }
-}
+
 
 
 
