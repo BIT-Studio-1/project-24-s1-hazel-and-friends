@@ -571,34 +571,6 @@ namespace Skeleton_Program
             }
 
 
-            Console.WriteLine("  \r\n ********  *********  ********* ********* ******** ******** *********  *  *********\r\n *         *       *  *         *             *    *        *       *  *  *       *\r\n *         *********  ********  *********     *    ******** ********   *  *********\r\n *         *       *  *         *             *    *        *   *      *  *       *\r\n ********  *       *  *         *********     *    ******** *      *   *  *       *     ");
-            Console.WriteLine("  ( (\r\n   ) )\r\n   ____\r\n  |    |\r\n  |    |]|\r\n  |____| \r\n");
-            Thread.Sleep(1000);
-            Console.WriteLine("You push open the heavy doors and step into the cafeteria,");
-            Thread.Sleep(400);
-            Console.WriteLine("The dim lighting casting long shadows across the empty tables and benches.");
-            Thread.Sleep(400);
-            Console.WriteLine("As you scan the room, your eyes quickly adjust, and you begin to take note of your surroundings. ");
-            Thread.Sleep(400);
-            Console.WriteLine("The cafeteria is surprisingly well stocked, with several stainless steel counters lining the walls, each containing various supplies and equipment.");
-            Thread.Sleep(400);
-            Console.WriteLine("As you take a closer look, you notice that some of these counters have locks on them");
-            Thread.Sleep(400);
-            Console.WriteLine("Your gaze shifts to a stack of metal trays, their sharp edges glinting in the faint light.");
-            Thread.Sleep(400);
-            Console.WriteLine("Nearby, you spot a collection of dull-looking utensils forks, knives, and spoons  that could potentially be used again as makeshift weapons.");
-            Thread.Sleep(400);
-            Console.WriteLine("Further down, you notice a rack of plastic cups, each filled with a murky liquid that you assume is water.");
-            Thread.Sleep(400);
-            Console.WriteLine("The cups could be useful for carrying liquid or even as improvised tools but eww.");
-            Thread.Sleep(400);
-            Console.WriteLine("As you continue to explore the cafeteria, your attention is drawn to a set of shelves lining the back wall.");
-            Thread.Sleep(400);
-            Console.WriteLine("Upon closer inspection, you see that are some bags of dried food and a few sealed bottles of water.");
-            Thread.Sleep(400);
-            Console.WriteLine("These supplies could be valuable in your quest for survival in the WALKING JAIL.");
-            Thread.Sleep(400);
-            Console.WriteLine("Which of these items would you like to gather, (food or water)?");
             string choice = Console.ReadLine();
             if (choice == "food")
             {
@@ -658,7 +630,7 @@ namespace Skeleton_Program
                     System.Threading.Thread.Sleep(200);
                 }
 
-                Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2)");
+                Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2) STAY(press 3)");
                 temp = Console.ReadLine();
                 int hide = Convert.ToInt32(temp);
 
@@ -677,6 +649,7 @@ namespace Skeleton_Program
                         Console.WriteLine("");
                         Thread.Sleep(5000);
                         Console.WriteLine("The zombie grabs you, and you can't escape. Your mistake cost your life");
+                        Died();
                         break;
 
 
@@ -691,16 +664,10 @@ namespace Skeleton_Program
                         Console.WriteLine("You wait for a long time, but eventually, the zombie's sounds go away completely.");
                         Console.WriteLine("");
                         Thread.Sleep(5000);
-                        Console.WriteLine("You peek out from behind the couch and see that it's safe.");
+                        Console.WriteLine("You peek out from behind the couch and from what you can see, it's safe.");
                         break;
 
                     case 3:
-                    case 4:
-                    case 5:
-                    case 6:
-                    case 7:
-                    case 8:
-                    case 9:
                         Console.WriteLine("You choose to stay under the table");
                         Console.WriteLine("");
                         Thread.Sleep(3000);
@@ -717,6 +684,7 @@ namespace Skeleton_Program
                         Console.WriteLine("");
                         Thread.Sleep(2000);
                         Console.WriteLine("The zombie lunges forward, sinking its teeth into your leg. \n You scream in agony as the zombie's terrifying cry fills the room.");
+                        Died();
                         break;
 
                     default:
@@ -724,7 +692,7 @@ namespace Skeleton_Program
                         break;
                 }
 
-                Console.WriteLine("You're hiding behind the couch in the dim rec room jail. It's dark, and you can't see much.");
+                Console.WriteLine("You come out from behind the couch in the dim rec room jail. It's dark, and you can't see much.");
                 Console.WriteLine("");
                 Thread.Sleep(4000);
                 Console.WriteLine("Your hand touches two things: a flashlight and a pool stick. You need to decide which one to pick.");
