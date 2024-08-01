@@ -674,7 +674,7 @@ namespace Skeleton_Program
                 }
                 else
                 {
-                    Console.WriteLine("");
+                    Cafeteria();
                 }
             }
 
