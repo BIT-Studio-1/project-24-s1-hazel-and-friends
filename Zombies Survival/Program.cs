@@ -56,7 +56,7 @@ namespace Skeleton_Program
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
-
+                //Intro Header
                 Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
                 tasks = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
