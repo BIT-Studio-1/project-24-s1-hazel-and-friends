@@ -23,10 +23,10 @@ namespace Skeleton_Program
         {
 
             int tasks = 0;
-            
+
             do
             {
-                
+
                 for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
                 {
                     if (inventory[i] != null)
@@ -46,7 +46,7 @@ namespace Skeleton_Program
                 try
                 {
                     tasks = Convert.ToInt32(Console.ReadLine());
-                  
+
                     switch (tasks)
                     {
 
@@ -63,22 +63,22 @@ namespace Skeleton_Program
                         case 4:
                             task4();
                             break;
-                        case 5:
-                            Console.WriteLine("Exit");
-                            break;
                         default:
                             Console.WriteLine("Please enter an integer between 0 and 5");
                             break;
                     }
 
                 }
-                catch (FormatException) 
+                catch (FormatException)
                 {
                     Console.WriteLine("Invalid format, please type an integer");
                 }
-                
+
             } while (tasks != 5);
             Console.Clear();
+            if (tasks == 5)
+                Console.WriteLine("Exit");
+
         }
         static void task2()
         {
