@@ -16,7 +16,7 @@ namespace Skeleton_Program
     {
         //Aston to sort new inventory system
         static string[] inventory = new string[10];
-
+        //Global choice variable
         static char choice = '\0';
 
         static void Main()
@@ -46,7 +46,7 @@ namespace Skeleton_Program
                 try
                 {
                     tasks = Convert.ToInt32(Console.ReadLine());
-
+                    
                     switch (tasks)
                     {
 
@@ -55,16 +55,19 @@ namespace Skeleton_Program
                             introduction();
                             break;
                         case 2:
+                            Console.Clear();
                             task2();
                             break;
                         case 3:
+                            Console.Clear();
                             task3();
                             break;
                         case 4:
+                            Console.Clear();
                             task4();
                             break;
                         default:
-                            Console.WriteLine("Please enter an integer between 0 and 5");
+                            Console.WriteLine("Please enter an integer between 1 and 5");
                             break;
                     }
 
@@ -76,9 +79,9 @@ namespace Skeleton_Program
 
             } while (tasks != 5);
             Console.Clear();
-            if (tasks == 5)
-                Console.WriteLine("Exit");
-
+            //When tasks = 5
+            Console.WriteLine("Exit");
+            
         }
         static void task2()
         {
