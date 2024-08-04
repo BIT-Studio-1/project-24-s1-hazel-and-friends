@@ -14,7 +14,10 @@ namespace Skeleton_Program
 {
     internal class Program
     {
+        //Aston to sort new inventory system
         static string[] inventory = new string[10];
+
+        static char choice = '\0';  
 
         static void Main()
         {
@@ -38,7 +41,7 @@ namespace Skeleton_Program
                 Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
                 //Intro Header
-                Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
+                Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
                 tasks = Convert.ToInt32(Console.ReadLine());
                 Console.Clear();
 
@@ -64,15 +67,15 @@ namespace Skeleton_Program
                         task4();
                         break;
 
-                    case 0:
+                    case 5:
                         Console.WriteLine("Exit");
                         break;
 
                 }
 
-            } while (tasks != 0);
+            } while (tasks != 5);
 
-
+        }
             static void task2()
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -125,7 +128,7 @@ namespace Skeleton_Program
 
             }
 
-        }
+        
 
         static void Text(string text)
         {
@@ -143,15 +146,28 @@ namespace Skeleton_Program
             Console.WriteLine("INTRODUCTION");
             Console.WriteLine("------------");
             Text("You wake up to the sound of knocking at your door, it's your landlord.");
-            Text("Do you want to skip the rest?\n\ny/n");
-            char temp = Convert.ToChar(Console.ReadLine().ToLower());
-            if (temp == 'y')
+            do
             {
-                task1();
-            }
+                Text("Do you want to skip the rest?\n\ny/n");
+            choice = Convert.ToChar(Console.ReadLine().ToLower());
+           
+                switch (choice)
+                {
+                    case 'y':
+                        task1();
+                        break;
+                    case 'n':
+                        introMessage();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
 
-
-
+            } while (choice != 'y' && choice != 'n');
+        }
+        public static void introMessage()
+        {
             Text("She says you are behind on the rent again, you explain how you got fired and it's not your fault but she doesn't care.");
             Text("She demands you pay your rent by tonight or else you'll be kicked out onto the street.");
             Text("To calm down and come up with ideas, you decide to go for a walk.");
@@ -207,8 +223,8 @@ namespace Skeleton_Program
             Console.WriteLine("");
             Console.ReadLine();
             task1();
-
         }
+
         public static void mapmethod()
         {
             string map = @"
