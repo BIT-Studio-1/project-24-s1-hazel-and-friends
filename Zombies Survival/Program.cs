@@ -22,7 +22,7 @@ namespace Skeleton_Program
         static void Main()
         {
 
-
+            
             int tasks;
             do
 
@@ -286,117 +286,144 @@ namespace Skeleton_Program
         }
         public static void task1()
         {
-
-
-            string temp;
-
-
-            Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
-
-            char user = char.Parse(Console.ReadLine());
-
-            if (user == 'l' || user == 'L')
-
+            do
             {
-                //Died();
-                Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
-                Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
-                Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
-                Console.WriteLine("You gaze into the distance and see flashing lights and run towards them ");
-                Console.WriteLine("PRESS ENTER TO CONTINUE");
-                Console.ReadLine();
-                Console.WriteLine("------------");
-                Corridor();
+                Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
+                choice = Convert.ToChar(Console.ReadLine().ToLower());
+                if (choice != 'l' && choice != 'r')
+                Console.WriteLine("Invalid choice");
+
+            } while (choice != 'l' && choice != 'r');
+            switch (choice)
+            {
+                case 'l':
+                    Left();
+                    break;
+                case 'r':
+                    Right();
+                    break;
             }
-            else if (user == 'r' || user == 'R')
+                    
+        }
+        static void Left()
+        {
+            Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
+            Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
+            Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
+            Console.WriteLine("You gaze into the distance and see flashing lights and run towards them ");
+            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Console.ReadLine();
+            Console.WriteLine("------------");
+            Corridor();
+        }
+        static void Right() 
+        {
+            Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors \nIn your mind you think to yourself this could be leading to cells or storage rooms.\n\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
+            Thread.Sleep(1000);
+            Console.WriteLine("Suddenly, a faint sound catches your attention.");
+            Thread.Sleep(1000);
+            Console.WriteLine("");
+            Console.WriteLine("------------");
+            Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
+            Thread.Sleep(1000);
+            Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
+            Thread.Sleep(1000);
+            Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
+            Thread.Sleep(1000);
+            Console.WriteLine("------------");
+            Console.WriteLine("As your heart races even faster, you approach cautiously.");
+            Console.Beep((int)60, 100);
+            Thread.Sleep(1000);
+            Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
+            Console.WriteLine("");
+            Console.WriteLine("------------\n\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
+            Thread.Sleep(1000);
+            Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
+            Thread.Sleep(1000);
+            Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me. \n\n");
+            Thread.Sleep(1000);
+            do
             {
-
-                Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors \nIn your mind you think to yourself this could be leading to cells or storage rooms.\n\n");
-                Thread.Sleep(1000);
-                Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
-                Thread.Sleep(1000);
-                Console.WriteLine("Suddenly, a faint sound catches your attention.");
-                Thread.Sleep(1000);
-                Console.WriteLine("");
-                Console.WriteLine("------------");
-                Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
-                Thread.Sleep(1000);
-                Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
-                Thread.Sleep(1000);
-                Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
-                Thread.Sleep(1000);
-                Console.WriteLine("------------");
-                Console.WriteLine("As your heart races even faster, you approach cautiously.");
-                Console.Beep((int)60, 100);
-                Thread.Sleep(1000);
-                Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
-                Console.WriteLine("");
-                Console.WriteLine("------------\n\n");
-                Thread.Sleep(1000);
-                Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
-                Thread.Sleep(1000);
-                Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
-                Thread.Sleep(1000);
-                Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me. \n\n");
-                Thread.Sleep(1000);
                 Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
-                string choice = Console.ReadLine().ToUpper();
+                choice = Convert.ToChar(Console.ReadLine().ToLower());
+                if (choice != 'h' && choice != 'i')
+                Console.WriteLine("Invalid Choice");
 
-                if (choice == "H")
-                {
-                    Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("They took... my keys.");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("You glance down and notice him holding a set of keys.");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
-                    inventory[1] = "Key";
-                    Console.WriteLine("INVENTORY UPDATED");
-                    for (int i = 0; i < inventory.Length; i++)
-                    {
-                        Console.WriteLine(inventory[i]);
-                    }
-                    Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("RUN!!!!");
+            } while (choice != 'h' && choice != 'i');
+            switch (choice)
+            {
+                case 'h':
+                    Help();
+                    break;
+                case 'i':
+                    Ignore();
+                    break;
+            }
+            //Call to stairs method
+            Stairs();
 
-                }
-
-
-                if (choice == "I")
-                {
-                    Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("You continue to make your way through the prison");
-                }
-
-
-
+        }
+        static void Help()
+        {
+            Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
+            Thread.Sleep(1000);
+            Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
+            Thread.Sleep(1000);
+            Console.WriteLine("They took... my keys.");
+            Thread.Sleep(1000);
+            Console.WriteLine("You glance down and notice him holding a set of keys.");
+            Thread.Sleep(1000);
+            Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
+            Thread.Sleep(1000);
+            Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
+            inventory[1] = "Key";
+            Console.WriteLine("INVENTORY UPDATED");
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                Console.WriteLine(inventory[i]);
+            }
+            Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
+            Thread.Sleep(1000);
+            Console.WriteLine("RUN!!!!");
+            
+        }
+        static void Ignore()
+        {
+            Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
+            Thread.Sleep(1000);
+            Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
+            Thread.Sleep(1000);
+            Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
+            Thread.Sleep(1000);
+            Console.WriteLine("You continue to make your way through the prison");
+            
+        }
+        static void Stairs()
+        {
+            do
+            {
                 Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
-                char answer = char.Parse(Console.ReadLine());
-                if (answer == 'y')
-                {
+                choice = Convert.ToChar(Console.ReadLine().ToLower());
+                if (choice != 'y' && choice != 'n')
+                    Console.WriteLine("Invalid Choice");
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
                     Corridor();
-                }
-                else if (answer == 'n')
-                {
-                    //Console.WriteLine("You stayed in cell blocks");
+                    break;
+                case 'n':
                     Console.WriteLine("You stayed in cell blocks,all of a sudden you feel a sharp pain on your neck");
                     Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
                     Console.ReadLine();
                     Died();
-
-                }
-            }
+                    break;
+            }        
         }
 
         static void Corridor()
@@ -950,9 +977,7 @@ namespace Skeleton_Program
             Console.WriteLine("                                                  PRESS ENTER TO GO BACK TO MAIN MENU");
             Console.ResetColor();
             Console.ReadLine();
-            Console.Clear();
-            Main();
-
+            Console.Clear();      
         }
         static void showers()
         {
