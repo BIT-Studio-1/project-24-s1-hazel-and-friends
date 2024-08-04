@@ -371,11 +371,12 @@ namespace Skeleton_Program
                 {
                     Corridor();
                 }
-                else
+                else if (answer == 'n')
                 {
-                    Console.WriteLine("You stayed in cell blocks");
-                    Console.WriteLine("You stayed in cell blocks, you feel a sharp pain on your neck");
+                    //Console.WriteLine("You stayed in cell blocks");
+                    Console.WriteLine("You stayed in cell blocks,all of a sudden you feel a sharp pain on your neck");
                     Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
+                    Console.ReadLine();
                     Died();
 
                 }
@@ -385,13 +386,13 @@ namespace Skeleton_Program
         static void Corridor()
         {
 
-            Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \n you see 2 bodies lying on the floor.");
+            Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \nyou see 2 bodies lying on the floor.");
             Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
             char answer = char.Parse(Console.ReadLine());
             if (answer == 'y' || answer == 'Y')
             {
                 Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-                Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
+                Console.WriteLine("They both start to move and swiftly attack you. \nYou take you last breath and ...");
                 Console.ReadLine();
                 Died();
 
@@ -406,10 +407,10 @@ namespace Skeleton_Program
                 if (direction == 'L' || direction == 'l')
                 {
                     Library();
-                    Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-                    Console.WriteLine("They both start to move and swiftly attack you. \nYou died");
-                    Console.ReadLine();
-                    Died();
+                    //Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
+                   //Console.WriteLine("They both start to move and swiftly attack you. ");
+                    
+                   // Died();
                 }
                 else if (direction == 'R' || (direction == 'r'))
                 {
@@ -473,7 +474,7 @@ namespace Skeleton_Program
 
                         }
                     }
-                    else if (investigate == 'n' || investigate == 'N')
+                    else if (investigate == 'n' ||  investigate == 'N')
                     {
                         Console.WriteLine("You decide not to investigate the room");
                         Thread.Sleep(1000);
@@ -759,7 +760,7 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
                     ////
-                    Console.WriteLine("Whilst exploring do you decide to go to cell block 2 or keep expolering the cafeteria\n(Y)es to enter cell block 2 or (N)o to stay in the cafetria");
+                    Console.WriteLine("Whilst exploring do you decide to go to cell block 2 or keep exploring the cafeteria\n(Y)es to enter cell block 2 or (N)o to stay in the cafeteria");
 
                     choice = Console.ReadLine().ToLower();
                     cellBlock2();
