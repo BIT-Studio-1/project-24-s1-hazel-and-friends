@@ -24,8 +24,7 @@ namespace Skeleton_Program
 
             int tasks = 0;
 
-            do
-            {
+            
 
                 for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
                 {
@@ -41,47 +40,47 @@ namespace Skeleton_Program
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
-                //Intro Header
                 Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
-                try
-                {
-                    tasks = Convert.ToInt32(Console.ReadLine());
-                    
-                    switch (tasks)
+            //Intro Header
+            do
+            {
+                //Bool to control loop for looping until the user enters an answer, in the correct format
+                bool success = false;
+                while (!success)
+                {                
+                    try
                     {
-
-                        case 1:
-                            Console.Clear();
-                            introduction();
-                            break;
-                        case 2:
-                            Console.Clear();
-                            task2();
-                            break;
-                        case 3:
-                            Console.Clear();
-                            task3();
-                            break;
-                        case 4:
-                            Console.Clear();
-                            task4();
-                            break;
-                        default:
-                            Console.WriteLine("Please enter an integer between 1 and 5");
-                            break;
+                        tasks = Convert.ToInt32(Console.ReadLine());
+                        if (tasks > 5)
+                            Console.WriteLine("Please enter an integer between 0 and 5");
+                        success = true;
                     }
-
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid format, please type an integer");                    
+                    }
                 }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format, please type an integer");
-                }
 
-            } while (tasks != 5);
+            } while (tasks >5);
             Console.Clear();
-            //When tasks = 5
-            Console.WriteLine("Exit");
-            
+            switch (tasks)
+            {
+                case 1:                 
+                    introduction();
+                    break;
+                case 2:                  
+                    task2();
+                    break;
+                case 3:                 
+                    task3();
+                    break;
+                case 4:                 
+                    task4();
+                    break;
+                case 5:                  
+                    Console.WriteLine("Exit");
+                    break;              
+            }        
         }
         static void task2()
         {
@@ -444,47 +443,52 @@ namespace Skeleton_Program
         {
 
             Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \nyou see 2 bodies lying on the floor.");
-            Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
-            char answer = char.Parse(Console.ReadLine());
-            if (answer == 'y' || answer == 'Y')
+            do
             {
-                Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-                Console.WriteLine("They both start to move and swiftly attack you. \nYou take you last breath and ...");
-                Console.ReadLine();
-                Died();
+                Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
+                choice = Convert.ToChar(Console.ReadLine().ToLower());
+                if (choice != 'y' && choice != 'n')
+                    Console.WriteLine("Invalid Choice");
 
-            }
-            else if (answer == 'n' || answer == 'N')
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
             {
-                Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
-                Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
-                Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
-                Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
-                char direction = char.Parse(Console.ReadLine());
-                if (direction == 'L' || direction == 'l')
-                {
-                    Library();
-                    //Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-                    //Console.WriteLine("They both start to move and swiftly attack you. ");
+                case 'y':
+                    Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
+                    Console.WriteLine("They both start to move and swiftly attack you. \nYou take you last breath and ...");
+                    Console.ReadLine();
+                    Died();
+                    break;
+                case 'n':
+                    No();
+                    break;
 
-                    // Died();
-                }
-                else if (direction == 'R' || (direction == 'r'))
-                {
-                    Recroom();
-                }
-                else
-                {
-                    Console.WriteLine("Invalid input. Please choose 'L' for Library or 'R' for Rec Room ");
-                }
-
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please choose 'Y' for Yes or 'N' for No");
             }
         }
+        static void No()
+        {
+            Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
+            Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
+            Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
+            do
+            {
+                Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
+            choice = Convert.ToChar(Console.ReadLine().ToLower());               
+                if (choice != 'l' && choice != 'r')
+                    Console.WriteLine("Invalid Choice");
 
+            } while (choice != 'l' && choice != 'r');
+            switch (choice)
+            {
+                case 'l':
+                    Library();
+                    break;
+                case 'r':
+                    Recroom();
+                    break;
+
+            }
+        }
         static void Library()
         {
             string temp;
