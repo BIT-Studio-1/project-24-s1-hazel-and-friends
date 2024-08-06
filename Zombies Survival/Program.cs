@@ -33,54 +33,56 @@ namespace Skeleton_Program
                         inventory[i] = null;
                     }
                 }
-
+            do
+            {
                 //Read intro txt file
-                Thread.Sleep(1000);
+                
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
                 Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
-            //Intro Header
-            do
-            {
-                //Bool to control loop for looping until the user enters an answer, in the correct format
-                bool success = false;
-                while (!success)
-                {                
-                    try
+                //Intro Header
+                do
+                {
+                    //Bool to control loop for looping until the user enters an answer, in the correct format
+                    bool success = false;
+                    while (!success)
                     {
-                        tasks = Convert.ToInt32(Console.ReadLine());
-                        if (tasks > 5)
-                            Console.WriteLine("Please enter an integer between 0 and 5");
-                        success = true;
+                        try
+                        {
+                            tasks = Convert.ToInt32(Console.ReadLine());
+                            if (tasks > 5)
+                                Console.WriteLine("Please enter an integer between 0 and 5");
+                            success = true;
+                        }
+                        catch (FormatException)
+                        {                          
+                            Console.WriteLine("Invalid format, please type an integer");
+                        }
                     }
-                    catch (FormatException)
-                    {
-                        Console.WriteLine("Invalid format, please type an integer");                    
-                    }
-                }
 
-            } while (tasks >5);
-            Console.Clear();
-            switch (tasks)
-            {
-                case 1:                 
-                    introduction();
-                    break;
-                case 2:                  
-                    task2();
-                    break;
-                case 3:                 
-                    task3();
-                    break;
-                case 4:                 
-                    task4();
-                    break;
-                case 5:                  
-                    Console.WriteLine("Exit");
-                    break;              
-            }        
+                } while (tasks > 5);
+                Console.Clear();
+                switch (tasks)
+                {
+                    case 1:
+                        introduction();
+                        break;
+                    case 2:
+                        task2();
+                        break;
+                    case 3:
+                        task3();
+                        break;
+                    case 4:
+                        task4();
+                        break;
+                    case 5:
+                        Console.WriteLine("Exit");
+                        break;
+                }
+            }while (tasks >= 2 && tasks <=4);
         }
         static void task2()
         {
@@ -95,6 +97,7 @@ namespace Skeleton_Program
             Console.WriteLine("");
             Console.WriteLine("                            Press ENTER to return");
             Console.ReadLine();
+            
         }
         static void task3()
         {
