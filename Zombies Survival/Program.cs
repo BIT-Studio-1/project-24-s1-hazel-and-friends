@@ -301,10 +301,17 @@ namespace Skeleton_Program
         {
             do
             {
-                Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
-                choice = Convert.ToChar(Console.ReadLine().ToLower());
-                if (choice != 'l' && choice != 'r')
-                    Console.WriteLine("Invalid choice");
+                try
+                {
+                    Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'l' && choice != 'r')
+                        Console.WriteLine("Invalid choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
 
             } while (choice != 'l' && choice != 'r');
             switch (choice)
