@@ -368,10 +368,17 @@ namespace Skeleton_Program
             Thread.Sleep(1000);
             do
             {
-                Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
-                choice = Convert.ToChar(Console.ReadLine().ToLower());
-                if (choice != 'h' && choice != 'i')
-                    Console.WriteLine("Invalid Choice");
+                try
+                {
+                    Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'h' && choice != 'i')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
 
             } while (choice != 'h' && choice != 'i');
             switch (choice)
@@ -426,10 +433,17 @@ namespace Skeleton_Program
         {
             do
             {
-                Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
-                choice = Convert.ToChar(Console.ReadLine().ToLower());
-                if (choice != 'y' && choice != 'n')
-                    Console.WriteLine("Invalid Choice");
+                try
+                {
+                    Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
 
             } while (choice != 'y' && choice != 'n');
             switch (choice)
@@ -452,10 +466,17 @@ namespace Skeleton_Program
             Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \nyou see 2 bodies lying on the floor.");
             do
             {
-                Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
-                choice = Convert.ToChar(Console.ReadLine().ToLower());
-                if (choice != 'y' && choice != 'n')
-                    Console.WriteLine("Invalid Choice");
+                try
+                {
+                    Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
 
             } while (choice != 'y' && choice != 'n');
             switch (choice)
@@ -479,10 +500,17 @@ namespace Skeleton_Program
             Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
             do
             {
-                Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
-            choice = Convert.ToChar(Console.ReadLine().ToLower());               
-                if (choice != 'l' && choice != 'r')
-                    Console.WriteLine("Invalid Choice");
+                try
+                {
+                    Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'l' && choice != 'r')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
 
             } while (choice != 'l' && choice != 'r');
             switch (choice)
