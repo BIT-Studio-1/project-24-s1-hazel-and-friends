@@ -652,7 +652,41 @@ namespace Skeleton_Program
             Console.WriteLine("You make your way back into the corridor and decide to head to the rec room");
             Recroom(inventory);
         }
+        static void investigateYes(List<string> inventory)
+        {
+            Console.WriteLine("You step on a piece of paper");
+            Thread.Sleep(1000);
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Pick up Yes (y) or No (n)?");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
 
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
+                    pickUpYes(inventory);
+                    break;
+                case 'n':
+                    pickUpNo();
+                    break;
+
+            }
+        }
+        static void investigateNo(List<string> inventory)
+        {
+            Console.WriteLine("You decide not to investigate the room");
+            Thread.Sleep(1000);
+        }
 
 
 
