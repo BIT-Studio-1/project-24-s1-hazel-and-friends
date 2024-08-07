@@ -574,6 +574,78 @@ namespace Skeleton_Program
 
 
         }
+        static void exploreYes(List<string> inventory)
+        {
+            bool explore = true;
+
+            Console.WriteLine("You search around the room, seeing piles and piles of books on the ground.");
+            Thread.Sleep(1000);
+
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Would you like to investigate? Yes 'y' or No 'n'?");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
+                    investigateYes(inventory);
+                    break;
+                case 'n':
+                    investigateNo(inventory);
+                    break;
+            }
+
+            Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves ");
+            Thread.Sleep(1000);
+            Console.WriteLine("You find yourself lost, each direction look unfamiliar \nYou look left, right, straight and up");
+            Thread.Sleep(1000);
+            Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
+
+            while (explore.Equals(true))
+            {
+                string temp = Console.ReadLine().ToLower();
+                switch (temp)
+                {
+                    case "left":
+                        Console.WriteLine("You find yourself back at where you started");
+                        Console.WriteLine("Everything seems to be the same, you walk back into the maze to try again");
+                        Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
+                        break;
+                    case "right":
+                        Console.WriteLine("You exit the maze to see a door with the words 'Cafeteria' on it");
+                        Console.WriteLine("You feel your stomach growling, it's been a while since you have eaten");
+                        Console.WriteLine("YOu let your stomach control your actions \nYou walk towards the door and enter the cafeteria.");
+                        explore = false;
+                        Cafeteria(inventory);
+                        break;
+                    case "up":
+                        Console.WriteLine("You are too indecisive to make a choice");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You look up and decide to get a better view");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You start to climb up the bookshelf \nYou feel it wobble and shake");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You lose your footing and fall to your death");
+                        Thread.Sleep(1000);
+                        Died();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
+                        break;
+                }
+            }
+        }
 
         static void Recroom(List<string> inventory)
         {
