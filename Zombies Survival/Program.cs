@@ -341,7 +341,7 @@ namespace Skeleton_Program
                     Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
                     Thread.Sleep(1000);
                     Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
-                    inventory.Add("Key");
+                    inventory.Add("key");
                     Console.WriteLine("INVENTORY UPDATED");
                     Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                     Thread.Sleep(1000);
@@ -458,7 +458,7 @@ namespace Skeleton_Program
                             Console.WriteLine("You pick up the piece of paper and examine it.");
                             Thread.Sleep(1000);
                             Console.WriteLine("On further examination you see that it is the map of the prison");
-                            inventory.Add("Map");
+                            inventory.Add("map");
                             Thread.Sleep(1000);
                             Console.WriteLine("You examine the map carefully slowly growing board of it,\nyou scrunch up the map and put it into your pocket and move on");
                             Thread.Sleep(1000);
@@ -676,7 +676,7 @@ namespace Skeleton_Program
                 if (item == 'q' || item == 'Q')
                 {
                     Console.WriteLine("");
-                    inventory.Add("Flashlight");//what happends now??
+                    inventory.Add("flashlight");//what happends now??
                 }
                 else
                 {
@@ -819,7 +819,7 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("You make it to the dead guard's body. You take the key card and the gun.");
                     /*INSERT INVENTORY GET GUN AND KEYCARD CODE HERE */
-                    inventory.Add("guardgun");
+                    inventory.Add("pistol");
                     inventory.Add("keycard");
                     Console.WriteLine("Do you try sneaking back through the crowd of zombies (Y) or shoot your way out? (N)");
                     string seconduserinput = Console.ReadLine();
@@ -976,7 +976,7 @@ namespace Skeleton_Program
             }
 
 
-            static void office(string food, string guardgun, string keycard, List<string> inventory)
+            static void office(List<string> inventory)
             {
                 Console.WriteLine("You open the door and quietly enter the office.");
                 Console.WriteLine("The room is dark and you can clearly hear zombies mumbling.");
@@ -985,6 +985,16 @@ namespace Skeleton_Program
                 Console.WriteLine("The zombies will definitely notice you if you try to go for it though, if you have food, you could cause a distraction.");
                 Console.WriteLine("Or if you have a weapon, you could fight the zombies");
                 Console.WriteLine("Throw Food (t) or Leave Room (l)?");
+                string food = "";
+                string keycard = "";
+                if (inventory.Contains("food"))
+                {
+                    food = ("yes");
+                }
+                if (inventory.Contains("keycard"))
+                {
+                    keycard = ("yes");
+                }
                 string usersinput = Console.ReadLine();
                 if (usersinput == "t" || usersinput == "T")
                 {
@@ -995,7 +1005,7 @@ namespace Skeleton_Program
                         if (keycard == "yes")
                         {
                             Console.WriteLine("You grab a fully loaded rifle. and leave the office.");
-                            string rifle = "yes";
+                            inventory.Add("Rifle");
                         }
                     }
                     else
