@@ -325,6 +325,76 @@ namespace Skeleton_Program
 
 
         }
+        static void Left(List<string> inventory)
+        {
+            Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
+            Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
+            Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
+            Console.WriteLine("You gaze into the distance and see flashing lights and run towards them ");
+            Console.WriteLine("PRESS ENTER TO CONTINUE");
+            Console.ReadLine();
+            Console.WriteLine("------------");
+            Corridor(inventory);
+        }
+        static void Right(List<string> inventory)
+        {
+            Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors \nIn your mind you think to yourself this could be leading to cells or storage rooms.\n\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
+            Thread.Sleep(1000);
+            Console.WriteLine("Suddenly, a faint sound catches your attention.");
+            Thread.Sleep(1000);
+            Console.WriteLine("");
+            Console.WriteLine("------------");
+            Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
+            Thread.Sleep(1000);
+            Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
+            Thread.Sleep(1000);
+            Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
+            Thread.Sleep(1000);
+            Console.WriteLine("------------");
+            Console.WriteLine("As your heart races even faster, you approach cautiously.");
+            Console.Beep((int)60, 100);
+            Thread.Sleep(1000);
+            Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
+            Console.WriteLine("");
+            Console.WriteLine("------------\n\n");
+            Thread.Sleep(1000);
+            Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
+            Thread.Sleep(1000);
+            Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
+            Thread.Sleep(1000);
+            Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me. \n\n");
+            Thread.Sleep(1000);
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'h' && choice != 'i')
+                        Console.WriteLine("Invalid Choice");
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'h' && choice != 'i');
+            switch (choice)
+            {
+                case 'h':
+                    Help(inventory);
+                    break;
+                case 'i':
+                    Ignore();
+                    break;
+            }
+            //Call to stairs method
+            Stairs(inventory);
+
+        }
 
         static void Library(List<string> inventory)
         {
