@@ -24,19 +24,19 @@ namespace Skeleton_Program
 
             int tasks = 0;
 
-            
 
-                for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
+
+            for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
+            {
+                if (inventory[i] != null)
                 {
-                    if (inventory[i] != null)
-                    {
-                        inventory[i] = null;
-                    }
+                    inventory[i] = null;
                 }
+            }
             do
             {
                 //Read intro txt file
-                
+
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(File.ReadAllText("intro.txt"));
@@ -57,7 +57,7 @@ namespace Skeleton_Program
                             success = true;
                         }
                         catch (FormatException)
-                        {                          
+                        {
                             Console.WriteLine("Invalid format, please type an integer");
                         }
                     }
@@ -82,7 +82,8 @@ namespace Skeleton_Program
                         Console.WriteLine("Exit");
                         break;
                 }
-            }while (tasks >= 2 && tasks <=4);
+                
+            } while (tasks >= 2 && tasks <= 4);
         }
         static void task2()
         {
@@ -97,7 +98,7 @@ namespace Skeleton_Program
             Console.WriteLine("");
             Console.WriteLine("                            Press ENTER to return");
             Console.ReadLine();
-            
+
         }
         static void task3()
         {
@@ -536,100 +537,166 @@ namespace Skeleton_Program
             Thread.Sleep(1000);
             Console.WriteLine("You see that the room is a mess. Books scattered every where on the ground it's a total mess");
             Thread.Sleep(1000);
-            Console.WriteLine("You enter the room, closing the door behind you, would you like to explore? \nYes (y) or No (n)?");
-            Thread.Sleep(1000);
-            char answer = char.Parse(Console.ReadLine());
-            if (answer == 'y' || answer == 'Y')
 
+            do
             {
-                explore = true;
+                try
                 {
-                    Console.WriteLine("You search around the room, seeing piles and piles of books on the ground.");
+                    Console.WriteLine("You enter the room, closing the door behind you, would you like to explore? \nYes (y) or No (n)?");
                     Thread.Sleep(1000);
-                    Console.WriteLine("Would you like to investigate? Yes 'y' or No 'n'?");
-                    char investigate = char.Parse(Console.ReadLine());
-                    if (investigate == 'y' || investigate == 'Y')
-                    {
-                        Console.WriteLine("You step on a piece of paper");
-                        Thread.Sleep(1000);
-                        Console.WriteLine("Pick up Yes (y) or No (n)?");
-                        char pickUp = char.Parse(Console.ReadLine());
-                        if (pickUp == 'y' || pickUp == 'Y')
-                        {
-                            Console.WriteLine("You pick up the piece of paper and examine it.");
-                            Thread.Sleep(1000);
-                            Console.WriteLine("On further examination you see that it is the map of the prison");
-                            inventory[2] = "Map";
-                            Thread.Sleep(1000);
-                            Console.WriteLine("You examine the map carefully slowly growing board of it,\nyou scrunch up the map and put it into your pocket and move on");
-                            Thread.Sleep(1000);
-
-
-                        }
-                        else if (pickUp == 'n' || pickUp == 'N')
-                        {
-                            Console.WriteLine("You leave the piece of paper on the ground.");
-                            Thread.Sleep(1000);
-
-                        }
-                    }
-                    else if (investigate == 'n' || investigate == 'N')
-                    {
-                        Console.WriteLine("You decide not to investigate the room");
-                        Thread.Sleep(1000);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid input, please enter Y or N");
-                    }
-                    Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves ");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("You find yourself lost, each direction look unfamiliar \nYou look left, right, straight and up");
-                    Thread.Sleep(1000);
-                    Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
-
-                    while (explore.Equals(true))
-                    {
-                        temp = Console.ReadLine().ToLower();
-                        switch (temp)
-                        {
-                            case "left":
-                                Console.WriteLine("You find yourself back at where you started");
-                                Console.WriteLine("Everything seems to be the same, you walk back into the maze to try again");
-                                Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
-                                break;
-                            case "right":
-                                Console.WriteLine("You exit the maze to see a door with the words 'Cafeteria' on it");
-                                Console.WriteLine("You feel your stomach growling, it's been a while since you have eaten");
-                                Console.WriteLine("YOu let your stomach control your actions \nYou walk towards the door and enter the cafeteria.");
-                                explore = false;
-                                Cafeteria();
-                                break;
-                            case "up":
-                                Console.WriteLine("You are too indecisive to make a choice");
-                                Thread.Sleep(1000);
-                                Console.WriteLine("You look up and decide to get a better view");
-                                Thread.Sleep(1000);
-                                Console.WriteLine("You start to climb up the bookshelf \nYou feel it wobble and shake");
-                                Thread.Sleep(1000);
-                                Console.WriteLine("You lose your footing and fall to your death");
-                                Thread.Sleep(1000);
-                                Died();
-                                break;
-                            default:
-                                Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
-                                break;
-                        }
-
-                    }
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
                 }
-            }
-            else if (answer == 'n' || answer == 'N')
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
             {
-                Console.WriteLine("You decide not to search the room. \n You hear something that sounds like a book dropping in the library");
-                Console.WriteLine("You make your way back into the corridor and decide to head to the rec room");
-                Recroom();
+                case 'y':
+                    exploreYes();
+                    break;
+                case 'n':
+                    exploreNo();
+                    break;
+
             }
+
+
+         
+        }
+        static void exploreYes()
+        {
+            bool explore = true;
+
+            Console.WriteLine("You search around the room, seeing piles and piles of books on the ground.");
+            Thread.Sleep(1000);
+
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Would you like to investigate? Yes 'y' or No 'n'?");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
+                    investigateYes();
+                    break;
+                case 'n':
+                    investigateNo();
+                    break;
+            }
+
+            Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves ");
+            Thread.Sleep(1000);
+            Console.WriteLine("You find yourself lost, each direction look unfamiliar \nYou look left, right, straight and up");
+            Thread.Sleep(1000);
+            Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
+
+            while (explore.Equals(true))
+            {
+                string temp = Console.ReadLine().ToLower();
+                switch (temp)
+                {
+                    case "left":
+                        Console.WriteLine("You find yourself back at where you started");
+                        Console.WriteLine("Everything seems to be the same, you walk back into the maze to try again");
+                        Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
+                        break;
+                    case "right":
+                        Console.WriteLine("You exit the maze to see a door with the words 'Cafeteria' on it");
+                        Console.WriteLine("You feel your stomach growling, it's been a while since you have eaten");
+                        Console.WriteLine("YOu let your stomach control your actions \nYou walk towards the door and enter the cafeteria.");
+                        explore = false;
+                        Cafeteria();
+                        break;
+                    case "up":
+                        Console.WriteLine("You are too indecisive to make a choice");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You look up and decide to get a better view");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You start to climb up the bookshelf \nYou feel it wobble and shake");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("You lose your footing and fall to your death");
+                        Thread.Sleep(1000);
+                        Died();
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
+                        break;
+                }
+
+            }
+        }
+        static void exploreNo()
+        {
+            Console.WriteLine("You decide not to search the room. \n You hear something that sounds like a book dropping in the library");
+            Console.WriteLine("You make your way back into the corridor and decide to head to the rec room");
+            Recroom();
+        }
+        static void investigateYes()
+        {
+            Console.WriteLine("You step on a piece of paper");
+            Thread.Sleep(1000);
+            
+            char pickUp = char.Parse(Console.ReadLine());
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Pick up Yes (y) or No (n)?");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
+                    pickUpYes();
+                    break;
+                case 'n':
+                    pickUpNo();
+                    break;
+            }
+        }
+        static void investigateNo()
+        {
+            Console.WriteLine("You decide not to investigate the room");
+            Thread.Sleep(1000);
+        }
+        static void pickUpYes()
+        {
+            Console.WriteLine("You pick up the piece of paper and examine it.");
+            Thread.Sleep(1000);
+            Console.WriteLine("On further examination you see that it is the map of the prison");
+            inventory[2] = "Map";
+            Thread.Sleep(1000);
+            Console.WriteLine("You examine the map carefully slowly growing board of it,\nyou scrunch up the map and put it into your pocket and move on");
+            Thread.Sleep(1000);
+        }
+        static void pickUpNo()
+        {
+            Console.WriteLine("You leave the piece of paper on the ground.");
+            Thread.Sleep(1000);
         }
 
         static void Recroom()
