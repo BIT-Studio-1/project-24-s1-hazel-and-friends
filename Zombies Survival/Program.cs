@@ -14,7 +14,7 @@ namespace Skeleton_Program
 {
     internal class Program
     {
-        static string[] inventory = new string[10];
+        //static string[] inventory = new string[10];
 
         static void Main()
         {
@@ -24,11 +24,11 @@ namespace Skeleton_Program
             do
 
             {
-                for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
+                //for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
                 {
-                    if (inventory[i] != null)
+                    //if (inventory[i] != null)
                     {
-                        inventory[i] = null;
+                        //inventory[i] = null;
                     }
                 }
 
@@ -140,6 +140,7 @@ namespace Skeleton_Program
         public static void introduction()
         {
 
+            List<string> inventory = new List<string>();
             Console.WriteLine("INTRODUCTION");
             Console.WriteLine("------------");
             Text("You wake up to the sound of knocking at your door, it's your landlord.");
@@ -271,9 +272,10 @@ namespace Skeleton_Program
         public static void task1()
         {
 
-
+            List<string> inventory = new List<string>();
             string temp;
 
+            
 
             Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
 
@@ -290,7 +292,7 @@ namespace Skeleton_Program
                 Console.WriteLine("PRESS ENTER TO CONTINUE");
                 Console.ReadLine();
                 Console.WriteLine("------------");
-                Corridor();
+                Corridor(inventory);
             }
             else if (user == 'r' || user == 'R')
             {
@@ -339,12 +341,8 @@ namespace Skeleton_Program
                     Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
                     Thread.Sleep(1000);
                     Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
-                    inventory[1] = "Key";
+                    inventory.Add("key");
                     Console.WriteLine("INVENTORY UPDATED");
-                    for (int i = 0; i < inventory.Length; i++)
-                    {
-                        Console.WriteLine(inventory[i]);
-                    }
                     Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
                     Thread.Sleep(1000);
                     Console.WriteLine("RUN!!!!");
@@ -369,7 +367,7 @@ namespace Skeleton_Program
                 char answer = char.Parse(Console.ReadLine());
                 if (answer == 'y')
                 {
-                    Corridor();
+                    Corridor(inventory);
                 }
                 else if (answer == 'n')
                 {
@@ -383,7 +381,7 @@ namespace Skeleton_Program
             }
         }
 
-        static void Corridor()
+        static void Corridor(List <string> inventory)
         {
 
             Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \nyou see 2 bodies lying on the floor.");
@@ -406,7 +404,7 @@ namespace Skeleton_Program
                 char direction = char.Parse(Console.ReadLine());
                 if (direction == 'L' || direction == 'l')
                 {
-                    Library();
+                    Library(inventory);
                     //Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
                    //Console.WriteLine("They both start to move and swiftly attack you. ");
                     
@@ -414,7 +412,7 @@ namespace Skeleton_Program
                 }
                 else if (direction == 'R' || (direction == 'r'))
                 {
-                    Recroom();
+                    Recroom(inventory);
                 }
                 else
                 {
@@ -428,7 +426,7 @@ namespace Skeleton_Program
             }
         }
 
-        static void Library()
+        static void Library(List<string>inventory)
         {
             string temp;
             bool explore = false;
@@ -460,7 +458,7 @@ namespace Skeleton_Program
                             Console.WriteLine("You pick up the piece of paper and examine it.");
                             Thread.Sleep(1000);
                             Console.WriteLine("On further examination you see that it is the map of the prison");
-                            inventory[2] = "Map";
+                            inventory.Add("map");
                             Thread.Sleep(1000);
                             Console.WriteLine("You examine the map carefully slowly growing board of it,\nyou scrunch up the map and put it into your pocket and move on");
                             Thread.Sleep(1000);
@@ -504,7 +502,7 @@ namespace Skeleton_Program
                                 Console.WriteLine("You feel your stomach growling, it's been a while since you have eaten");
                                 Console.WriteLine("YOu let your stomach control your actions \nYou walk towards the door and enter the cafeteria.");
                                 explore = false;
-                                Cafeteria();
+                                Cafeteria(inventory);
                                 break;
                             case "up":
                                 Console.WriteLine("You are too indecisive to make a choice");
@@ -529,11 +527,11 @@ namespace Skeleton_Program
             {
                 Console.WriteLine("You decide not to search the room. \n You hear something that sounds like a book dropping in the library");
                 Console.WriteLine("You make your way back into the corridor and decide to head to the rec room");
-                Recroom();
+                Recroom(inventory);
             }
         }
 
-        static void Recroom()
+        static void Recroom(List<string> inventory)
         {
             Random rand = new Random();
             for (int i = 0; i < 10; i++)
@@ -664,7 +662,8 @@ namespace Skeleton_Program
                 if (item == 'q' || item == 'Q')
                 {
                     Console.WriteLine("");
-                    inventory[2] = "Flashlight";//what happends now??
+
+                    inventory.Add("flashlight");//what happends now??
                     Console.WriteLine("you got the Flashlight\n press [ENTER] to got to cafeteria");
                     Console.ReadLine();
                     Cafeteria();
@@ -685,7 +684,7 @@ namespace Skeleton_Program
 
         }
 
-        static void Cafeteria()
+        static void Cafeteria(List<string> inventory)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\r\n ▄████▄   ▄▄▄        █████▒▓█████▄▄▄█████▓▓█████  ██▀███   ██▓ ▄▄▄      \r\n▒██▀ ▀█  ▒████▄    ▓██   ▒ ▓█   ▀▓  ██▒ ▓▒▓█   ▀ ▓██ ▒ ██▒▓██▒▒████▄    \r\n▒▓█    ▄ ▒██  ▀█▄  ▒████ ░ ▒███  ▒ ▓██░ ▒░▒███   ▓██ ░▄█ ▒▒██▒▒██  ▀█▄  \r\n▒▓▓▄ ▄██▒░██▄▄▄▄██ ░▓█▒  ░ ▒▓█  ▄░ ▓██▓ ░ ▒▓█  ▄ ▒██▀▀█▄  ░██░░██▄▄▄▄██ \r\n▒ ▓███▀ ░ ▓█   ▓██▒░▒█░    ░▒████▒ ▒██▒ ░ ░▒████▒░██▓ ▒██▒░██░ ▓█   ▓██▒\r\n░ ░▒ ▒  ░ ▒▒   ▓▒█░ ▒ ░    ░░ ▒░ ░ ▒ ░░   ░░ ▒░ ░░ ▒▓ ░▒▓░░▓   ▒▒   ▓▒█░\r\n  ░  ▒     ▒   ▒▒ ░ ░       ░ ░  ░   ░     ░ ░  ░  ░▒ ░ ▒░ ▒ ░  ▒   ▒▒ ░\r\n░          ░   ▒    ░ ░       ░    ░         ░     ░░   ░  ▒ ░  ░   ▒   \r\n░ ░            ░  ░           ░  ░           ░  ░   ░      ░        ░  ░\r\n░                                                                       \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n");
@@ -718,7 +717,7 @@ namespace Skeleton_Program
             string choice = Console.ReadLine();
             if (choice == "food")
             {
-                inventory[4] = "food";
+                inventory.Add("food");
                 Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
                 string food = "yes";
                 Console.WriteLine("Wold you like to grab any other item y/n?");
@@ -726,7 +725,7 @@ namespace Skeleton_Program
                 if (user == 'y')
                 {
                     Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a bottle of water and chug it. ");
-                    inventory[4] = "water";
+                    inventory.Add("water");
 
                 }
                 
@@ -734,7 +733,7 @@ namespace Skeleton_Program
             }
             else if(choice == "water")
             {
-                inventory[4] = "water";
+                inventory.Add("water");
                 Console.WriteLine("You grab yourself a bottle of water and chug it");
 
                 Console.WriteLine("Wold you like to grab any other item?");
@@ -776,7 +775,7 @@ namespace Skeleton_Program
 
 
 
-        static void courtyard()
+        static void courtyard(List<string> inventory)
         {
             Random Rand = new Random();
             Console.WriteLine("You walk into the courtyard. There are zombies everywhere.");
@@ -806,8 +805,8 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("You make it to the dead guard's body. You take the key card and the gun.");
                     /*INSERT INVENTORY GET GUN AND KEYCARD CODE HERE */
-                    string guardgun = "yes";
-                    string keycard = "yes";
+                    inventory.Add("pistol");
+                    inventory.Add("keycard");
                     Console.WriteLine("Do you try sneaking back through the crowd of zombies (Y) or shoot your way out? (N)");
                     string seconduserinput = Console.ReadLine();
                     int randzombie2 = Rand.Next(1, 6);
@@ -924,7 +923,7 @@ namespace Skeleton_Program
             Main();
 
         }
-        static void showers()
+        static void showers(List<string> inventory)
         {
             Console.WriteLine("You sneak towards the showers, hoping to find a place to clean up and perhaps find some supplies.");
             Console.WriteLine("As you enter the showers, you hear the faint sound of running water.");
@@ -963,7 +962,7 @@ namespace Skeleton_Program
             }
 
 
-            static void office(string food, string guardgun, string keycard)
+            static void office(List<string> inventory)
             {
                 Console.WriteLine("You open the door and quietly enter the office.");
                 Console.WriteLine("The room is dark and you can clearly hear zombies mumbling.");
@@ -972,6 +971,16 @@ namespace Skeleton_Program
                 Console.WriteLine("The zombies will definitely notice you if you try to go for it though, if you have food, you could cause a distraction.");
                 Console.WriteLine("Or if you have a weapon, you could fight the zombies");
                 Console.WriteLine("Throw Food (t) or Leave Room (l)?");
+                string food = "";
+                string keycard = "";
+                if (inventory.Contains("food"))
+                {
+                    food = ("yes");
+                }
+                if (inventory.Contains("keycard"))
+                {
+                    keycard = ("yes");
+                }
                 string usersinput = Console.ReadLine();
                 if (usersinput == "t" || usersinput == "T")
                 {
@@ -982,7 +991,7 @@ namespace Skeleton_Program
                         if (keycard == "yes")
                         {
                             Console.WriteLine("You grab a fully loaded rifle. and leave the office.");
-                            string rifle = "yes";
+                            inventory.Add("Rifle");
                         }
                     }
                     else
@@ -1066,7 +1075,7 @@ namespace Skeleton_Program
 
 
         }
-        static void VisitorRoom()
+        static void VisitorRoom(List<string> inventory)
         {
             Console.Clear();
             Console.WriteLine("You step into the visitor room, the dim lighting casts long shadows across the empty space.");
