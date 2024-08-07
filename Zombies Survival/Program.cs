@@ -19,71 +19,69 @@ namespace Skeleton_Program
         //Global choice variable
         static char choice = '\0';
 
+        static bool dead = false;
+
         static void Main()
-        {
-
-            int tasks = 0;
-
-
-
-            for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
-            {
-                if (inventory[i] != null)
-                {
-                    inventory[i] = null;
-                }
-            }
-            do
-            {
-                //Read intro txt file
-
-                Console.Clear();
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(File.ReadAllText("intro.txt"));
-                Console.ResetColor();
-                Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
-                //Intro Header
+        {          
+                int tasks = 0;
+               
+                    for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
+                    {
+                        if (inventory[i] != null)
+                        {
+                            inventory[i] = null;
+                        }
+                    }        
                 do
                 {
-                    //Bool to control loop for looping until the user enters an answer, in the correct format
-                    bool success = false;
-                    while (!success)
+                    //Read intro txt file               
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(File.ReadAllText("intro.txt"));
+                    Console.ResetColor();
+                    Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
+                    //Intro Header
+                    do
                     {
-                        try
+                        //Bool to control loop for looping until the user enters an answer, in the correct format
+                        bool success = false;
+                        while (!success)
                         {
-                            tasks = Convert.ToInt32(Console.ReadLine());
-                            if (tasks > 5)
-                                Console.WriteLine("Please enter an integer between 0 and 5");
-                            success = true;
+                            try
+                            {
+                                tasks = Convert.ToInt32(Console.ReadLine());
+                                if (tasks > 5)
+                                    Console.WriteLine("Please enter an integer between 0 and 5");
+                                success = true;
+                            }
+                            catch (FormatException)
+                            {
+                                Console.WriteLine("Invalid format, please type an integer");
+                            }
                         }
-                        catch (FormatException)
-                        {
-                            Console.WriteLine("Invalid format, please type an integer");
-                        }
-                    }
 
-                } while (tasks > 5);
-                Console.Clear();
-                switch (tasks)
-                {
-                    case 1:
-                        introduction();
-                        break;
-                    case 2:
-                        task2();
-                        break;
-                    case 3:
-                        task3();
-                        break;
-                    case 4:
-                        task4();
-                        break;
-                    case 5:
-                        Console.WriteLine("Exit");
-                        break;
-                }
-                
-            } while (tasks >= 2 && tasks <= 4);
+                    } while (tasks > 5);
+                    Console.Clear();
+                    switch (tasks)
+                    {
+                        case 1:
+                            introduction();
+                            break;
+                        case 2:
+                            task2();
+                            break;
+                        case 3:
+                            task3();
+                            break;
+                        case 4:
+                            task4();
+                            break;
+                        case 5:
+                            Console.WriteLine("Exiting ...");
+                            break;
+                    }
+                } while (tasks >= 1 && tasks <= 4);
+                //Loop breaks when user enters 1          
         }
         static void task2()
         {
@@ -566,7 +564,7 @@ namespace Skeleton_Program
             }
 
 
-         
+
         }
         static void exploreYes()
         {
@@ -651,7 +649,7 @@ namespace Skeleton_Program
         {
             Console.WriteLine("You step on a piece of paper");
             Thread.Sleep(1000);
-            
+
             char pickUp = char.Parse(Console.ReadLine());
             do
             {
@@ -1094,6 +1092,7 @@ namespace Skeleton_Program
 
         static void Died()
         {
+            dead = true;
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \r\n ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\r\n  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\r\n  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌\r\n  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ \r\n   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ \r\n ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \r\n ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \r\n ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \r\n ░ ░                           ░                  ░     ");
