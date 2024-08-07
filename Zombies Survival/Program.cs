@@ -432,6 +432,37 @@ namespace Skeleton_Program
             Console.WriteLine("You continue to make your way through the prison");
 
         }
+        static void Stairs(List<string> inventory)
+        {
+            do
+            {
+                try
+                {
+                    Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
+                    Corridor(inventory);
+                    break;
+                case 'n':
+                    Console.WriteLine("You stayed in cell blocks,all of a sudden you feel a sharp pain on your neck");
+                    Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
+                    Console.ReadLine();
+                    Died();
+                    break;
+            }
+        }
 
         static void Library(List<string> inventory)
         {
