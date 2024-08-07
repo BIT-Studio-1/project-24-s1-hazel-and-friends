@@ -666,7 +666,7 @@ namespace Skeleton_Program
                     inventory.Add("flashlight");//what happends now??
                     Console.WriteLine("you got the Flashlight\n press [ENTER] to got to cafeteria");
                     Console.ReadLine();
-                    Cafeteria();
+                    Cafeteria(inventory);
                 }
                 else
                 {
