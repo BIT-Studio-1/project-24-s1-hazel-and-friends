@@ -560,37 +560,23 @@ namespace Skeleton_Program
             }
             else
             {
-                Console.WriteLine("You're hiding behind A table in the prison's game room.");
-                Thread.Sleep(2000);
-                Console.WriteLine("");
-                Console.WriteLine("There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("Its skin was decaying, and its clothes were in tatters. But what truly made it horrifying were its gruesome injuries.");
-                Console.WriteLine("         .-\"\"\"-.\r\n        /       \\\r\n       |  O   O  |\r\n       |    ∆    |\r\n        \\ ----- /\r\n     ____|_____|____\r\n   /  ______(O)______\\\r\n   \\_/  [_____]'   [___] \r\n");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("You look around for a better hiding spot and see a dark corner. You try to sneak over there, but then you see the zombie stumble into the room.");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("Its eyes are creepy and it's looking for someone to eat.");
-                Thread.Sleep(3000);
-                Console.WriteLine("");
-                Console.WriteLine("You freeze as the zombie's gaze lands on you.");
-                Thread.Sleep(3000);
-                Console.WriteLine("");
-                Console.WriteLine("You scan the room quickly, searching for a safer place to hide.");
-                Thread.Sleep(4000);
-                Console.WriteLine("");
-                Console.WriteLine("You see a sturdy-looking cabinet against the far wall, it seems like a better option than your current spot behind the tables.");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("You notice another possibility, you see a large overturned couch near the center of the room. It's bulky and could provide better cover.");
-                Thread.Sleep(6000);
-                Console.WriteLine("");
-                Console.WriteLine("But the couch is closer to where the zombie is slowly making its way towards you.");
-                Thread.Sleep(3000);
-                Console.WriteLine("");
+                Text("You're hiding behind A table in the prison's game room.\n " +
+                    "There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.\n\n" +
+                    "Its skin was decaying, and its clothes were in tatters. But what truly made it horrifying were its gruesome injuries.\n\n");
+                Console.WriteLine("          \"\"-.\r\n        /       \\\r\n       |  O   O  |\r\n       |    ∆    |\r\n        \\ ----- /\r\n     ____|_____|____\r\n   /  ______(O)______\\\r\n   \\_/  [_____]'   [___] \r\n");
+                Text("\n\nYou look around for a better hiding spot and see a dark corner. You try to sneak over there, but then you see the zombie stumble into the room.\n\n" +
+                    "Its eyes are creepy and it's looking for someone to eat\n\nYou freeze as the zombie's gaze lands on you.\n\nYou scan the room quickly, searching for a safer place to hide.\n\n" +
+                    "You see a sturdy-looking cabinet against the far wall, it seems like a better option than your current spot behind the tables.\n\n" +
+                    "You notice another possibility, you see a large overturned couch near the center of the room. It's bulky and could provide better cover.\n\n" +
+                    "But the couch is closer to where the zombie is slowly making its way towards you.");
+
+               
+             
+            
+               
+               
+               
+               
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -600,7 +586,7 @@ namespace Skeleton_Program
                     System.Threading.Thread.Sleep(200);
                 }
 
-                Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2) STAY(press 3)");
+                Text("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2) STAY(press 3)");
                 temp = Console.ReadLine();
                 int hide = Convert.ToInt32(temp);
 
@@ -627,13 +613,13 @@ namespace Skeleton_Program
                     case 2:
                         Console.WriteLine("You see the couch and think it might be a good hiding spot. It's closer and seems big enough to protect you.");
                         Console.WriteLine("");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(500);
                         Console.WriteLine("You quickly hide behind the couch, holding your breath. The zombie's groans get quieter, and you start feeling safer.");
                         Console.WriteLine("");
-                        Thread.Sleep(4000);
+                        Thread.Sleep(500);
                         Console.WriteLine("You wait for a long time, but eventually, the zombie's sounds go away completely.");
                         Console.WriteLine("");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(500);
                         Console.WriteLine("You peek out from behind the couch and from what you can see, it's safe.");
                         break;
 
@@ -676,7 +662,11 @@ namespace Skeleton_Program
                 if (item == 'q' || item == 'Q')
                 {
                     Console.WriteLine("");
+
                     inventory.Add("flashlight");//what happends now??
+                    Console.WriteLine("you got the Flashlight\n press [ENTER] to got to cafeteria");
+                    Console.ReadLine();
+                    Cafeteria();
                 }
                 else
                 {
@@ -738,12 +728,10 @@ namespace Skeleton_Program
                     inventory.Add("water");
 
                 }
-                else if (user == 'n')
-                {
-                    Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
-                }
+                
+                
             }
-            else if (choice == "water")
+            else if(choice == "water")
             {
                 inventory.Add("water");
                 Console.WriteLine("You grab yourself a bottle of water and chug it");
@@ -753,21 +741,16 @@ namespace Skeleton_Program
                 if (user == 'y')
                 {
                     Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a few packets of some dried food and stuff them in your pockets. ");
-
-                }
-                else if (user == 'n')
-                {
-                    Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
-                    ////
-                    Console.WriteLine("Whilst exploring do you decide to go to cell block 2 or keep exploring the cafeteria\n(Y)es to enter cell block 2 or (N)o to stay in the cafeteria");
-
-                    choice = Console.ReadLine().ToLower();
-                    cellBlock2();
-
-
+                    inventory[4] = "food";
                 }
 
             }
+            Console.WriteLine("You're satisfied with what you have and continue exploring");
+            ////
+            Console.WriteLine("Whilst exploring do you decide to go to cell block 2\nPress [ENTER] to continue");
+
+            Console.ReadLine();
+            cellBlock2();
 
 
 
@@ -778,6 +761,9 @@ namespace Skeleton_Program
         static void cellBlock2()
         {
             Console.WriteLine("You walk through cellblock2.");
+            //add things 2 cellblock 2
+            Console.ReadLine();
+            Exit();
         }
 
         static void hallway()
@@ -1404,6 +1390,12 @@ namespace Skeleton_Program
                 }
             }
 
+        }
+        static void Exit()
+        {
+            //add the ending
+            Console.WriteLine("the end");
+            Console.ReadLine();
         }
 
     }
