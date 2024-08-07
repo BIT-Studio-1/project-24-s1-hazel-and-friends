@@ -646,6 +646,15 @@ namespace Skeleton_Program
                 }
             }
         }
+        static void exploreNo(List<string> inventory)
+        {
+            Console.WriteLine("You decide not to search the room. \n You hear something that sounds like a book dropping in the library");
+            Console.WriteLine("You make your way back into the corridor and decide to head to the rec room");
+            Recroom(inventory);
+        }
+
+
+
 
         static void Recroom(List<string> inventory)
         {
