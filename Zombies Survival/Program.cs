@@ -496,6 +496,43 @@ namespace Skeleton_Program
 
             }
         }
+        static void No(List<string> inventory)
+        {
+            Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
+            Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
+            Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'l' && choice != 'r')
+                        Console.WriteLine("Invalid Choice");
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+
+            } while (choice != 'l' && choice != 'r');
+            switch (choice)
+            {
+                case 'l':
+                    Library(inventory);
+                    //Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
+                    //Console.WriteLine("They both start to move and swiftly attack you. ");
+
+                    // Died();
+                    break;
+                case 'r':
+                    Recroom(inventory);
+                    break;
+
+            }
+        }
 
         static void Library(List<string> inventory)
         {
