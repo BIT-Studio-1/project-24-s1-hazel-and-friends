@@ -14,16 +14,15 @@ namespace Skeleton_Program
 {
     internal class Program
     {
-        //static string[] inventory = new string[10];
-
+        static char choice;
         static void Main()
         {
 
 
-            int tasks;
+            int tasks = 0;
             do
-
             {
+
                 //for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
                 {
                     //if (inventory[i] != null)
@@ -32,98 +31,105 @@ namespace Skeleton_Program
                     }
                 }
 
-                //Read intro txt file
+                //Read intro txt file               
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(File.ReadAllText("intro.txt"));
+                //Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
+                Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
                 //Intro Header
-                Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
-                tasks = Convert.ToInt32(Console.ReadLine());
-                Console.Clear();
+                do
+                {
+                    //Bool to control loop for looping until the user enters an answer, in the correct format
+                    bool success = false;
+                    while (!success)
+                    {
+                        try
+                        {
+                            tasks = Convert.ToInt32(Console.ReadLine());
+                            if (tasks > 5)
+                                Console.WriteLine("Please enter an integer between 0 and 5");
+                            success = true;
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Invalid format, please type an integer");
+                        }
+                    }
 
+                } while (tasks > 5);
+                Console.Clear();
                 switch (tasks)
                 {
-
                     case 1:
-
                         introduction();
                         break;
-
                     case 2:
-
                         task2();
                         break;
-
                     case 3:
-
                         task3();
                         break;
                     case 4:
-
                         task4();
                         break;
-
-                    case 0:
-                        Console.WriteLine("Exit");
+                    case 5:
+                        Console.WriteLine("Exiting ...");
                         break;
-
                 }
+            } while (tasks >= 1 && tasks <= 4);
+            //Loop breaks when user enters 1          
+        }
 
-            } while (tasks != 0);
+        static void task2()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(" ██▓ ███▄    █   ██████ ▄▄▄█████▓ ██▀███   █    ██  ▄████▄  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▓██▒ ██ ▀█   █ ▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒ ██  ▓██▒▒██▀ ▀█  ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██▒▓██  ▀█ ██▒░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▓██  ▒██░▒▓█    ▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n░██░▓██▒  ▐▌██▒  ▒   ██▒░ ▓██▓ ░ ▒██▀▀█▄  ▓▓█  ░██░▒▓▓▄ ▄██▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░██░▒██░   ▓██░▒██████▒▒  ▒██▒ ░ ░██▓ ▒██▒▒▒█████▓ ▒ ▓███▀ ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░▓  ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒▓ ░▒▓░░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n ▒ ░░ ░░   ░ ▒░░ ░▒  ░ ░    ░      ░▒ ░ ▒░░░▒░ ░ ░   ░  ▒       ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n ▒ ░   ░   ░ ░ ░  ░  ░    ░        ░░   ░  ░░░ ░ ░ ░          ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n ░           ░       ░              ░        ░     ░ ░                ░      ░ ░           ░       ░  \r\n                                                   ░                                                  \n\n");
+            Console.ResetColor();
+            Console.WriteLine("1. You will be presented with choices throughout the game.\n\n");
+            Console.WriteLine("2. Type the letter or word corresponding to your choice and press Enter.\n\n");
+            Console.WriteLine("3. Your goal is to survive and escape the WALKING JAIL.\n\n");
+            Console.WriteLine("4. Pay attention to the details in the story to make informed decisions.\n\n");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("                            Press ENTER to return");
+            Console.ReadLine();
+        }
+        static void task3()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(" ▒█████   ██▓███  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▒██▒  ██▒▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██░  ██▒▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n▒██   ██░▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░ ████▓▒░▒██▒ ░  ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░ ▒░▒░▒░ ▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n  ░ ▒ ▒░ ░▒ ░         ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n░ ░ ░ ▒  ░░         ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n    ░ ░                     ░      ░ ░           ░       ░  \r\n                                                            ");
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("           YOU HAVE NO OPTION BUT TO PLAY THIS GAME HEHE \n\n");
+            Console.ResetColor();
+            Console.WriteLine("                    Press ENTER to return");
+            Console.ReadLine();
+        }
+        static void task4()
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
+            Console.ResetColor();
+            Console.WriteLine("WALKING JAIL");
+            Console.WriteLine();
+            Console.WriteLine("Developed by:");
+            Console.WriteLine("HAZEL AND FRIENDS");
+            Console.WriteLine();
+            Console.WriteLine("Credits:");
+            Console.WriteLine("- [ASTON]");
+            Console.WriteLine("- [SAMUEL]");
+            Console.WriteLine("- [EDWARD]");
+            Console.WriteLine("- [HAZEL]");
+            Console.WriteLine("- [Sound Effects & Music Designer]");
+            Console.WriteLine("- [QA Testers]");
+            Console.WriteLine("- [Special Thanks to Contributors or Supporters]");
 
+            Console.WriteLine();
+            Console.WriteLine("© [2024] [WALKING JAIL.LTD]");
+            Console.WriteLine("Press ENTER to return");
+            Console.ReadLine();
 
-            static void task2()
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ██▓ ███▄    █   ██████ ▄▄▄█████▓ ██▀███   █    ██  ▄████▄  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▓██▒ ██ ▀█   █ ▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒ ██  ▓██▒▒██▀ ▀█  ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██▒▓██  ▀█ ██▒░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▓██  ▒██░▒▓█    ▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n░██░▓██▒  ▐▌██▒  ▒   ██▒░ ▓██▓ ░ ▒██▀▀█▄  ▓▓█  ░██░▒▓▓▄ ▄██▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░██░▒██░   ▓██░▒██████▒▒  ▒██▒ ░ ░██▓ ▒██▒▒▒█████▓ ▒ ▓███▀ ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░▓  ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒▓ ░▒▓░░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n ▒ ░░ ░░   ░ ▒░░ ░▒  ░ ░    ░      ░▒ ░ ▒░░░▒░ ░ ░   ░  ▒       ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n ▒ ░   ░   ░ ░ ░  ░  ░    ░        ░░   ░  ░░░ ░ ░ ░          ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n ░           ░       ░              ░        ░     ░ ░                ░      ░ ░           ░       ░  \r\n                                                   ░                                                  \n\n");
-                Console.ResetColor();
-                Console.WriteLine("1. You will be presented with choices throughout the game.\n\n");
-                Console.WriteLine("2. Type the letter or word corresponding to your choice and press Enter.\n\n");
-                Console.WriteLine("3. Your goal is to survive and escape the WALKING JAIL.\n\n");
-                Console.WriteLine("4. Pay attention to the details in the story to make informed decisions.\n\n");
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("                            Press ENTER to return");
-                Console.ReadLine();
-            }
-            static void task3()
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(" ▒█████   ██▓███  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▒██▒  ██▒▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██░  ██▒▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n▒██   ██░▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░ ████▓▒░▒██▒ ░  ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░ ▒░▒░▒░ ▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n  ░ ▒ ▒░ ░▒ ░         ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n░ ░ ░ ▒  ░░         ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n    ░ ░                     ░      ░ ░           ░       ░  \r\n                                                            ");
-                Console.WriteLine("");
-                Console.WriteLine("");
-                Console.WriteLine("           YOU HAVE NO OPTION BUT TO PLAY THIS GAME HEHE \n\n");
-                Console.ResetColor();
-                Console.WriteLine("                    Press ENTER to return");
-                Console.ReadLine();
-            }
-            static void task4()
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
-                Console.ResetColor();
-                Console.WriteLine("WALKING JAIL");
-                Console.WriteLine();
-                Console.WriteLine("Developed by:");
-                Console.WriteLine("HAZEL AND FRIENDS");
-                Console.WriteLine();
-                Console.WriteLine("Credits:");
-                Console.WriteLine("- [ASTON]");
-                Console.WriteLine("- [SAMUEL]");
-                Console.WriteLine("- [EDWARD]");
-                Console.WriteLine("- [HAZEL]");
-                Console.WriteLine("- [Sound Effects & Music Designer]");
-                Console.WriteLine("- [QA Testers]");
-                Console.WriteLine("- [Special Thanks to Contributors or Supporters]");
-
-                Console.WriteLine();
-                Console.WriteLine("© [2024] [WALKING JAIL.LTD]");
-                Console.WriteLine("Press ENTER to return");
-                Console.ReadLine();
-
-
-            }
 
         }
 
@@ -275,7 +281,7 @@ namespace Skeleton_Program
             List<string> inventory = new List<string>();
             string temp;
 
-            
+
 
             Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
 
@@ -381,7 +387,7 @@ namespace Skeleton_Program
             }
         }
 
-        static void Corridor(List <string> inventory)
+        static void Corridor(List<string> inventory)
         {
 
             Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \nyou see 2 bodies lying on the floor.");
@@ -406,9 +412,9 @@ namespace Skeleton_Program
                 {
                     Library(inventory);
                     //Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-                   //Console.WriteLine("They both start to move and swiftly attack you. ");
-                    
-                   // Died();
+                    //Console.WriteLine("They both start to move and swiftly attack you. ");
+
+                    // Died();
                 }
                 else if (direction == 'R' || (direction == 'r'))
                 {
@@ -426,7 +432,7 @@ namespace Skeleton_Program
             }
         }
 
-        static void Library(List<string>inventory)
+        static void Library(List<string> inventory)
         {
             string temp;
             bool explore = false;
@@ -472,7 +478,7 @@ namespace Skeleton_Program
 
                         }
                     }
-                    else if (investigate == 'n' ||  investigate == 'N')
+                    else if (investigate == 'n' || investigate == 'N')
                     {
                         Console.WriteLine("You decide not to investigate the room");
                         Thread.Sleep(1000);
@@ -570,13 +576,13 @@ namespace Skeleton_Program
                     "You notice another possibility, you see a large overturned couch near the center of the room. It's bulky and could provide better cover.\n\n" +
                     "But the couch is closer to where the zombie is slowly making its way towards you.");
 
-               
-             
-            
-               
-               
-               
-               
+
+
+
+
+
+
+
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -677,8 +683,8 @@ namespace Skeleton_Program
                     Console.ReadLine();
                     Died();
 
-                   
-                    
+
+
                 }
             }
 
@@ -728,10 +734,10 @@ namespace Skeleton_Program
                     inventory.Add("water");
 
                 }
-                
-                
+
+
             }
-            else if(choice == "water")
+            else if (choice == "water")
             {
                 inventory.Add("water");
                 Console.WriteLine("You grab yourself a bottle of water and chug it");
