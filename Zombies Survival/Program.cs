@@ -14,127 +14,118 @@ namespace Skeleton_Program
 {
     internal class Program
     {
-        //Aston to sort new inventory system
-        static string[] inventory = new string[10];
-        //Global choice variable
-        static char choice = '\0';
+        //static string[] inventory = new string[10];
 
         static void Main()
-        {          
-                int tasks = 0;
-               
-                    for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
-                    {
-                        if (inventory[i] != null)
-                        {
-                            inventory[i] = null;
-                        }
-                    }        
-                do
+        {
+
+
+            int tasks;
+            do
+
+            {
+                //for (int i = 0; i < inventory.Length; i++)      //Removes all inventory, ammo, zombies, and zombieHealth objects from game if any exist
                 {
-                    //Read intro txt file               
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(File.ReadAllText("intro.txt"));
-                    Console.ResetColor();
-                    Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
-                    //Intro Header
-                    do
+                    //if (inventory[i] != null)
                     {
-                        //Bool to control loop for looping until the user enters an answer, in the correct format
-                        bool success = false;
-                        while (!success)
-                        {
-                            try
-                            {
-                                tasks = Convert.ToInt32(Console.ReadLine());
-                                if (tasks > 5)
-                                    Console.WriteLine("Please enter an integer between 0 and 5");
-                                success = true;
-                            }
-                            catch (FormatException)
-                            {
-                                Console.WriteLine("Invalid format, please type an integer");
-                            }
-                        }
-
-                    } while (tasks > 5);
-                    Console.Clear();
-                    switch (tasks)
-                    {
-                        case 1:
-                            introduction();
-                            break;
-                        case 2:
-                            task2();
-                            break;
-                        case 3:
-                            task3();
-                            break;
-                        case 4:
-                            task4();
-                            break;
-                        case 5:
-                            Console.WriteLine("Exiting ...");
-                            break;
+                        //inventory[i] = null;
                     }
-                } while (tasks >= 1 && tasks <= 4);
-                //Loop breaks when user enters 1          
-        }
-        static void task2()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" ██▓ ███▄    █   ██████ ▄▄▄█████▓ ██▀███   █    ██  ▄████▄  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▓██▒ ██ ▀█   █ ▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒ ██  ▓██▒▒██▀ ▀█  ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██▒▓██  ▀█ ██▒░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▓██  ▒██░▒▓█    ▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n░██░▓██▒  ▐▌██▒  ▒   ██▒░ ▓██▓ ░ ▒██▀▀█▄  ▓▓█  ░██░▒▓▓▄ ▄██▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░██░▒██░   ▓██░▒██████▒▒  ▒██▒ ░ ░██▓ ▒██▒▒▒█████▓ ▒ ▓███▀ ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░▓  ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒▓ ░▒▓░░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n ▒ ░░ ░░   ░ ▒░░ ░▒  ░ ░    ░      ░▒ ░ ▒░░░▒░ ░ ░   ░  ▒       ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n ▒ ░   ░   ░ ░ ░  ░  ░    ░        ░░   ░  ░░░ ░ ░ ░          ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n ░           ░       ░              ░        ░     ░ ░                ░      ░ ░           ░       ░  \r\n                                                   ░                                                  \n\n");
-            Console.ResetColor();
-            Console.WriteLine("1. You will be presented with choices throughout the game.\n\n");
-            Console.WriteLine("2. Type the letter or word corresponding to your choice and press Enter.\n\n");
-            Console.WriteLine("3. Your goal is to survive and escape the WALKING JAIL.\n\n");
-            Console.WriteLine("4. Pay attention to the details in the story to make informed decisions.\n\n");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("                            Press ENTER to return");
-            Console.ReadLine();
+                }
+
+                //Read intro txt file
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(File.ReadAllText("intro.txt"));
+                Console.ResetColor();
+                //Intro Header
+                Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n0. Exit game");
+                tasks = Convert.ToInt32(Console.ReadLine());
+                Console.Clear();
+
+                switch (tasks)
+                {
+
+                    case 1:
+
+                        introduction();
+                        break;
+
+                    case 2:
+
+                        task2();
+                        break;
+
+                    case 3:
+
+                        task3();
+                        break;
+                    case 4:
+
+                        task4();
+                        break;
+
+                    case 0:
+                        Console.WriteLine("Exit");
+                        break;
+
+                }
+
+            } while (tasks != 0);
+
+
+            static void task2()
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" ██▓ ███▄    █   ██████ ▄▄▄█████▓ ██▀███   █    ██  ▄████▄  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▓██▒ ██ ▀█   █ ▒██    ▒ ▓  ██▒ ▓▒▓██ ▒ ██▒ ██  ▓██▒▒██▀ ▀█  ▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██▒▓██  ▀█ ██▒░ ▓██▄   ▒ ▓██░ ▒░▓██ ░▄█ ▒▓██  ▒██░▒▓█    ▄ ▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n░██░▓██▒  ▐▌██▒  ▒   ██▒░ ▓██▓ ░ ▒██▀▀█▄  ▓▓█  ░██░▒▓▓▄ ▄██▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░██░▒██░   ▓██░▒██████▒▒  ▒██▒ ░ ░██▓ ▒██▒▒▒█████▓ ▒ ▓███▀ ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░▓  ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░ ▒▓ ░▒▓░░▒▓▒ ▒ ▒ ░ ░▒ ▒  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n ▒ ░░ ░░   ░ ▒░░ ░▒  ░ ░    ░      ░▒ ░ ▒░░░▒░ ░ ░   ░  ▒       ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n ▒ ░   ░   ░ ░ ░  ░  ░    ░        ░░   ░  ░░░ ░ ░ ░          ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n ░           ░       ░              ░        ░     ░ ░                ░      ░ ░           ░       ░  \r\n                                                   ░                                                  \n\n");
+                Console.ResetColor();
+                Console.WriteLine("1. You will be presented with choices throughout the game.\n\n");
+                Console.WriteLine("2. Type the letter or word corresponding to your choice and press Enter.\n\n");
+                Console.WriteLine("3. Your goal is to survive and escape the WALKING JAIL.\n\n");
+                Console.WriteLine("4. Pay attention to the details in the story to make informed decisions.\n\n");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("                            Press ENTER to return");
+                Console.ReadLine();
+            }
+            static void task3()
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" ▒█████   ██▓███  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▒██▒  ██▒▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██░  ██▒▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n▒██   ██░▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░ ████▓▒░▒██▒ ░  ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░ ▒░▒░▒░ ▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n  ░ ▒ ▒░ ░▒ ░         ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n░ ░ ░ ▒  ░░         ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n    ░ ░                     ░      ░ ░           ░       ░  \r\n                                                            ");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("           YOU HAVE NO OPTION BUT TO PLAY THIS GAME HEHE \n\n");
+                Console.ResetColor();
+                Console.WriteLine("                    Press ENTER to return");
+                Console.ReadLine();
+            }
+            static void task4()
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
+                Console.ResetColor();
+                Console.WriteLine("WALKING JAIL");
+                Console.WriteLine();
+                Console.WriteLine("Developed by:");
+                Console.WriteLine("HAZEL AND FRIENDS");
+                Console.WriteLine();
+                Console.WriteLine("Credits:");
+                Console.WriteLine("- [ASTON]");
+                Console.WriteLine("- [SAMUEL]");
+                Console.WriteLine("- [EDWARD]");
+                Console.WriteLine("- [HAZEL]");
+                Console.WriteLine("- [Sound Effects & Music Designer]");
+                Console.WriteLine("- [QA Testers]");
+                Console.WriteLine("- [Special Thanks to Contributors or Supporters]");
+
+                Console.WriteLine();
+                Console.WriteLine("© [2024] [WALKING JAIL.LTD]");
+                Console.WriteLine("Press ENTER to return");
+                Console.ReadLine();
+
+
+            }
 
         }
-        static void task3()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" ▒█████   ██▓███  ▄▄▄█████▓ ██▓ ▒█████   ███▄    █   ██████ \r\n▒██▒  ██▒▓██░  ██▒▓  ██▒ ▓▒▓██▒▒██▒  ██▒ ██ ▀█   █ ▒██    ▒ \r\n▒██░  ██▒▓██░ ██▓▒▒ ▓██░ ▒░▒██▒▒██░  ██▒▓██  ▀█ ██▒░ ▓██▄   \r\n▒██   ██░▒██▄█▓▒ ▒░ ▓██▓ ░ ░██░▒██   ██░▓██▒  ▐▌██▒  ▒   ██▒\r\n░ ████▓▒░▒██▒ ░  ░  ▒██▒ ░ ░██░░ ████▓▒░▒██░   ▓██░▒██████▒▒\r\n░ ▒░▒░▒░ ▒▓▒░ ░  ░  ▒ ░░   ░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒ ▒ ▒▓▒ ▒ ░\r\n  ░ ▒ ▒░ ░▒ ░         ░     ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░░ ░▒  ░ ░\r\n░ ░ ░ ▒  ░░         ░       ▒ ░░ ░ ░ ▒     ░   ░ ░ ░  ░  ░  \r\n    ░ ░                     ░      ░ ░           ░       ░  \r\n                                                            ");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("           YOU HAVE NO OPTION BUT TO PLAY THIS GAME HEHE \n\n");
-            Console.ResetColor();
-            Console.WriteLine("                    Press ENTER to return");
-            Console.ReadLine();
-        }
-        static void task4()
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
-            Console.ResetColor();
-            Console.WriteLine("WALKING JAIL");
-            Console.WriteLine();
-            Console.WriteLine("Developed by:");
-            Console.WriteLine("HAZEL AND FRIENDS");
-            Console.WriteLine();
-            Console.WriteLine("Credits:");
-            Console.WriteLine("- [ASTON]");
-            Console.WriteLine("- [SAMUEL]");
-            Console.WriteLine("- [EDWARD]");
-            Console.WriteLine("- [HAZEL]");
-            Console.WriteLine("- [Sound Effects & Music Designer]");
-            Console.WriteLine("- [QA Testers]");
-            Console.WriteLine("- [Special Thanks to Contributors or Supporters]");
-
-            Console.WriteLine();
-            Console.WriteLine("© [2024] [WALKING JAIL.LTD]");
-            Console.WriteLine("Press ENTER to return");
-            Console.ReadLine();
-
-
-        }
-
-
 
         static void Text(string text)
         {
@@ -149,38 +140,19 @@ namespace Skeleton_Program
         public static void introduction()
         {
 
+            List<string> inventory = new List<string>();
             Console.WriteLine("INTRODUCTION");
             Console.WriteLine("------------");
             Text("You wake up to the sound of knocking at your door, it's your landlord.");
-            do
+            Text("Do you want to skip the rest?\n\ny/n");
+            char temp = Convert.ToChar(Console.ReadLine().ToLower());
+            if (temp == 'y')
             {
-                try
-                {
-                    Text("Do you want to skip the rest? y/n");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'y' && choice != 'n')
-                        Console.WriteLine("Invalid choice");
-
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
-                }
-
-            } while (choice != 'y' && choice != 'n');
-            switch (choice)
-            {
-                case 'y':
-                    task1();
-                    break;
-                case 'n':
-                    introMessage();
-                    break;
+                task1();
             }
 
-        }
-        public static void introMessage()
-        {
+
+
             Text("She says you are behind on the rent again, you explain how you got fired and it's not your fault but she doesn't care.");
             Text("She demands you pay your rent by tonight or else you'll be kicked out onto the street.");
             Text("To calm down and come up with ideas, you decide to go for a walk.");
@@ -236,8 +208,8 @@ namespace Skeleton_Program
             Console.WriteLine("");
             Console.ReadLine();
             task1();
-        }
 
+        }
         public static void mapmethod()
         {
             string map = @"
@@ -299,232 +271,162 @@ namespace Skeleton_Program
         }
         public static void task1()
         {
-            do
-            {
-                try
-                {
-                    Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'l' && choice != 'r')
-                        Console.WriteLine("Invalid choice");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
-                }
 
-            } while (choice != 'l' && choice != 'r');
-            switch (choice)
+            List<string> inventory = new List<string>();
+            string temp;
+
+            
+
+            Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
+
+            char user = char.Parse(Console.ReadLine());
+
+            if (user == 'l' || user == 'L')
+
             {
-                case 'l':
-                    Left();
-                    break;
-                case 'r':
-                    Right();
-                    break;
+                //Died();
+                Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
+                Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
+                Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
+                Console.WriteLine("You gaze into the distance and see flashing lights and run towards them ");
+                Console.WriteLine("PRESS ENTER TO CONTINUE");
+                Console.ReadLine();
+                Console.WriteLine("------------");
+                Corridor(inventory);
             }
-
-        }
-        static void Left()
-        {
-            Console.WriteLine("You leave your cell and turned to the left and you saw a fellow inmate standing with his back facing you");
-            Console.WriteLine("You go up to him and asked him what happened and where everyone is, you get close to him and as you are about to tap his shoulder");
-            Console.WriteLine("He turns around, his face is covered in blood. You stumble backwards, you see him lunge at you, you swiftly dodge around him");
-            Console.WriteLine("You gaze into the distance and see flashing lights and run towards them ");
-            Console.WriteLine("PRESS ENTER TO CONTINUE");
-            Console.ReadLine();
-            Console.WriteLine("------------");
-            Corridor();
-        }
-        static void Right()
-        {
-            Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors \nIn your mind you think to yourself this could be leading to cells or storage rooms.\n\n");
-            Thread.Sleep(1000);
-            Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
-            Thread.Sleep(1000);
-            Console.WriteLine("Suddenly, a faint sound catches your attention.");
-            Thread.Sleep(1000);
-            Console.WriteLine("");
-            Console.WriteLine("------------");
-            Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
-            Thread.Sleep(1000);
-            Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
-            Thread.Sleep(1000);
-            Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
-            Thread.Sleep(1000);
-            Console.WriteLine("------------");
-            Console.WriteLine("As your heart races even faster, you approach cautiously.");
-            Console.Beep((int)60, 100);
-            Thread.Sleep(1000);
-            Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
-            Console.WriteLine("");
-            Console.WriteLine("------------\n\n");
-            Thread.Sleep(1000);
-            Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
-            Thread.Sleep(1000);
-            Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
-            Thread.Sleep(1000);
-            Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me. \n\n");
-            Thread.Sleep(1000);
-            do
+            else if (user == 'r' || user == 'R')
             {
-                try
+
+                Console.WriteLine("You decide to go right, all you see is a series of lined  metal doors \nIn your mind you think to yourself this could be leading to cells or storage rooms.\n\n");
+                Thread.Sleep(1000);
+                Console.WriteLine("Your footsteps echo ominously as you make your way forward. ");
+                Thread.Sleep(1000);
+                Console.WriteLine("Suddenly, a faint sound catches your attention.");
+                Thread.Sleep(1000);
+                Console.WriteLine("");
+                Console.WriteLine("------------");
+                Console.WriteLine("All you hear is a muffled groan, coming from just around the corner.");
+                Thread.Sleep(1000);
+                Console.WriteLine("You pause, your heart pounding, and slowly look ahead");
+                Thread.Sleep(1000);
+                Console.WriteLine("There, in a pool of blood, lies a figure, unmoving.");
+                Thread.Sleep(1000);
+                Console.WriteLine("------------");
+                Console.WriteLine("As your heart races even faster, you approach cautiously.");
+                Console.Beep((int)60, 100);
+                Thread.Sleep(1000);
+                Console.WriteLine("You try and focus your eyes in the darkness and you slowly start to see the form of a battered man.");
+                Console.WriteLine("");
+                Console.WriteLine("------------\n\n");
+                Thread.Sleep(1000);
+                Console.WriteLine("As you get closer, you notice he's a fellow cellmate and his uniform is all tattered and covered in blood.");
+                Thread.Sleep(1000);
+                Console.WriteLine("He turns his head weakly, his eyes widening as he sees you.");
+                Thread.Sleep(1000);
+                Console.WriteLine("Please...he rasps, his voice barely above a whisper. Help me. \n\n");
+                Thread.Sleep(1000);
+                Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
+                string choice = Console.ReadLine().ToUpper();
+
+                if (choice == "H")
                 {
-                    Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'h' && choice != 'i')
-                        Console.WriteLine("Invalid Choice");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
+                    Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("They took... my keys.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("You glance down and notice him holding a set of keys.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
+                    inventory.Add("key");
+                    Console.WriteLine("INVENTORY UPDATED");
+                    Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("RUN!!!!");
+
                 }
 
-            } while (choice != 'h' && choice != 'i');
-            switch (choice)
-            {
-                case 'h':
-                    Help();
-                    break;
-                case 'i':
-                    Ignore();
-                    break;
-            }
-            //Call to stairs method
-            Stairs();
 
-        }
-        static void Help()
-        {
-            Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
-            Thread.Sleep(1000);
-            Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
-            Thread.Sleep(1000);
-            Console.WriteLine("They took... my keys.");
-            Thread.Sleep(1000);
-            Console.WriteLine("You glance down and notice him holding a set of keys.");
-            Thread.Sleep(1000);
-            Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
-            Thread.Sleep(1000);
-            Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
-            inventory[1] = "Key";
-            Console.WriteLine("INVENTORY UPDATED");
-            for (int i = 0; i < inventory.Length; i++)
-            {
-                Console.WriteLine(inventory[i]);
-            }
-            Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
-            Thread.Sleep(1000);
-            Console.WriteLine("RUN!!!!");
-
-        }
-        static void Ignore()
-        {
-            Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
-            Thread.Sleep(1000);
-            Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
-            Thread.Sleep(1000);
-            Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
-            Thread.Sleep(1000);
-            Console.WriteLine("You continue to make your way through the prison");
-
-        }
-        static void Stairs()
-        {
-            do
-            {
-                try
+                if (choice == "I")
                 {
-                    Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'y' && choice != 'n')
-                        Console.WriteLine("Invalid Choice");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
+                    Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("You continue to make your way through the prison");
                 }
 
-            } while (choice != 'y' && choice != 'n');
-            switch (choice)
-            {
-                case 'y':
-                    Corridor();
-                    break;
-                case 'n':
+
+
+                Console.WriteLine("You reach the bottom of the stairs, all the cell doors are open as well. You see a sign with the words 'corridor'. Would you like to enter the 'corridor'? Yes (y) or No (n)");
+                char answer = char.Parse(Console.ReadLine());
+                if (answer == 'y')
+                {
+                    Corridor(inventory);
+                }
+                else if (answer == 'n')
+                {
+                    //Console.WriteLine("You stayed in cell blocks");
                     Console.WriteLine("You stayed in cell blocks,all of a sudden you feel a sharp pain on your neck");
                     Console.WriteLine("You fall to the ground, your vision starts blur and you embrace death.");
                     Console.ReadLine();
                     Died();
-                    break;
+
+                }
             }
         }
 
-        static void Corridor()
+        static void Corridor(List <string> inventory)
         {
 
             Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \nyou see 2 bodies lying on the floor.");
-            do
+            Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
+            char answer = char.Parse(Console.ReadLine());
+            if (answer == 'y' || answer == 'Y')
             {
-                try
-                {
-                    Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'y' && choice != 'n')
-                        Console.WriteLine("Invalid Choice");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
-                }
-
-            } while (choice != 'y' && choice != 'n');
-            switch (choice)
-            {
-                case 'y':
-                    Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
-                    Console.WriteLine("They both start to move and swiftly attack you. \nYou take you last breath and ...");
-                    Console.ReadLine();
-                    Died();
-                    break;
-                case 'n':
-                    No();
-                    break;
+                Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
+                Console.WriteLine("They both start to move and swiftly attack you. \nYou take you last breath and ...");
+                Console.ReadLine();
+                Died();
 
             }
-        }
-        static void No()
-        {
-            Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
-            Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
-            Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
-            do
+            else if (answer == 'n' || answer == 'N')
             {
-                try
+                Console.WriteLine("You move past them ignoring them and continue walking down the corridor");
+                Console.WriteLine("You reach the end and see 2 signs with arrows pointing in different directions");
+                Console.WriteLine("Left going to 'Library' and right going to 'Rec room'");
+                Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
+                char direction = char.Parse(Console.ReadLine());
+                if (direction == 'L' || direction == 'l')
                 {
-                    Console.WriteLine("Which way do you want to go? \n Left (L) or Right (R)");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'l' && choice != 'r')
-                        Console.WriteLine("Invalid Choice");
+                    Library(inventory);
+                    //Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
+                   //Console.WriteLine("They both start to move and swiftly attack you. ");
+                    
+                   // Died();
                 }
-                catch (FormatException)
+                else if (direction == 'R' || (direction == 'r'))
                 {
-                    Console.WriteLine("Invalid format");
+                    Recroom(inventory);
                 }
-
-            } while (choice != 'l' && choice != 'r');
-            switch (choice)
-            {
-                case 'l':
-                    Library();
-                    break;
-                case 'r':
-                    Recroom();
-                    break;
+                else
+                {
+                    Console.WriteLine("Invalid input. Please choose 'L' for Library or 'R' for Rec Room ");
+                }
 
             }
+            else
+            {
+                Console.WriteLine("Invalid input. Please choose 'Y' for Yes or 'N' for No");
+            }
         }
-        static void Library()
+
+        static void Library(List<string>inventory)
         {
             string temp;
             bool explore = false;
@@ -533,169 +435,103 @@ namespace Skeleton_Program
             Thread.Sleep(1000);
             Console.WriteLine("You see that the room is a mess. Books scattered every where on the ground it's a total mess");
             Thread.Sleep(1000);
+            Console.WriteLine("You enter the room, closing the door behind you, would you like to explore? \nYes (y) or No (n)?");
+            Thread.Sleep(1000);
+            char answer = char.Parse(Console.ReadLine());
+            if (answer == 'y' || answer == 'Y')
 
-            do
             {
-                try
+                explore = true;
                 {
-                    Console.WriteLine("You enter the room, closing the door behind you, would you like to explore? \nYes (y) or No (n)?");
+                    Console.WriteLine("You search around the room, seeing piles and piles of books on the ground.");
                     Thread.Sleep(1000);
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'y' && choice != 'n')
-                        Console.WriteLine("Invalid Choice");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
-                }
-
-            } while (choice != 'y' && choice != 'n');
-            switch (choice)
-            {
-                case 'y':
-                    exploreYes();
-                    break;
-                case 'n':
-                    exploreNo();
-                    break;
-
-            }
-
-
-
-        }
-        static void exploreYes()
-        {
-            bool explore = true;
-
-            Console.WriteLine("You search around the room, seeing piles and piles of books on the ground.");
-            Thread.Sleep(1000);
-
-            do
-            {
-                try
-                {
                     Console.WriteLine("Would you like to investigate? Yes 'y' or No 'n'?");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'y' && choice != 'n')
-                        Console.WriteLine("Invalid Choice");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
-                }
+                    char investigate = char.Parse(Console.ReadLine());
+                    if (investigate == 'y' || investigate == 'Y')
+                    {
+                        Console.WriteLine("You step on a piece of paper");
+                        Thread.Sleep(1000);
+                        Console.WriteLine("Pick up Yes (y) or No (n)?");
+                        char pickUp = char.Parse(Console.ReadLine());
+                        if (pickUp == 'y' || pickUp == 'Y')
+                        {
+                            Console.WriteLine("You pick up the piece of paper and examine it.");
+                            Thread.Sleep(1000);
+                            Console.WriteLine("On further examination you see that it is the map of the prison");
+                            inventory.Add("map");
+                            Thread.Sleep(1000);
+                            Console.WriteLine("You examine the map carefully slowly growing board of it,\nyou scrunch up the map and put it into your pocket and move on");
+                            Thread.Sleep(1000);
 
-            } while (choice != 'y' && choice != 'n');
-            switch (choice)
-            {
-                case 'y':
-                    investigateYes();
-                    break;
-                case 'n':
-                    investigateNo();
-                    break;
+
+                        }
+                        else if (pickUp == 'n' || pickUp == 'N')
+                        {
+                            Console.WriteLine("You leave the piece of paper on the ground.");
+                            Thread.Sleep(1000);
+
+                        }
+                    }
+                    else if (investigate == 'n' ||  investigate == 'N')
+                    {
+                        Console.WriteLine("You decide not to investigate the room");
+                        Thread.Sleep(1000);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input, please enter Y or N");
+                    }
+                    Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves ");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("You find yourself lost, each direction look unfamiliar \nYou look left, right, straight and up");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
+
+                    while (explore.Equals(true))
+                    {
+                        temp = Console.ReadLine().ToLower();
+                        switch (temp)
+                        {
+                            case "left":
+                                Console.WriteLine("You find yourself back at where you started");
+                                Console.WriteLine("Everything seems to be the same, you walk back into the maze to try again");
+                                Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
+                                break;
+                            case "right":
+                                Console.WriteLine("You exit the maze to see a door with the words 'Cafeteria' on it");
+                                Console.WriteLine("You feel your stomach growling, it's been a while since you have eaten");
+                                Console.WriteLine("YOu let your stomach control your actions \nYou walk towards the door and enter the cafeteria.");
+                                explore = false;
+                                Cafeteria(inventory);
+                                break;
+                            case "up":
+                                Console.WriteLine("You are too indecisive to make a choice");
+                                Thread.Sleep(1000);
+                                Console.WriteLine("You look up and decide to get a better view");
+                                Thread.Sleep(1000);
+                                Console.WriteLine("You start to climb up the bookshelf \nYou feel it wobble and shake");
+                                Thread.Sleep(1000);
+                                Console.WriteLine("You lose your footing and fall to your death");
+                                Thread.Sleep(1000);
+                                Died();
+                                break;
+                            default:
+                                Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
+                                break;
+                        }
+
+                    }
+                }
             }
-
-            Console.WriteLine("You venture deeper into the library walking into a maze of bookshelves ");
-            Thread.Sleep(1000);
-            Console.WriteLine("You find yourself lost, each direction look unfamiliar \nYou look left, right, straight and up");
-            Thread.Sleep(1000);
-            Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
-
-            while (explore.Equals(true))
+            else if (answer == 'n' || answer == 'N')
             {
-                string temp = Console.ReadLine().ToLower();
-                switch (temp)
-                {
-                    case "left":
-                        Console.WriteLine("You find yourself back at where you started");
-                        Console.WriteLine("Everything seems to be the same, you walk back into the maze to try again");
-                        Console.WriteLine("What is your next move? Are you going to go to the 'left', 'right' or 'up'?");
-                        break;
-                    case "right":
-                        Console.WriteLine("You exit the maze to see a door with the words 'Cafeteria' on it");
-                        Console.WriteLine("You feel your stomach growling, it's been a while since you have eaten");
-                        Console.WriteLine("YOu let your stomach control your actions \nYou walk towards the door and enter the cafeteria.");
-                        explore = false;
-                        Cafeteria();
-                        break;
-                    case "up":
-                        Console.WriteLine("You are too indecisive to make a choice");
-                        Thread.Sleep(1000);
-                        Console.WriteLine("You look up and decide to get a better view");
-                        Thread.Sleep(1000);
-                        Console.WriteLine("You start to climb up the bookshelf \nYou feel it wobble and shake");
-                        Thread.Sleep(1000);
-                        Console.WriteLine("You lose your footing and fall to your death");
-                        Thread.Sleep(1000);
-                        Died();
-                        break;
-                    default:
-                        Console.WriteLine("Invalid input. Please enter 'left', 'right', or 'up'.");
-                        break;
-                }
-
-            }
-        }
-        static void exploreNo()
-        {
-            Console.WriteLine("You decide not to search the room. \n You hear something that sounds like a book dropping in the library");
-            Console.WriteLine("You make your way back into the corridor and decide to head to the rec room");
-            Recroom();
-        }
-        static void investigateYes()
-        {
-            Console.WriteLine("You step on a piece of paper");
-            Thread.Sleep(1000);
-
-            char pickUp = char.Parse(Console.ReadLine());
-            do
-            {
-                try
-                {
-                    Console.WriteLine("Pick up Yes (y) or No (n)?");
-                    choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'y' && choice != 'n')
-                        Console.WriteLine("Invalid Choice");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid format");
-                }
-
-            } while (choice != 'y' && choice != 'n');
-            switch (choice)
-            {
-                case 'y':
-                    pickUpYes();
-                    break;
-                case 'n':
-                    pickUpNo();
-                    break;
+                Console.WriteLine("You decide not to search the room. \n You hear something that sounds like a book dropping in the library");
+                Console.WriteLine("You make your way back into the corridor and decide to head to the rec room");
+                Recroom(inventory);
             }
         }
-        static void investigateNo()
-        {
-            Console.WriteLine("You decide not to investigate the room");
-            Thread.Sleep(1000);
-        }
-        static void pickUpYes()
-        {
-            Console.WriteLine("You pick up the piece of paper and examine it.");
-            Thread.Sleep(1000);
-            Console.WriteLine("On further examination you see that it is the map of the prison");
-            inventory[2] = "Map";
-            Thread.Sleep(1000);
-            Console.WriteLine("You examine the map carefully slowly growing board of it,\nyou scrunch up the map and put it into your pocket and move on");
-            Thread.Sleep(1000);
-        }
-        static void pickUpNo()
-        {
-            Console.WriteLine("You leave the piece of paper on the ground.");
-            Thread.Sleep(1000);
-        }
 
-        static void Recroom()
+        static void Recroom(List<string> inventory)
         {
             Random rand = new Random();
             for (int i = 0; i < 10; i++)
@@ -724,37 +560,23 @@ namespace Skeleton_Program
             }
             else
             {
-                Console.WriteLine("You're hiding behind A table in the prison's game room.");
-                Thread.Sleep(2000);
-                Console.WriteLine("");
-                Console.WriteLine("There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("Its skin was decaying, and its clothes were in tatters. But what truly made it horrifying were its gruesome injuries.");
-                Console.WriteLine("         .-\"\"\"-.\r\n        /       \\\r\n       |  O   O  |\r\n       |    ∆    |\r\n        \\ ----- /\r\n     ____|_____|____\r\n   /  ______(O)______\\\r\n   \\_/  [_____]'   [___] \r\n");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("You look around for a better hiding spot and see a dark corner. You try to sneak over there, but then you see the zombie stumble into the room.");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("Its eyes are creepy and it's looking for someone to eat.");
-                Thread.Sleep(3000);
-                Console.WriteLine("");
-                Console.WriteLine("You freeze as the zombie's gaze lands on you.");
-                Thread.Sleep(3000);
-                Console.WriteLine("");
-                Console.WriteLine("You scan the room quickly, searching for a safer place to hide.");
-                Thread.Sleep(4000);
-                Console.WriteLine("");
-                Console.WriteLine("You see a sturdy-looking cabinet against the far wall, it seems like a better option than your current spot behind the tables.");
-                Thread.Sleep(5000);
-                Console.WriteLine("");
-                Console.WriteLine("You notice another possibility, you see a large overturned couch near the center of the room. It's bulky and could provide better cover.");
-                Thread.Sleep(6000);
-                Console.WriteLine("");
-                Console.WriteLine("But the couch is closer to where the zombie is slowly making its way towards you.");
-                Thread.Sleep(3000);
-                Console.WriteLine("");
+                Text("You're hiding behind A table in the prison's game room.\n " +
+                    "There are no lights and its hard to see but you can hear scary noises outside, like moans and shuffling. It's a zombie.\n\n" +
+                    "Its skin was decaying, and its clothes were in tatters. But what truly made it horrifying were its gruesome injuries.\n\n");
+                Console.WriteLine("          \"\"-.\r\n        /       \\\r\n       |  O   O  |\r\n       |    ∆    |\r\n        \\ ----- /\r\n     ____|_____|____\r\n   /  ______(O)______\\\r\n   \\_/  [_____]'   [___] \r\n");
+                Text("\n\nYou look around for a better hiding spot and see a dark corner. You try to sneak over there, but then you see the zombie stumble into the room.\n\n" +
+                    "Its eyes are creepy and it's looking for someone to eat\n\nYou freeze as the zombie's gaze lands on you.\n\nYou scan the room quickly, searching for a safer place to hide.\n\n" +
+                    "You see a sturdy-looking cabinet against the far wall, it seems like a better option than your current spot behind the tables.\n\n" +
+                    "You notice another possibility, you see a large overturned couch near the center of the room. It's bulky and could provide better cover.\n\n" +
+                    "But the couch is closer to where the zombie is slowly making its way towards you.");
+
+               
+             
+            
+               
+               
+               
+               
 
                 for (int i = 0; i < 3; i++)
                 {
@@ -764,7 +586,7 @@ namespace Skeleton_Program
                     System.Threading.Thread.Sleep(200);
                 }
 
-                Console.WriteLine("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2) STAY(press 3)");
+                Text("CHOOSE A PLACE TO HIDE: CLOSET(press 1)   COUCH(press 2) STAY(press 3)");
                 temp = Console.ReadLine();
                 int hide = Convert.ToInt32(temp);
 
@@ -791,13 +613,13 @@ namespace Skeleton_Program
                     case 2:
                         Console.WriteLine("You see the couch and think it might be a good hiding spot. It's closer and seems big enough to protect you.");
                         Console.WriteLine("");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(500);
                         Console.WriteLine("You quickly hide behind the couch, holding your breath. The zombie's groans get quieter, and you start feeling safer.");
                         Console.WriteLine("");
-                        Thread.Sleep(4000);
+                        Thread.Sleep(500);
                         Console.WriteLine("You wait for a long time, but eventually, the zombie's sounds go away completely.");
                         Console.WriteLine("");
-                        Thread.Sleep(5000);
+                        Thread.Sleep(500);
                         Console.WriteLine("You peek out from behind the couch and from what you can see, it's safe.");
                         break;
 
@@ -840,7 +662,11 @@ namespace Skeleton_Program
                 if (item == 'q' || item == 'Q')
                 {
                     Console.WriteLine("");
-                    inventory[2] = "Flashlight";//what happends now??
+
+                    inventory.Add("flashlight");//what happends now??
+                    Console.WriteLine("you got the Flashlight\n press [ENTER] to got to cafeteria");
+                    Console.ReadLine();
+                    Cafeteria(inventory);
                 }
                 else
                 {
@@ -851,14 +677,14 @@ namespace Skeleton_Program
                     Console.ReadLine();
                     Died();
 
-
-
+                   
+                    
                 }
             }
 
         }
 
-        static void Cafeteria()
+        static void Cafeteria(List<string> inventory)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\r\n ▄████▄   ▄▄▄        █████▒▓█████▄▄▄█████▓▓█████  ██▀███   ██▓ ▄▄▄      \r\n▒██▀ ▀█  ▒████▄    ▓██   ▒ ▓█   ▀▓  ██▒ ▓▒▓█   ▀ ▓██ ▒ ██▒▓██▒▒████▄    \r\n▒▓█    ▄ ▒██  ▀█▄  ▒████ ░ ▒███  ▒ ▓██░ ▒░▒███   ▓██ ░▄█ ▒▒██▒▒██  ▀█▄  \r\n▒▓▓▄ ▄██▒░██▄▄▄▄██ ░▓█▒  ░ ▒▓█  ▄░ ▓██▓ ░ ▒▓█  ▄ ▒██▀▀█▄  ░██░░██▄▄▄▄██ \r\n▒ ▓███▀ ░ ▓█   ▓██▒░▒█░    ░▒████▒ ▒██▒ ░ ░▒████▒░██▓ ▒██▒░██░ ▓█   ▓██▒\r\n░ ░▒ ▒  ░ ▒▒   ▓▒█░ ▒ ░    ░░ ▒░ ░ ▒ ░░   ░░ ▒░ ░░ ▒▓ ░▒▓░░▓   ▒▒   ▓▒█░\r\n  ░  ▒     ▒   ▒▒ ░ ░       ░ ░  ░   ░     ░ ░  ░  ░▒ ░ ▒░ ▒ ░  ▒   ▒▒ ░\r\n░          ░   ▒    ░ ░       ░    ░         ░     ░░   ░  ▒ ░  ░   ▒   \r\n░ ░            ░  ░           ░  ░           ░  ░   ░      ░        ░  ░\r\n░                                                                       \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n                                                                        \r\n");
@@ -891,7 +717,7 @@ namespace Skeleton_Program
             string choice = Console.ReadLine();
             if (choice == "food")
             {
-                inventory[4] = "food";
+                inventory.Add("food");
                 Console.WriteLine("You grab the bags of dried food and stuff them in your pockets");
                 string food = "yes";
                 Console.WriteLine("Wold you like to grab any other item y/n?");
@@ -899,16 +725,15 @@ namespace Skeleton_Program
                 if (user == 'y')
                 {
                     Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a bottle of water and chug it. ");
+                    inventory.Add("water");
 
                 }
-                else if (user == 'n')
-                {
-                    Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
-                }
+                
+                
             }
-            else if (choice == "water")
+            else if(choice == "water")
             {
-                inventory[4] = "water";
+                inventory.Add("water");
                 Console.WriteLine("You grab yourself a bottle of water and chug it");
 
                 Console.WriteLine("Wold you like to grab any other item?");
@@ -916,21 +741,16 @@ namespace Skeleton_Program
                 if (user == 'y')
                 {
                     Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a few packets of some dried food and stuff them in your pockets. ");
-
-                }
-                else if (user == 'n')
-                {
-                    Console.WriteLine("You're satisfied with what you have and continue exploring the cafeteria");
-                    ////
-                    Console.WriteLine("Whilst exploring do you decide to go to cell block 2 or keep exploring the cafeteria\n(Y)es to enter cell block 2 or (N)o to stay in the cafeteria");
-
-                    choice = Console.ReadLine().ToLower();
-                    cellBlock2();
-
-
+                    inventory[4] = "food";
                 }
 
             }
+            Console.WriteLine("You're satisfied with what you have and continue exploring");
+            ////
+            Console.WriteLine("Whilst exploring do you decide to go to cell block 2\nPress [ENTER] to continue");
+
+            Console.ReadLine();
+            cellBlock2();
 
 
 
@@ -941,6 +761,9 @@ namespace Skeleton_Program
         static void cellBlock2()
         {
             Console.WriteLine("You walk through cellblock2.");
+            //add things 2 cellblock 2
+            Console.ReadLine();
+            Exit();
         }
 
         static void hallway()
@@ -952,7 +775,7 @@ namespace Skeleton_Program
 
 
 
-        static void courtyard()
+        static void courtyard(List<string> inventory)
         {
             Random Rand = new Random();
             Console.WriteLine("You walk into the courtyard. There are zombies everywhere.");
@@ -982,8 +805,8 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("You make it to the dead guard's body. You take the key card and the gun.");
                     /*INSERT INVENTORY GET GUN AND KEYCARD CODE HERE */
-                    string guardgun = "yes";
-                    string keycard = "yes";
+                    inventory.Add("pistol");
+                    inventory.Add("keycard");
                     Console.WriteLine("Do you try sneaking back through the crowd of zombies (Y) or shoot your way out? (N)");
                     string seconduserinput = Console.ReadLine();
                     int randzombie2 = Rand.Next(1, 6);
@@ -1090,7 +913,6 @@ namespace Skeleton_Program
 
         static void Died()
         {
-            dead = true;
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("▓██   ██▓ ▒█████   █    ██    ▓█████▄  ██▓▓█████ ▓█████▄ \r\n ▒██  ██▒▒██▒  ██▒ ██  ▓██▒   ▒██▀ ██▌▓██▒▓█   ▀ ▒██▀ ██▌\r\n  ▒██ ██░▒██░  ██▒▓██  ▒██░   ░██   █▌▒██▒▒███   ░██   █▌\r\n  ░ ▐██▓░▒██   ██░▓▓█  ░██░   ░▓█▄   ▌░██░▒▓█  ▄ ░▓█▄   ▌\r\n  ░ ██▒▓░░ ████▓▒░▒▒█████▓    ░▒████▓ ░██░░▒████▒░▒████▓ \r\n   ██▒▒▒ ░ ▒░▒░▒░ ░▒▓▒ ▒ ▒     ▒▒▓  ▒ ░▓  ░░ ▒░ ░ ▒▒▓  ▒ \r\n ▓██ ░▒░   ░ ▒ ▒░ ░░▒░ ░ ░     ░ ▒  ▒  ▒ ░ ░ ░  ░ ░ ▒  ▒ \r\n ▒ ▒ ░░  ░ ░ ░ ▒   ░░░ ░ ░     ░ ░  ░  ▒ ░   ░    ░ ░  ░ \r\n ░ ░         ░ ░     ░           ░     ░     ░  ░   ░    \r\n ░ ░                           ░                  ░     ");
@@ -1098,8 +920,10 @@ namespace Skeleton_Program
             Console.ResetColor();
             Console.ReadLine();
             Console.Clear();
+            Main();
+
         }
-        static void showers()
+        static void showers(List<string> inventory)
         {
             Console.WriteLine("You sneak towards the showers, hoping to find a place to clean up and perhaps find some supplies.");
             Console.WriteLine("As you enter the showers, you hear the faint sound of running water.");
@@ -1138,7 +962,7 @@ namespace Skeleton_Program
             }
 
 
-            static void office(string food, string guardgun, string keycard)
+            static void office(List<string> inventory)
             {
                 Console.WriteLine("You open the door and quietly enter the office.");
                 Console.WriteLine("The room is dark and you can clearly hear zombies mumbling.");
@@ -1147,6 +971,16 @@ namespace Skeleton_Program
                 Console.WriteLine("The zombies will definitely notice you if you try to go for it though, if you have food, you could cause a distraction.");
                 Console.WriteLine("Or if you have a weapon, you could fight the zombies");
                 Console.WriteLine("Throw Food (t) or Leave Room (l)?");
+                string food = "";
+                string keycard = "";
+                if (inventory.Contains("food"))
+                {
+                    food = ("yes");
+                }
+                if (inventory.Contains("keycard"))
+                {
+                    keycard = ("yes");
+                }
                 string usersinput = Console.ReadLine();
                 if (usersinput == "t" || usersinput == "T")
                 {
@@ -1157,7 +991,7 @@ namespace Skeleton_Program
                         if (keycard == "yes")
                         {
                             Console.WriteLine("You grab a fully loaded rifle. and leave the office.");
-                            string rifle = "yes";
+                            inventory.Add("Rifle");
                         }
                     }
                     else
@@ -1241,7 +1075,7 @@ namespace Skeleton_Program
 
 
         }
-        static void VisitorRoom()
+        static void VisitorRoom(List<string> inventory)
         {
             Console.Clear();
             Console.WriteLine("You step into the visitor room, the dim lighting casts long shadows across the empty space.");
@@ -1556,6 +1390,12 @@ namespace Skeleton_Program
                 }
             }
 
+        }
+        static void Exit()
+        {
+            //add the ending
+            Console.WriteLine("the end");
+            Console.ReadLine();
         }
 
     }
