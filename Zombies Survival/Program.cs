@@ -19,8 +19,6 @@ namespace Skeleton_Program
         //Global choice variable
         static char choice = '\0';
 
-        static bool dead = false;
-
         static void Main()
         {          
                 int tasks = 0;
