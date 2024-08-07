@@ -34,7 +34,7 @@ namespace Skeleton_Program
                 //Read intro txt file               
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Red;
-                //Console.WriteLine(File.ReadAllText("intro.txt"));
+                Console.WriteLine(File.ReadAllText("intro.txt"));
                 Console.ResetColor();
                 Console.WriteLine("1. Play game \n\n2. Instructions \n\n3. Options \n\n4. Credits \n\n5. Exit game");
                 //Intro Header
@@ -150,15 +150,35 @@ namespace Skeleton_Program
             Console.WriteLine("INTRODUCTION");
             Console.WriteLine("------------");
             Text("You wake up to the sound of knocking at your door, it's your landlord.");
-            Text("Do you want to skip the rest?\n\ny/n");
-            char temp = Convert.ToChar(Console.ReadLine().ToLower());
-            if (temp == 'y')
+            do
             {
-                task1();
+                try
+                {
+                    Text("Do you want to skip the rest? y/n");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid choice");
+
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
+                    task1();
+                    break;
+                case 'n':
+                    introMessage();
+                    break;
             }
 
-
-
+        }
+        public static void introMessage()
+        {
             Text("She says you are behind on the rent again, you explain how you got fired and it's not your fault but she doesn't care.");
             Text("She demands you pay your rent by tonight or else you'll be kicked out onto the street.");
             Text("To calm down and come up with ideas, you decide to go for a walk.");
@@ -214,7 +234,6 @@ namespace Skeleton_Program
             Console.WriteLine("");
             Console.ReadLine();
             task1();
-
         }
         public static void mapmethod()
         {
