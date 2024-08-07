@@ -735,6 +735,7 @@ namespace Skeleton_Program
                 if (user == 'y')
                 {
                     Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a bottle of water and chug it. ");
+                    inventory.Add("water");
 
                 }
                 else if (user == 'n')
@@ -818,8 +819,8 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("You make it to the dead guard's body. You take the key card and the gun.");
                     /*INSERT INVENTORY GET GUN AND KEYCARD CODE HERE */
-                    string guardgun = "yes";
-                    string keycard = "yes";
+                    inventory.Add("guardgun");
+                    inventory.Add("keycard");
                     Console.WriteLine("Do you try sneaking back through the crowd of zombies (Y) or shoot your way out? (N)");
                     string seconduserinput = Console.ReadLine();
                     int randzombie2 = Rand.Next(1, 6);
