@@ -395,6 +395,43 @@ namespace Skeleton_Program
             Stairs(inventory);
 
         }
+        static void Help(List<string> inventory)
+        {
+            Console.WriteLine("You tear a piece of your shirt and pass it to him \n He presses the piece of cloth onto his neck where it looked like he was badly scratched and attacked");
+            Thread.Sleep(1000);
+            Console.WriteLine("He manages to say, coughing up a mouthful of blood.");
+            Thread.Sleep(1000);
+            Console.WriteLine("They took... my keys.");
+            Thread.Sleep(1000);
+            Console.WriteLine("You glance down and notice him holding a set of keys.");
+            Thread.Sleep(1000);
+            Console.WriteLine("Hold on, you say, reaching for the keys. I may be able to use these to help us escape.");
+            Thread.Sleep(1000);
+            Console.WriteLine("The man nods weakly, a faint smile crossing his lips. Take them... use them well and make sure that....");
+            //Add Key to inventory changed from inventory[4] = "key"
+            inventory.Add("key");
+            Console.WriteLine("INVENTORY UPDATED");
+            //Updated inventory.Length to inventory.Count as inventory is now a list
+            for (int i = 0; i < inventory.Count; i++)
+            {
+                Console.WriteLine(inventory[i]);
+            }
+            Console.WriteLine("Just before your fellow cellmate was about to finish what he was saying, he falls onto the ground and starts getting zombie possessed");
+            Thread.Sleep(1000);
+            Console.WriteLine("RUN!!!!");
+
+        }
+        static void Ignore()
+        {
+            Console.WriteLine("You look down at the wounded prisoner, his pleading eyes desperate for help.\n  But the risks of assisting him seem too great, and the chance of your own escape feels more important.");
+            Thread.Sleep(1000);
+            Console.WriteLine("With a heavy heart, you turn your back and continue down the hallway. \n The prisoner's faint cries echo behind you.");
+            Thread.Sleep(1000);
+            Console.WriteLine("The keys he mentioned could be a valuable resource, but at what cost?\n You push the guilt aside, knowing that your own survival  is a priority ");
+            Thread.Sleep(1000);
+            Console.WriteLine("You continue to make your way through the prison");
+
+        }
 
         static void Library(List<string> inventory)
         {
