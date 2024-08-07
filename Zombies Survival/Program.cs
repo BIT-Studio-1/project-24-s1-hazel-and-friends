@@ -463,6 +463,39 @@ namespace Skeleton_Program
                     break;
             }
         }
+        static void Corridor(List<string> inventory)
+        {
+
+            Console.WriteLine("You enter a long corridor \nyou begin to walk down it. \nyou see 2 bodies lying on the floor.");
+            do
+            {
+                try
+                {
+                    Console.WriteLine("Do you want to check the bodies, Yes 'y' or No 'n'");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid Choice");
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid format");
+                }
+
+            } while (choice != 'y' && choice != 'n');
+            switch (choice)
+            {
+                case 'y':
+                    Console.WriteLine("You check the bodies each of them have bite marks on different areas of their bodies");
+                    Console.WriteLine("They both start to move and swiftly attack you. \nYou take you last breath and ...");
+                    Console.ReadLine();
+                    Died();
+                    break;
+                case 'n':
+                    No(inventory);
+                    break;
+
+            }
+        }
 
         static void Library(List<string> inventory)
         {
