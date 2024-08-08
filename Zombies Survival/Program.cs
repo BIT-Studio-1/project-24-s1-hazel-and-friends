@@ -15,6 +15,7 @@ namespace Skeleton_Program
     internal class Program
     {
         static char choice;
+        //global inventory list
         public static List<string> inventory = new List<string>();
         static void Main()
         {
