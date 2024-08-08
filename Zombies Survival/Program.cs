@@ -937,10 +937,10 @@ namespace Skeleton_Program
             Exit();
         }
 
-        static void hallway()
-        {
-            Console.WriteLine("You walk into the hallway.");
-        }
+       // static void hallway()
+       // {
+           // Console.WriteLine("You walk into the hallway.");
+       // }
 
 
 
@@ -1121,7 +1121,8 @@ namespace Skeleton_Program
                 Console.WriteLine("The zombie then happily walks away with its' bar of soap and doesn't even notice you \nYou're SAFE!! ");
                 Thread.Sleep(400);
                 Console.WriteLine("Only for now \nYou then make your way back into the corridor and see some rooms ahead of you");
-                hallway();
+                office(inventory);
+               // hallway();
 
             }
             else if (showier == "N")
@@ -1138,7 +1139,7 @@ namespace Skeleton_Program
                 Console.WriteLine("You open the door and quietly enter the office.");
                 Console.WriteLine("The room is dark and you can clearly hear zombies mumbling.");
                 Console.WriteLine("You turn on the lights and realize the room has some zombies.");
-                Console.WriteLine("There is a door labelled 'Armory' in the corner, it has a keycard reader. If you have a keycard, you may be able to access it.");
+                Console.WriteLine("There is a door labeled 'Armory' in the corner, it has a keycard reader. If you have a keycard, you may be able to access it.");
                 Console.WriteLine("The zombies will definitely notice you if you try to go for it though, if you have food, you could cause a distraction.");
                 Console.WriteLine("Or if you have a weapon, you could fight the zombies");
                 Console.WriteLine("Throw Food (t) or Leave Room (l)?");
@@ -1289,7 +1290,7 @@ namespace Skeleton_Program
                     Console.WriteLine("The room is in shambles, lights a are flickering showing splatter of blood all over the floor and walls");
                     Thread.Sleep(2000);
                     Console.WriteLine("");
-                    Console.WriteLine("The room is seems unintersting to you, just a normal looking reception room minus the blood you thought");
+                    Console.WriteLine("The room is seems uninteresting to you, just a normal looking reception room minus the blood you thought");
                     Console.WriteLine("You decided to go towards the open door");
                     Thread.Sleep(3000);
                     Console.WriteLine("As you reach the door you see a hoard of zombies lurking in the corridor");
@@ -1298,7 +1299,7 @@ namespace Skeleton_Program
                     Console.WriteLine("You decided to close the door as quietly as possible");
                     Thread.Sleep(3000);
                     Console.WriteLine("You slowly begin to close the door but as you do a loud creak emits from the hinge");
-                    Console.WriteLine("Iin an instance all the zombies look in your direction");
+                    Console.WriteLine("In an instance all the zombies look in your direction");
                     Console.WriteLine("You quickly slam the door shut");
 
 
@@ -1405,13 +1406,13 @@ namespace Skeleton_Program
             Console.WriteLine("What could these numbers mean?");
             Console.WriteLine("PRESS ENTER TO CONTINUE");
             Console.ReadLine();
-            Console.WriteLine("Your short moment is interupted by a a loud bang and crash at the door");
+            Console.WriteLine("Your short moment is interrupted by a a loud bang and crash at the door");
             Console.WriteLine("You see that the door is starting to slowly hinge open due to the share amount of zombies pushing at it");
             Console.WriteLine("You start to panic and look for your next escape");
             Thread.Sleep(1500);
             Console.WriteLine("You scan the room in a rush to find and exit");
             Console.WriteLine("You being to panic as things start to set in");
-            Console.WriteLine("The room is so dark that anything that is not lit up by the flickering light is not visable");
+            Console.WriteLine("The room is so dark that anything that is not lit up by the flickering light is not visible");
             Thread.Sleep(1500);
             Console.WriteLine("The banging continues but it gradually gets louder");
             Console.WriteLine("You panic more until you see a sign that is barely lit up by the light with the words exit");
@@ -1533,13 +1534,13 @@ namespace Skeleton_Program
             Console.WriteLine("What could these numbers mean?");
             Console.WriteLine("PRESS ENTER TO CONTINUE");
             Console.ReadLine();
-            Console.WriteLine("Your short moment is interupted by a a loud bang and crash at the door");
+            Console.WriteLine("Your short moment is interrupted by a a loud bang and crash at the door");
             Console.WriteLine("You see that the door is starting to slowly hinge open due to the share amount of zombies pushing at it");
             Console.WriteLine("You start to panic and look for your next escape");
             Thread.Sleep(1500);
             Console.WriteLine("You scan the room in a rush to find and exit");
             Console.WriteLine("You being to panic as things start to set in");
-            Console.WriteLine("The room is so dark that anything that is not lit up by the flickering light is not visable");
+            Console.WriteLine("The room is so dark that anything that is not lit up by the flickering light is not visible");
             Thread.Sleep(1500);
             Console.WriteLine("The banging continues but it gradually gets louder");
             Console.WriteLine("You panic more until you see a sign that is barely lit up by the light with the words exit");
@@ -1554,7 +1555,7 @@ namespace Skeleton_Program
             {
                 {
                     Console.WriteLine("You decided to stay and accept your fate");
-                    Console.WriteLine("The zombies come crashing thorugh the door and pile on you");
+                    Console.WriteLine("The zombies come crashing through the door and pile on you");
                     Console.WriteLine("Life begins to fade as you become one of them");
                     Console.ReadLine();
                     Died();
