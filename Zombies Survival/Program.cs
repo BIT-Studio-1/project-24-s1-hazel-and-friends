@@ -15,12 +15,12 @@ namespace Skeleton_Program
     internal class Program
     {
         static char choice;
+        //Boolean to control exiting the game after finishing
+        static bool exit;
         //global inventory list
         public static List<string> inventory = new List<string>();
         static void Main()
-        {
-
-
+        {           
             int tasks = 0;
             do
             {
@@ -74,12 +74,12 @@ namespace Skeleton_Program
                         break;
                     case 4:
                         task4();
-                        break;
+                        break;                  
                     case 5:
                         Console.WriteLine("Exiting ...");
                         break;
                 }
-            } while (tasks >= 1 && tasks <= 4);
+            } while ((tasks >= 1 && tasks <= 4) && !exit);
             //Loop breaks when user enters 1          
         }
 
@@ -942,10 +942,6 @@ namespace Skeleton_Program
             Console.WriteLine("You walk into the hallway.");
         }
 
-
-
-
-
         static void courtyard()
         {
             Random Rand = new Random();
@@ -1563,10 +1559,36 @@ namespace Skeleton_Program
         }
         static void Exit()
         {
+
             //add the endings
             //ending will be based on obtained items and players choice
             Console.WriteLine("the end");
-            Console.ReadLine();
+            do {
+                try
+                {
+                    Console.WriteLine("Do you want to play again (y/n)");
+                    choice = Convert.ToChar(Console.ReadLine().ToLower());
+                    if (choice != 'y' && choice != 'n')
+                        Console.WriteLine("Invalid choice");
+
+                }
+                catch (FormatException)
+                {
+
+                    Console.WriteLine("Invalid format");
+                }
+            }while (choice!='y' && choice!= 'n');
+            switch (choice)
+            {
+                case 'y':  
+                    //Returns back to the menu
+                    break;
+                case 'n':
+                    exit = true;
+                    break;
+            }
+
+            
         }
 
     }
