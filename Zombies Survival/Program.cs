@@ -1116,7 +1116,7 @@ namespace Skeleton_Program
                 Console.WriteLine("The zombie then happily walks away with its' bar of soap and doesn't even notice you \nYou're SAFE!! ");
                 Thread.Sleep(400);
                 Console.WriteLine("Only for now \nYou then make your way back into the corridor and see some rooms ahead of you");
-                office(inventory);
+                office();
                // hallway();
 
             }
