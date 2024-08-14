@@ -74,7 +74,7 @@ namespace Skeleton_Program
                         task3();
                         break;
                     case 4:
-                        task4();
+                        task4();                       
                         break;
                     case 5:
                         Console.WriteLine("Exiting ...");
@@ -1717,30 +1717,30 @@ namespace Skeleton_Program
             switch (itemChoice)
             {
                 case "rifle":
-                    Console.WriteLine("With trembling hands, you reach for the rifle, your only hope of fighting your way out. " +
+                    Text("With trembling hands, you reach for the rifle, your only hope of fighting your way out. " +
                         "But as you pull the trigger, the gun jams, and in a flash of horror, it backfires. The world goes dark as the gun’s lethal" +
                         " force turns on you, ending your escape before it begins.\nYour journey ends here... You died.");
                     break;
                 case "key":
-                    Console.WriteLine("You shake off the dreadful thought and reach for the key instead, " +
+                    Text("You shake off the dreadful thought and reach for the key instead, " +
                         "cold and metallic in your hand. \nYour heart pounds as you cautiously sneak past the approaching zombies," +
                         " your breath shallow, every step calculated. With the key, you unlock a door hidden in the shadows." +
                         " Relief floods your veins as you push it open, revealing the night sky. You step out into freedom, " +
                         "leaving the horrors of the prison behind. \nYou made it! You have successfully escaped the prison!");
                     break;
                 case "water":
-                    Console.WriteLine("Parched and desperate, you grab the bottle of water, gulping it down in a bid for strength." +
+                    Text("Parched and desperate, you grab the bottle of water, gulping it down in a bid for strength." +
                         " But as the refreshing liquid courses through your body, the zombies catch up to you, " +
                         "their ferocious hands tearing into your flesh. You realize too late that hydration was not your salvation." +
                         "\nYour journey ends here... You died.");
                     break;
                 case "vest":
-                    Console.WriteLine("In a moment of desperation, you don the bulletproof vest, hoping it will protect you from the zombies. " +
+                    Text("In a moment of desperation, you don the bulletproof vest, hoping it will protect you from the zombies. " +
                         "The thick material shields your torso, but the zombies, relentless and ravenous, attack your unprotected head, arms, " +
                         "and legs. You fall beneath the swarm, your last breath taken in a futile struggle.\nYour journey ends here... You died");
                     break;
                 case "pistol":
-                    Console.WriteLine("Finally, with resolve, you seize the pistol, your fingers finding strength in its familiar grip. " +
+                    Text("Finally, with resolve, you seize the pistol, your fingers finding strength in its familiar grip. " +
                         "\nWith careful aim, you fire at the zombies, each shot finding its mark. One by one, they fall, and the path to freedom clears. " +
                         "The echo of the final shot fades, leaving only silence in its wake. You lower the pistol, battered but alive, " +
                         "and step out into the world beyond the prison walls. \nYou made it! Against all odds, you have survived and escaped the prison!");
