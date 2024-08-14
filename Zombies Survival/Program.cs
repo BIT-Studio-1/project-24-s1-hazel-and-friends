@@ -5,7 +5,6 @@ using System.ComponentModel.Design;
 using System.Drawing;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Principal;
-using System.Text;
 using System.Threading;
 using System.Xml.Serialization;
 using static System.Net.Mime.MediaTypeNames;
@@ -21,7 +20,7 @@ namespace Skeleton_Program
         //global inventory list
         public static List<string> inventory = new List<string>();
         static void Main()
-        {           
+        {
             int tasks = 0;
             do
             {
@@ -75,7 +74,7 @@ namespace Skeleton_Program
                         break;
                     case 4:
                         task4();
-                        break;                  
+                        break;
                     case 5:
                         Console.WriteLine("Exiting ...");
                         break;
@@ -112,7 +111,7 @@ namespace Skeleton_Program
         static void task4()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓ ██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
+            Console.WriteLine("▄████▄   ██▀███  ▓█████ ▓█████▄  ██▓▄▄▄█████▓  ██████ \r\n▒██▀ ▀█  ▓██ ▒ ██▒▓█   ▀ ▒██▀ ██▌▓██▒▓  ██▒ ▓▒▒██    ▒ \r\n▒▓█    ▄ ▓██ ░▄█ ▒▒███   ░██   █▌▒██▒▒ ▓██░ ▒░░ ▓██▄   \r\n▒▓▓▄ ▄██▒▒██▀▀█▄  ▒▓█  ▄ ░▓█▄   ▌░██░░ ▓██▓ ░   ▒   ██▒\r\n▒ ▓███▀ ░░██▓ ▒██▒░▒████▒░▒████▓ ░██░  ▒██▒ ░ ▒██████▒▒\r\n░ ░▒ ▒  ░░ ▒▓ ░▒▓░░░ ▒░ ░ ▒▒▓  ▒ ░▓    ▒ ░░   ▒ ▒▓▒ ▒ ░\r\n  ░  ▒     ░▒ ░ ▒░ ░ ░  ░ ░ ▒  ▒  ▒ ░    ░    ░ ░▒  ░ ░\r\n░          ░░   ░    ░    ░ ░  ░  ▒ ░  ░      ░  ░  ░  \r\n░ ░         ░        ░  ░   ░     ░                 ░  \r\n░                         ░                           ");
             Console.ResetColor();
             Console.WriteLine("WALKING JAIL");
             Console.WriteLine();
@@ -913,7 +912,7 @@ namespace Skeleton_Program
                 if (user == 'y')
                 {
                     Console.WriteLine("Now that you know where you can find some supplies, you grab yourself a few packets of some dried food and stuff them in your pockets. ");
-                    inventory[4] = "food";
+                    inventory.Add("food");
                 }
 
             }
@@ -935,13 +934,13 @@ namespace Skeleton_Program
             Console.WriteLine("You walk through cellblock2.");
             //add things 2 cellblock 2
             Console.ReadLine();
-            Exit();
+            courtyard();
         }
 
-       // static void hallway()
-       // {
-           // Console.WriteLine("You walk into the hallway.");
-       // }
+        // static void hallway()
+        // {
+        // Console.WriteLine("You walk into the hallway.");
+        // }
 
         static void courtyard()
         {
@@ -950,7 +949,6 @@ namespace Skeleton_Program
             Console.WriteLine("You realize that they are in a dull state and don't realize you're there yet. You might be able to sneak around them");
             Console.WriteLine("You notice the dead prison guard at the other end of the courtyard, his body has a gun and a key card.");
             Console.WriteLine("If you don't have a weapon on you, this could end badly.");
-            /*CREATE VARIABLE CALLED WEAPONCHECK(); AND IF IT IS TICKED THEN CREATE DIFFERENT OPTIONS FOR PLAYER */
             Console.WriteLine("Do you sneak forward (Y) or do you leave the Courtyard (N)");
             string usersinputs = Console.ReadLine();
             if (usersinputs == "Y" || usersinputs == "y")
@@ -968,6 +966,7 @@ namespace Skeleton_Program
                     Console.Beep((int)262.2, 800);
                     Console.Beep((int)247.2, 1100);
                     Console.ReadLine();
+                    Died();
                 }
                 else
                 {
@@ -998,12 +997,14 @@ namespace Skeleton_Program
                                     Console.Beep((int)262.2, 800);
                                     Console.Beep((int)247.2, 1100);
                                     Console.ReadLine();
+                                    Died();
                                 }
                                 else
                                 {
                                     Console.WriteLine("You pushed the zombie back and ran to the exit.");
                                     Console.WriteLine("You escaped the courtyard.");
                                     Console.ReadLine();
+                                    showers();
                                 }
                             }
                             else
@@ -1016,6 +1017,7 @@ namespace Skeleton_Program
                                 {
                                     Console.WriteLine("You run straight for the exit and escape the Courtyard.");
                                     Console.ReadLine();
+                                    showers();
                                 }
                                 else
                                 {
@@ -1032,6 +1034,7 @@ namespace Skeleton_Program
                                         Console.Beep((int)262.2, 800);
                                         Console.Beep((int)247.2, 1100);
                                         Console.ReadLine();
+                                        Died();
                                     }
                                 }
                             }
@@ -1039,6 +1042,7 @@ namespace Skeleton_Program
                         else
                         {
                             Console.WriteLine("You escaped the courtyard.");
+                            showers();
                         }
                     }
                     else
@@ -1058,6 +1062,7 @@ namespace Skeleton_Program
                             Console.Beep((int)262.2, 800);
                             Console.Beep((int)247.2, 1100);
                             Console.ReadLine();
+                            Died();
                         }
                         else
                         {
@@ -1072,8 +1077,7 @@ namespace Skeleton_Program
             else
             {
                 Console.WriteLine("You leave the courtyard and instead go to the showers further down the corridor");
-                /* showers(); */
-                Console.ReadLine();
+                showers();
             }
             Console.ReadLine();
         }
@@ -1118,7 +1122,7 @@ namespace Skeleton_Program
                 Thread.Sleep(400);
                 Console.WriteLine("Only for now \nYou then make your way back into the corridor and see some rooms ahead of you");
                 office();
-               // hallway();
+                // hallway();
 
             }
             else if (showier == "N")
@@ -1126,6 +1130,8 @@ namespace Skeleton_Program
                 Console.WriteLine("Suddenly,  you hear footsteps approaching from a distance \nYou turn around and see a zombie walking into the shower room, your and slip on the wet floor.");
                 Console.WriteLine("The zombie turns around and spots you");
                 Console.WriteLine("Just before you know it, the zombie attacks you and you're dead");
+                Console.WriteLine("PRESS ENTER");
+                Console.ReadLine();
                 Died();
             }
 
@@ -1139,6 +1145,9 @@ namespace Skeleton_Program
                 Console.WriteLine("The zombies will definitely notice you if you try to go for it though, if you have food, you could cause a distraction.");
                 Console.WriteLine("Or if you have a weapon, you could fight the zombies");
                 Console.WriteLine("Throw Food (t) or Leave Room (l)?");
+                //REMOVE BELOW LINE -------------------------------------
+                inventory.Add("keycard");
+                //REMOVE ABOVE LINE --------------------------------
                 string food = "";
                 string keycard = "";
                 if (inventory.Contains("food"))
@@ -1158,14 +1167,27 @@ namespace Skeleton_Program
                         Console.WriteLine("All the zombies are distracted and move to the corner of the room, you step up to the armory door.");
                         if (keycard == "yes")
                         {
-                            Console.WriteLine("You grab a fully loaded rifle. and leave the office.");
-                            inventory.Add("Rifle");
+                            Console.WriteLine("You grab a fully loaded rifle and a bulletproof vest. and leave the office.");
+                            inventory.Add("rifle");
+                            inventory.Add("vest");
+                            Console.ReadLine();
+                            VisitorRoom();
+                        }
+                        else
+                        {
+                            Console.WriteLine("You can't open the door because you do not have the keycard");
+                            Console.WriteLine("The zombies realize you're just standing there and lunge at you");
+                            Console.WriteLine("PRESS ENTER");
+                            Died();
                         }
                     }
                     else
                     {
                         Console.WriteLine("You do not have any food to throw.");
                         Console.WriteLine("You turn around and leave the office.");
+                        Console.ReadLine();
+                        VisitorRoom();
+
                     }
                 }
                 else if (usersinput == "l" || usersinput == "L")
@@ -1173,6 +1195,7 @@ namespace Skeleton_Program
                     Console.WriteLine("You turn around and leave the office");
                     Console.WriteLine("PRESS ENTER");
                     Console.ReadLine();
+                    VisitorRoom();
                 }
                 else
                 {
@@ -1419,6 +1442,10 @@ namespace Skeleton_Program
                 Console.WriteLine("You run towards the exit door and crash through");
                 //exit();
             }
+            else
+            {
+                Died();
+            }
 
 
             // Console.WriteLine("You burst through the door and slam it shut");
@@ -1545,7 +1572,7 @@ namespace Skeleton_Program
             if (answer == 'y' || answer == 'Y')
             {
                 Console.WriteLine("You run towards the exit door and crash through");
-                //exit();
+                Exit();
             }
             else
             {
@@ -1564,82 +1591,9 @@ namespace Skeleton_Program
 
             //add the endings
             //ending will be based on obtained items and players choice
-
-            Console.WriteLine("The horde of zombies moves closer, their groans filling the air with a sense of impending doom \nYour mind races with the weight of the decision that could determine your fate. Every second counts, and you frantically consider your options.");
-            string ending;
-
-
-            do {
-                Console.WriteLine("Choose wisely, or face the dire consequences...\nAre you going to grab the 'rifle', 'key', 'water', 'vest' or the 'pistol'?");
-                ending = Console.ReadLine().ToLower();
-
-
-
-
-                if (inventory.Contains("rifle"))
-                {
-                    Console.WriteLine("-rifle");
-                }
-                else if (inventory.Contains("key"))
-                {
-                    Console.WriteLine("-key");
-                }
-                else if (inventory.Contains("water"))
-                {
-                    Console.WriteLine("-water");
-
-                }
-                else if (inventory.Contains("vest"))
-                {
-                    Console.WriteLine("-vest");
-                }
-                else if (inventory.Contains("pistol"))
-                {
-                    Console.WriteLine("-pistol");
-                }
-
-                if (ending == "rifle")
-                {
-                    Console.WriteLine("With trembling hands, you reach for the rifle, your only hope of fighting your way out. But as you pull the trigger, the gun jams, and in a flash of horror, it backfires. The world goes dark as the gun’s lethal force turns on you, ending your escape before it begins.\nYour journey ends here... You died.");
-                    Console.ReadLine();
-                    Died();
-
-                }
-
-                else if (ending == "key")
-                {
-                    Console.WriteLine("You shake off the dreadful thought and reach for the key instead, cold and metallic in your hand. \nYour heart pounds as you cautiously sneak past the approaching zombies, your breath shallow, every step calculated. With the key, you unlock a door hidden in the shadows. Relief floods your veins as you push it open, revealing the night sky. You step out into freedom, leaving the horrors of the prison behind. \nYou made it! You have successfully escaped the prison!");
-
-                }
-                else if (ending == "water")
-                {
-                    Console.WriteLine("Parched and desperate, you grab the bottle of water, gulping it down in a bid for strength. But as the refreshing liquid courses through your body, the zombies catch up to you, their ferocious hands tearing into your flesh. You realize too late that hydration was not your salvation.\nYour journey ends here... You died.");
-
-                    Died();
-                }
-                else if (ending == "vest")
-                {
-                    Console.WriteLine("In a moment of desperation, you don the bulletproof vest, hoping it will protect you from the zombies. The thick material shields your torso, but the zombies, relentless and ravenous, attack your unprotected head, arms, and legs. You fall beneath the swarm, your last breath taken in a futile struggle.\nYour journey ends here... You died");
-                    Console.ReadLine();
-                    Died();
-                }
-                else if (ending == "pistol")
-                {
-                    Console.WriteLine("Finally, with resolve, you seize the pistol, your fingers finding strength in its familiar grip. \nWith careful aim, you fire at the zombies, each shot finding its mark. One by one, they fall, and the path to freedom clears. The echo of the final shot fades, leaving only silence in its wake. You lower the pistol, battered but alive, and step out into the world beyond the prison walls. \nYou made it! Against all odds, you have survived and escaped the prison!");
-
-                }
-                else
-                {
-                    Console.WriteLine("Invalid choice, please enter either 'rifle', 'key', 'water', 'vest' or the 'pistol");
-                    ending = "null";
-
-                }
-            } while (ending == "null");
-
-            
-
             Console.WriteLine("the end");
-            do {
+            do
+            {
                 try
                 {
                     Console.WriteLine("Do you want to play again (y/n)");
@@ -1653,10 +1607,10 @@ namespace Skeleton_Program
 
                     Console.WriteLine("Invalid format");
                 }
-            }while (choice!='y' && choice!= 'n');
+            } while (choice != 'y' && choice != 'n');
             switch (choice)
             {
-                case 'y':  
+                case 'y':
                     //Returns back to the menu
                     break;
                 case 'n':
@@ -1664,7 +1618,7 @@ namespace Skeleton_Program
                     break;
             }
 
-            
+
         }
 
     }
