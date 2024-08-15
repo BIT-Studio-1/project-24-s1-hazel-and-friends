@@ -1461,7 +1461,7 @@ namespace Skeleton_Program
             if (Word == 'y' || Word == 'Y')
             {
                 Console.WriteLine("You run towards the exit door and crash through");
-                //exit();
+                Exit();
             }
             else
             {
