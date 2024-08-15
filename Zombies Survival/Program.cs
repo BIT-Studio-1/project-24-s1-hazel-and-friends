@@ -21,6 +21,7 @@ namespace Skeleton_Program
         public static List<string> inventory = new List<string>();
         static void Main()
         {
+
             int tasks = 0;
             do
             {
@@ -73,7 +74,7 @@ namespace Skeleton_Program
                         task3();
                         break;
                     case 4:
-                        task4();
+                        task4();                       
                         break;
                     case 5:
                         Console.WriteLine("Exiting ...");
@@ -305,8 +306,19 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("Which way do you want to go right (r) or left (l)? \n\n");
                     choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'l' && choice != 'r')
-                        Console.WriteLine("Invalid choice");
+
+                    switch (choice)
+                    {
+                        case 'v':
+                            ViewInventory();
+                            break;
+                        case 'l':
+                        case 'r':
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice");
+                            break;
+                    }
                 }
                 catch (FormatException)
                 {
@@ -372,9 +384,18 @@ namespace Skeleton_Program
                 {
                     Console.WriteLine("Would you like to help him (H) or are you going to ignore him(I)");
                     choice = Convert.ToChar(Console.ReadLine().ToLower());
-                    if (choice != 'h' && choice != 'i')
-                        Console.WriteLine("Invalid Choice");
-
+                    switch (choice)
+                    {
+                        case 'v':
+                            ViewInventory();
+                            break;
+                        case 'i':
+                        case 'h':
+                            break;
+                        default:
+                            Console.WriteLine("Invalid choice");
+                            break;
+                    }
                 }
                 catch (FormatException)
                 {
@@ -1576,18 +1597,66 @@ namespace Skeleton_Program
             }
             else
             {
-                {
-                    Console.WriteLine("You decided to stay and accept your fate");
-                    Console.WriteLine("The zombies come crashing through the door and pile on you");
-                    Console.WriteLine("Life begins to fade as you become one of them");
-                    Console.ReadLine();
-                    Died();
-                }
+
+                Console.WriteLine("You decided to stay and accept your fate");
+                Console.WriteLine("The zombies come crashing through the door and pile on you");
+                Console.WriteLine("Life begins to fade as you become one of them");
+                Console.ReadLine();
+                Died();
+
             }
 
         }
         static void Exit()
         {
+            //Exit intro
+            Console.WriteLine("The horde of zombies moves closer, their groans filling the air with a sense of impending doom \n" +
+                "Your mind races with the weight of the decision that could determine your fate. Every second counts, " +
+                "and you frantically consider your options.");
+            string itemChoice;
+            Console.WriteLine("Choose wisely, or face the dire consequences...\nAre you going to grab the 'rifle', 'key', 'water', 'vest' or the 'pistol'?");
+            //boolean that is set to true when user enters a valid item choice
+            bool validChoice = false;
+            do
+            {
+                itemChoice = Console.ReadLine().ToLower();
+                switch (itemChoice)
+                {
+                    case "rifle":
+                    case "key":
+                    case "water":
+                    case "vest":
+                    case "pistol":
+                        validChoice = true;
+                        break;
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
+            } while (!validChoice);
+            //do-while loop runs while item choice is invalid
+            switch (itemChoice)
+            {
+                //Items that you die with
+                case "rifle":
+                case "water":
+                case "vest":
+                    //If the Item does exist
+                    if (ItemChecker(itemChoice))
+                    {
+                        itemEndingMessage(itemChoice);
+                        Died();
+                    }
+                    break;
+                //Items that you don't die with
+                case "key":
+                case "pistol":
+                    if (ItemChecker(itemChoice))
+                    {
+                        itemEndingMessage(itemChoice);
+                    }
+                    break;
+            }
 
             //add the endings
             //ending will be based on obtained items and players choice
@@ -1604,7 +1673,6 @@ namespace Skeleton_Program
                 }
                 catch (FormatException)
                 {
-
                     Console.WriteLine("Invalid format");
                 }
             } while (choice != 'y' && choice != 'n');
@@ -1617,9 +1685,68 @@ namespace Skeleton_Program
                     exit = true;
                     break;
             }
-
-
         }
-
+        //BELOW THIS LINE ARE METHODS THAT ARE ASSOCIATED WITH THE HANDLING OF THE INVENTORY
+        static void ViewInventory()
+        {
+            if (inventory.Count > 0)
+            {
+                Console.WriteLine("Inventory:");
+                foreach (string item in inventory)
+                {
+                    Console.WriteLine($"- {item}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Inventory is currently empty");
+            }
+        }
+        static bool ItemChecker(string itemChoice)
+        {
+            bool itemExists = inventory.Contains(itemChoice);
+            if (itemExists)
+                return true;
+            else
+                Console.WriteLine("Item is not in the inventory");
+            return false;
+        }
+        //Method for ending messages depending on which item the player selects
+        static void itemEndingMessage(string itemChoice)
+        {
+            switch (itemChoice)
+            {
+                case "rifle":
+                    Text("With trembling hands, you reach for the rifle, your only hope of fighting your way out. " +
+                        "But as you pull the trigger, the gun jams, and in a flash of horror, it backfires. The world goes dark as the gun’s lethal" +
+                        " force turns on you, ending your escape before it begins.\nYour journey ends here... You died.");
+                    break;
+                case "key":
+                    Text("You shake off the dreadful thought and reach for the key instead, " +
+                        "cold and metallic in your hand. \nYour heart pounds as you cautiously sneak past the approaching zombies," +
+                        " your breath shallow, every step calculated. With the key, you unlock a door hidden in the shadows." +
+                        " Relief floods your veins as you push it open, revealing the night sky. You step out into freedom, " +
+                        "leaving the horrors of the prison behind. \nYou made it! You have successfully escaped the prison!");
+                    break;
+                case "water":
+                    Text("Parched and desperate, you grab the bottle of water, gulping it down in a bid for strength." +
+                        " But as the refreshing liquid courses through your body, the zombies catch up to you, " +
+                        "their ferocious hands tearing into your flesh. You realize too late that hydration was not your salvation." +
+                        "\nYour journey ends here... You died.");
+                    break;
+                case "vest":
+                    Text("In a moment of desperation, you don the bulletproof vest, hoping it will protect you from the zombies. " +
+                        "The thick material shields your torso, but the zombies, relentless and ravenous, attack your unprotected head, arms, " +
+                        "and legs. You fall beneath the swarm, your last breath taken in a futile struggle.\nYour journey ends here... You died");
+                    break;
+                case "pistol":
+                    Text("Finally, with resolve, you seize the pistol, your fingers finding strength in its familiar grip. " +
+                        "\nWith careful aim, you fire at the zombies, each shot finding its mark. One by one, they fall, and the path to freedom clears. " +
+                        "The echo of the final shot fades, leaving only silence in its wake. You lower the pistol, battered but alive, " +
+                        "and step out into the world beyond the prison walls. \nYou made it! Against all odds, you have survived and escaped the prison!");
+                    break;
+            }
+            Thread.Sleep(1500);
+        }
     }
 }
